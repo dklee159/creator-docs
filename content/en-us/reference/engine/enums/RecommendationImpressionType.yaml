@@ -11,7 +11,14 @@ tags: []
 deprecation_message: ''
 items:
   - name: View
-    summary: ''
+    summary: |
+      A complete view of the item.
     value: 0
+    tags: []
+    deprecation_message: ''
+  - name: NotViewable
+    summary: |
+      The item has failed to render.
+    value: 1
     tags: []
     deprecation_message: ''

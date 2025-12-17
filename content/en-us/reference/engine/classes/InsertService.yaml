@@ -209,7 +209,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: InsertService:GetFreeDecals
+  - name: InsertService:GetFreeDecalsAsync
     summary: |
       Retrieves a list of free Decals from the Catalog.
     description: |
@@ -266,7 +266,35 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: InsertService:GetFreeModels
+  - name: InsertService:GetFreeDecals
+    summary: |
+      Retrieves a list of free Decals from the Catalog.
+    description: ''
+    code_samples:
+      - InsertService-GetFreeDecals1
+    parameters:
+      - name: searchText
+        type: string
+        default:
+        summary: |
+          String used to search for free decals in the Catalog.
+      - name: pageNum
+        type: int
+        default:
+        summary: |
+          The page number in the Catalog to return.
+    returns:
+      - type: Array
+        summary: |
+          A single table (of returned free decals) wrapped in a table.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: InsertService:GetFreeModelsAsync
     summary: |
       Retrieves a list of Free Models from the Catalog.
     description: |
@@ -317,6 +345,34 @@ methods:
           A single table (of returned free models) wrapped in a table.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: InsertService:GetFreeModels
+    summary: |
+      Retrieves a list of Free Models from the Catalog.
+    description: ''
+    code_samples:
+      - InsertService-GetFreeModels1
+    parameters:
+      - name: searchText
+        type: string
+        default:
+        summary: |
+          String used to search for free decals in the Catalog.
+      - name: pageNum
+        type: int
+        default:
+        summary: |
+          The page number in the Catalog to return.
+    returns:
+      - type: Array
+        summary: |
+          A single table (of returned free models) wrapped in a table.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -541,6 +597,27 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
+  - name: InsertService:loadAsset
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: assetId
+        type: int64
+        default:
+        summary: ''
+    returns:
+      - type: Instance
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.InsertService:LoadAsset()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
   - name: InsertService:LoadAssetVersion
     summary: |
       Returns a model inserted into `Class.InsertService` containing the asset
@@ -561,27 +638,6 @@ methods:
     tags:
       - Yields
     deprecation_message: ''
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: InsertService:loadAsset
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: assetId
-        type: int64
-        default:
-        summary: ''
-    returns:
-      - type: Instance
-        summary: ''
-    tags:
-      - Yields
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.InsertService:LoadAsset()`
-      which should be used instead.
     security: None
     thread_safety: Unsafe
     capabilities: []

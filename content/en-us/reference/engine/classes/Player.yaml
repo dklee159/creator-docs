@@ -1150,7 +1150,7 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Player:GetFriendsOnline
+  - name: Player:GetFriendsOnlineAsync
     summary: |
       Returns a dictionary of online connections.
     description: |
@@ -1229,6 +1229,30 @@ methods:
           A dictionary of online connections (see the table above).
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:GetFriendsOnline
+    summary: |
+      Returns a dictionary of online connections.
+    description: ''
+    code_samples:
+      - how-to-get-a-list-of-online-friends
+    parameters:
+      - name: maxFriends
+        type: int
+        default: 200
+        summary: |
+          The maximum number of online connections to return.
+    returns:
+      - type: Array
+        summary: |
+          A dictionary of online connections (see the table above).
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1364,12 +1388,12 @@ methods:
       - Players
   - name: Player:GetNetworkPing
     summary: |
-      Returns the isolated network latency in seconds.
+      Returns the round-trip, isolated network latency in seconds.
     description: |
-      Returns the isolated network latency of the player in seconds. "Ping" is a
-      measurement of the time taken for data to be sent from the client to the
-      server, then back again. It doesn't involve data deserialization or
-      processing.
+      Returns the round-trip, isolated network latency of the player in seconds.
+      "Ping" is a measurement of the time taken for data to be sent from the
+      client to the server, then back again. It doesn't involve data
+      deserialization or processing.
 
       For client-side `Class.LocalScript|LocalScripts`, this function can only
       be called on the `Class.Players.LocalPlayer`. This function is useful in
@@ -1387,22 +1411,25 @@ methods:
     thread_safety: Safe
     capabilities:
       - Players
-  - name: Player:GetRankInGroup
+  - name: Player:GetRankInGroupAsync
     summary: |
       Returns the player's rank in the group as an integer.
     description: |
       This method returns the player's rank in the group as an integer between
       `0` and `255`, where `0` is a non-member and `255` is the group's owner.
 
-      Using this in a `Class.Script`, as opposed to a `Class.LocalScript`, will
-      not get you the most up-to-date information. If a player leaves a group
-      while they are in the experience, `GetRankInGroup()` will still think
-      they're in that group until they leave. However, this does not happen when
-      used with a `Class.LocalScript` because the method caches results, so
-      multiple calls of `GetRankInGroup()` on the same player with the same
-      group ID will yield the same result as when the method was first called
-      with the given group ID. The caching behavior is on a per-peer basis: a
-      server does not share the same cache as a client.
+      This call may not yield the most up-to-date information. If a player
+      leaves a group while they are in the experience, `GetRankInGroup()` will
+      still think they're in that group until they leave. However, this does not
+      happen when used with a `Class.LocalScript` because the method caches
+      results, so multiple calls of `GetRankInGroup()` on the same player with
+      the same group ID will yield the same result as when the method was first
+      called with the given group ID. The caching behavior is on a per-peer
+      basis: a server does not share the same cache as a client.
+
+      When a player joins a group in-experience due to a call to
+      `Class.GroupService:PromptJoinAsync()`, any cached value for that player
+      will be cleared on the client where the prompt was shown.
     code_samples:
       - Player-GetRankInGroup1
     parameters:
@@ -1422,7 +1449,31 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Player:GetRoleInGroup
+  - name: Player:GetRankInGroup
+    summary: |
+      Returns the player's rank in the group as an integer.
+    description: ''
+    code_samples:
+      - Player-GetRankInGroup1
+    parameters:
+      - name: groupId
+        type: int64
+        default:
+        summary: |
+          The `groupId` of the specified group.
+    returns:
+      - type: int
+        summary: |
+          The player's rank in the group.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:GetRoleInGroupAsync
     summary: |
       Returns the player's role in the group as a string, or `Guest` if the
       player isn't part of the group.
@@ -1430,15 +1481,18 @@ methods:
       This method returns the player's role in the group as a string, or `Guest`
       if the player isn't part of the group.
 
-      Using this in a `Class.Script`, as opposed to a `Class.LocalScript`, will
-      not get you the most up-to-date information. If a player leaves a group
-      while they are in the experience, `GetRoleInGroup()` will still think
-      they're in that group until they leave. However, this does not happen when
-      used with a `Class.LocalScript` because the method caches results, so
-      multiple calls of `GetRoleInGroup()` on the same player with the same
-      group ID will yield the same result as when the method was first called
-      with the given group ID. The caching behavior is on a per-peer basis: a
-      server does not share the same cache as a client.
+      This call may not yield the most up-to-date information. If a player
+      leaves a group while they are in the experience, `GetRoleInGroup()` will
+      still think they're in that group until they leave. However, this does not
+      happen when used with a `Class.LocalScript` because the method caches
+      results, so multiple calls of `GetRoleInGroup()` on the same player with
+      the same group ID will yield the same result as when the method was first
+      called with the given group ID. The caching behavior is on a per-peer
+      basis: a server does not share the same cache as a client.
+
+      When a player joins a group in-experience due to a call to
+      `Class.GroupService:PromptJoinAsync()`, any cached value for that player
+      will be cleared on the client where the prompt was shown.
     code_samples:
       - Player-GetRoleInGroup1
     parameters:
@@ -1454,6 +1508,32 @@ methods:
           not a member.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:GetRoleInGroup
+    summary: |
+      Returns the player's role in the group as a string, or `Guest` if the
+      player isn't part of the group.
+    description: ''
+    code_samples:
+      - Player-GetRoleInGroup1
+    parameters:
+      - name: groupId
+        type: int64
+        default:
+        summary: |
+          The group ID of the specified group.
+    returns:
+      - type: string
+        summary: |
+          The player's role in the specified group, or `Guest` if the player is
+          not a member.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1512,7 +1592,7 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Player:IsFriendsWith
+  - name: Player:IsFriendsWithAsync
     summary: |
       Checks whether a player is a connection of the user with the given
       `Class.Player.UserId`.
@@ -1541,22 +1621,73 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Player:IsInGroup
+  - name: Player:IsFriendsWith
+    summary: |
+      Checks whether a player is a connection of the user with the given
+      `Class.Player.UserId`.
+    description: ''
+    code_samples:
+      - Player-IsFriendsWith1
+    parameters:
+      - name: userId
+        type: int64
+        default:
+        summary: |
+          The `Class.Player.UserId` of the specified player.
+    returns:
+      - type: boolean
+        summary: |
+          A boolean indicating whether a player is a connection of the specified
+          user.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:isFriendsWith
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: userId
+        type: int64
+        default:
+        summary: ''
+    returns:
+      - type: boolean
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Player:IsFriendsWith()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:IsInGroupAsync
     summary: |
       Checks whether a player is a member of a group with the given ID.
     description: |
       This method sends a request to Roblox asking whether a player is a member
       of a group, given the ID of that group.
 
-      Using this in a `Class.Script`, as opposed to a `Class.LocalScript`, will
-      not get you the most up-to-date information. If a player leaves a group
-      while they are in the experience, `IsInGroup()` will still think they're
-      in that group until they leave. However, this does not happen when used
-      with a `Class.LocalScript` because the method caches results, so multiple
-      calls of `IsInGroup()` on the same player with the same group ID will
-      yield the same result as when the method was first called with the given
-      group ID. The caching behavior is on a per-peer basis: a server does not
-      share the same cache as a client.
+      This call may not yield the most up-to-date information. If a player
+      leaves a group while they are in the experience, `IsInGroup()` will still
+      think they're in that group until they leave. However, this does not
+      happen when used with a `Class.LocalScript` because the method caches
+      results, so multiple calls of `IsInGroup()` on the same player with the
+      same group ID will yield the same result as when the method was first
+      called with the given group ID. The caching behavior is on a per-peer
+      basis: a server does not share the same cache as a client.
+
+      When a player joins a group in-experience due to a call to
+      `Class.GroupService:PromptJoinAsync()`, any cached value for that player
+      will be cleared on the client where the prompt was shown.
     code_samples: []
     parameters:
       - name: groupId
@@ -1570,6 +1701,29 @@ methods:
           A boolean indicating whether the player is in the specified group.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:IsInGroup
+    summary: |
+      Checks whether a player is a member of a group with the given ID.
+    description: ''
+    code_samples: []
+    parameters:
+      - name: groupId
+        type: int64
+        default:
+        summary: |
+          The group ID of the specified group.
+    returns:
+      - type: boolean
+        summary: |
+          A boolean indicating whether the player is in the specified group.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1662,7 +1816,29 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Player:LoadCharacter
+  - name: Player:loadBoolean
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: boolean
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Player:LoadBoolean()`
+      which has also been deprecated. Neither function should be used in new
+      work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:LoadCharacterAsync
     summary: |
       Creates a new character for the player, removing the old one. Also clears
       the player's `Class.Backpack` and `Class.PlayerGui`.
@@ -1702,6 +1878,25 @@ methods:
         summary: ''
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:LoadCharacter
+    summary: |
+      Creates a new character for the player, removing the old one. Also clears
+      the player's `Class.Backpack` and `Class.PlayerGui`.
+    description: ''
+    code_samples:
+      - Player-LoadCharacter1
+    parameters: []
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1752,7 +1947,7 @@ methods:
     capabilities:
       - Avatar
       - Players
-  - name: Player:LoadCharacterWithHumanoidDescription
+  - name: Player:LoadCharacterWithHumanoidDescriptionAsync
     summary: |
       Spawns a player character with everything equipped in the passed in
       `Class.HumanoidDescription`.
@@ -1789,6 +1984,32 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:LoadCharacterWithHumanoidDescription
+    summary: |
+      Spawns a player character with everything equipped in the passed in
+      `Class.HumanoidDescription`.
+    description: ''
+    code_samples:
+      - spawn-characters-with-humanoiddescription
+    parameters:
+      - name: humanoidDescription
+        type: HumanoidDescription
+        default:
+        summary: |
+          A `Class.HumanoidDescription` containing traits like body
+          parts/colors, body scaling, accessories, clothing, and animations that
+          will be equipped to the loaded character.
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
   - name: Player:LoadInstance
     summary: |
       Returns an instance that was previously saved to the player with
@@ -1813,6 +2034,28 @@ methods:
       This item is deprecated, as it may have been used for a now obsolete data
       persistence method. Please save and load player data using
       `Class.DataStoreService` for new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:loadInstance
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: Instance
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Player:LoadInstance()`
+      which has also been deprecated. Neither function should be used in new
+      work.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -1845,6 +2088,27 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:loadNumber
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: double
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Player:LoadNumber()` which
+      has also been deprecated. Neither function should be used in new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
   - name: Player:LoadString
     summary: |
       Returns a string value that was previously saved to the player.
@@ -1868,6 +2132,27 @@ methods:
       This item is deprecated, as it may have been used for a now obsolete data
       persistence method. Please save and load player data using
       `Class.DataStoreService` for new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:loadString
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: string
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Player:LoadString()` which
+      has also been deprecated. Neither function should be used in new work.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -2018,6 +2303,32 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:saveBoolean
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+      - name: value
+        type: boolean
+        default:
+        summary: ''
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Player:SaveBoolean()`
+      which has also been deprecated. Neither function should be used in new
+      work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
   - name: Player:SaveInstance
     summary: |
       Saves an instance which can be loaded again at a later time.
@@ -2045,6 +2356,32 @@ methods:
       This item is deprecated, as it may have been used for a now obsolete data
       persistence method. Please save and load player data using
       `Class.DataStoreService` for new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:saveInstance
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+      - name: value
+        type: Instance
+        default:
+        summary: ''
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Player:SaveInstance()`
+      which has also been deprecated. Neither function should be used in new
+      work.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -2080,6 +2417,31 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:saveNumber
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+      - name: value
+        type: double
+        default:
+        summary: ''
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Player:SaveNumber()` which
+      has also been deprecated. Neither function should be used in new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
   - name: Player:SaveString
     summary: |
       Saves a string value that can be loaded again at a later time.
@@ -2107,6 +2469,31 @@ methods:
       This item is deprecated, as it may have been used for a now obsolete data
       persistence method. Please save and load player data using
       `Class.DataStoreService` for new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Player:saveString
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: key
+        type: string
+        default:
+        summary: ''
+      - name: value
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Player:SaveString()` which
+      has also been deprecated. Neither function should be used in new work.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -2191,216 +2578,6 @@ methods:
       This item is deprecated, as it may have been used for a now obsolete data
       persistence method. Please save and load player data using
       `Class.DataStoreService` for new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:isFriendsWith
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: userId
-        type: int64
-        default:
-        summary: ''
-    returns:
-      - type: boolean
-        summary: ''
-    tags:
-      - Yields
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Player:IsFriendsWith()`
-      which should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:loadBoolean
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: boolean
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Player:LoadBoolean()`
-      which has also been deprecated. Neither function should be used in new
-      work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:loadInstance
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: Instance
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Player:LoadInstance()`
-      which has also been deprecated. Neither function should be used in new
-      work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:loadNumber
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: double
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Player:LoadNumber()` which
-      has also been deprecated. Neither function should be used in new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:loadString
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: string
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Player:LoadString()` which
-      has also been deprecated. Neither function should be used in new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:saveBoolean
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-      - name: value
-        type: boolean
-        default:
-        summary: ''
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Player:SaveBoolean()`
-      which has also been deprecated. Neither function should be used in new
-      work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:saveInstance
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-      - name: value
-        type: Instance
-        default:
-        summary: ''
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Player:SaveInstance()`
-      which has also been deprecated. Neither function should be used in new
-      work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:saveNumber
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-      - name: value
-        type: double
-        default:
-        summary: ''
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Player:SaveNumber()` which
-      has also been deprecated. Neither function should be used in new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Player:saveString
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: key
-        type: string
-        default:
-        summary: ''
-      - name: value
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Player:SaveString()` which
-      has also been deprecated. Neither function should be used in new work.
     security: None
     thread_safety: Unsafe
     capabilities:

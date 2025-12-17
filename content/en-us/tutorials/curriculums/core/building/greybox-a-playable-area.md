@@ -113,7 +113,7 @@ Now that you have an organizational structure to contain your assets, you can no
 
 To insert a cylinder part for your first platform:
 
-1. In the **Home** or **Model** tab's toolbar, click-hold the small arrow in the lower‑right corner of the **Part** inserter tool to reveal the part type dropdown (do not simply click the button since a basic click inserts a part without opening the picker menu).
+1. In the **Home** or **Model** tab's toolbar, click the small arrow next to the **Part** inserter tool to reveal the dropdown.
 
    <img src="../../../../assets/tutorials/block-out-a-playable-area/Part-Picker.png" alt="A close-up view of the part picker." width="800" />
 
@@ -124,6 +124,10 @@ To insert a cylinder part for your first platform:
 
 1. Use the **Move**, **Scale**, and **Rotate** tools to position, scale, and rotate your cylinder until it's a large, flat surface in the middle of your island. For more information on these tools, see [Transform parts](../../../../parts/index.md#transform-parts).
 
+   <Alert severity="success">
+   To manipulate individual parts, select them in the Explorer. If you select a part in the viewport, it selects the entire model.
+   </Alert>
+
    <img src="../../../../assets/studio/general/Toolbar-Transform-Tools.png" alt="Transform tools indicated in Studio's toolbar." width="800" />
 
    <img src="../../../../assets/tutorials/block-out-a-playable-area/First-Platform.jpg" alt="A large cylinder object partially sticking out of an island surrounded by water." width="80%" />
@@ -132,7 +136,7 @@ To insert a cylinder part for your first platform:
 
    <img src="../../../../assets/tutorials/block-out-a-playable-area/Final-Platforms.jpg" alt="Many large cylinder objects partially sticking out of an island surrounded by water, and the water itself." width="80%" />
 
-1. In the **Explorer** window, select the **Block_Out** model.
+1. In the **Explorer** window, select the **Blockout_Parts** model.
 1. In the **Home** or **Model** tab, toggle on **Anchor**. This ensures that the physics system doesn't move your parts when the experience starts.
 
   </TabItem>
@@ -274,7 +278,7 @@ To exactly recreate the sea stack platforms within the sample [Island Jump - Bui
 
    <img src="../../../../assets/tutorials/block-out-a-playable-area/Final-Platforms.jpg" alt="Many large cylinder objects partially sticking out of an island and its surrounding water." width="80%" />
 
-1. In the **Explorer** window, select the **Block_Out** model.
+1. In the **Explorer** window, select the **Blockout_Parts** model.
 1. In Studio's **Home** tab toolbar, click the **Anchor** icon. This ensures that the physics system doesn't move your parts when the experience starts.
 
   </TabItem>

@@ -5,9 +5,15 @@
 name: RecommendationPages
 type: class
 memory_category: Instances
-summary: ''
-description: ''
-code_samples: []
+summary: |
+  A special version of the `Class.Pages` class returned by
+  `Class.RecommendationService.GenerateItemListAsync|GenerateItemListAsync`.
+description: |
+  A special version of the `Class.Pages` class returned by
+  `Class.RecommendationService.GenerateItemListAsync|GenerateItemListAsync`. See
+  the following code sample for reference on the returned data format.
+code_samples:
+  - printing-generate-recommendation-lists
 inherits:
   - Pages
 descendants: []

@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Assets API",
-    "description": "You can send and receive the following request and response payloads to create assets on Roblox. For information on the usage of the API, see the [usage guide](../../../cloud/guides/usage-assets.md).",
+    "description": "You can send and receive the following request and response payloads to create assets on Roblox. For information on the usage of the API, see the [usage guide](/cloud/guides/usage-assets.md).",
     "version": "0.0.1",
     "x-roblox-extensions-version": "1.0.0"
   },
@@ -19,7 +19,7 @@
         "x-roblox-cloud-api-operation-name": "Create Asset",
         "x-roblox-stability": "BETA",
         "summary": "Creates an asset with provided content and metadata.",
-        "description": "Creates an asset with provided content and metadata.\n\nYou can't add [SocialLink](#SocialLink) objects when you create an asset. Instead, use [Update Asset](#PATCH-v1-assets-_assetId_).\n\nProvide the [Asset](#Asset), binary asset file path, and [content type](../../../cloud/guides/usage-assets.md#supported-asset-types-and-limits) in the form data.",
+        "description": "Creates an asset with provided content and metadata.\n\nYou can't add [SocialLink](#SocialLink) objects when you create an asset. Instead, use [Update Asset](#PATCH-v1-assets-_assetId_).\n\nProvide the [Asset](#Asset), binary asset file path, and [content type](/cloud/guides/usage-assets.md#supported-asset-types-and-limits) in the form data.",
         "operationId": "Assets_CreateAsset",
         "requestBody": {
           "content": {
@@ -34,7 +34,7 @@
                   "fileContent": {
                     "type": "string",
                     "format": "binary",
-                    "description": "The binary asset file path and the content type. See [Asset types and limits](../../../cloud/guides/usage-assets.md#supported-asset-types-and-limits)."
+                    "description": "The binary asset file path and the content type. See [Asset types and limits](/cloud/guides/usage-assets.md#supported-asset-types-and-limits)."
                   }
                 },
                 "required": ["request", "fileContent"]
@@ -211,7 +211,7 @@
         "x-roblox-cloud-api-operation-name": "Update Asset",
         "x-roblox-stability": "BETA",
         "summary": "Updates an asset with provided content and metadata.",
-        "description": "Updates an asset with provided content and metadata, including the description, display name, icon, social links, and previews. Currently can only update the content body for **Models**. Icons and Previews must be **Image** assets. Icons must have square dimensions.\n\nProvide the [Asset](#Asset), binary asset file path, and [content type](../../../cloud/guides/usage-assets.md#supported-asset-types-and-limits) in the form data.",
+        "description": "Updates an asset with provided content and metadata, including the description, display name, icon, social links, and previews. Currently can only update the content body for **Models**. Icons and Previews must be **Image** assets. Icons must have square dimensions.\n\nProvide the [Asset](#Asset), binary asset file path, and [content type](/cloud/guides/usage-assets.md#supported-asset-types-and-limits) in the form data.",
         "operationId": "Assets_UpdateAsset",
         "parameters": [
           {
@@ -246,7 +246,7 @@
                   "fileContent": {
                     "type": "string",
                     "format": "binary",
-                    "description": "The binary asset file path and the content type. See [Asset types and limits](../../../cloud/guides/usage-assets.md#supported-asset-types-and-limits)."
+                    "description": "The binary asset file path and the content type. See [Asset types and limits](/cloud/guides/usage-assets.md#supported-asset-types-and-limits)."
                   }
                 },
                 "required": ["request", "fileContent"]
@@ -827,16 +827,6 @@
   },
   "components": {
     "schemas": {
-      "Any": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "description": "The type of the serialized message."
-          }
-        },
-        "description": "Contains an arbitrary serialized message along with a `@type` that describes the type of the serialized message."
-      },
       "Asset": {
         "type": "object",
         "properties": {
@@ -900,6 +890,11 @@
         },
         "description": "Represents an asset."
       },
+      "AssetPrivacy": {
+        "type": "string",
+        "description": "The privacy setting of the asset. Requested asset privacy is only applicable to asset types that allow privacy override. For more details see [Asset Privacy](/projects/assets/privacy.md).",
+        "enum": ["default", "restricted", "openUse"]
+      },
       "AssetVersion": {
         "type": "object",
         "properties": {
@@ -923,6 +918,12 @@
       "CreationContext": {
         "type": "object",
         "properties": {
+          "assetPrivacy": {
+            "$ref": "#/components/schemas/AssetPrivacy",
+            "description": "Desired privacy setting for the asset on creation. Only applies to asset types that support privacy override.",
+            "required": false,
+            "writeOnly": true
+          },
           "creator": {
             "$ref": "#/components/schemas/Creator",
             "required": true
@@ -969,9 +970,6 @@
             "type": "string",
             "description": "The server-assigned resource path. The default format is `operations/{operation_id}`."
           },
-          "metadata": {
-            "$ref": "#/components/schemas/Any"
-          },
           "done": {
             "type": "boolean",
             "description": "If `false`, the operation is still in progress. If `true`, the operation is completed."
@@ -980,7 +978,7 @@
             "$ref": "#/components/schemas/Status"
           },
           "response": {
-            "$ref": "#/components/schemas/Any"
+            "$ref": "#/components/schemas/Asset"
           }
         },
         "description": "This resource represents a long-running operation that is the result of a network API call."
@@ -1029,13 +1027,6 @@
           "message": {
             "type": "string",
             "description": "The error message."
-          },
-          "details": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Any"
-            },
-            "description": "A list of messages carrying error details."
           }
         },
         "description": "The logical error model explaining the error status."

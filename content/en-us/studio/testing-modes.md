@@ -7,7 +7,7 @@ import DeviceEmulator from '../includes/studio/device-emulator.md'
 import ControllerEmulator from '../includes/studio/controller-emulator.md'
 import PlaytestModes from '../includes/studio/playtest-modes.md'
 
-Because of the underlying [client-server model](../projects/client-server.md) of the Roblox Engine, it's important that you test your experience in various modes before [releasing it to the public](../production/publishing/publish-experiences-and-places.md#release-to-the-public). All of the testing options are accessible in the left portion of the mezzanine.
+Because of the underlying [client-server model](../projects/client-server.md) of the Roblox Engine, it's important that you test your experience in various modes before [releasing it to the public](../production/publishing/publish-experiences-and-places.md#make-experience-public). All of the testing options are accessible in the left portion of the mezzanine.
 
 <img src="../assets/studio/general/Mezzanine-Testing-Controls.png" width="800" alt="Testing controls indicated in Studio's mezzanine." />
 
@@ -139,19 +139,19 @@ The **Server & Clients** option from the dropdown menu lets you launch multiple 
 
    <img src="../assets/studio/general/Mezzanine-Testing-End-Session.png" width="800" alt="End Session indicated in Studio's mezzanine" />
 
-### Party simulation
+## Party simulation
 
 The **Party Simulator** allows you to test and debug experiences that use party-related APIs directly within Studio, without needing to publish and coordinate multiple devices. This tool lets you configure and emulate parties for test players in your [Server & Clients](#multi-client-simulation) play tests.
 
 When play testing, Party Simulator automatically assigns all test players to the configured simulated parties.
 
-<img src="../assets/studio/general/Party-Simulator.png" width="500" alt="Party Emulator displaying simulated parties and various assignment options" />
+<img src="../assets/studio/general/Party-Simulator.png" width="480" alt="Party Emulator displaying simulated parties and various assignment options" />
 
 If Party Simulator is enabled:
 
 - Each `Class.Player.PartyId` property reflects the Party Simulator assignments.
 - `Class.SocialService:GetPartyAsync()` returns a simulated table of party data.
-- `Class.SocialService:GetPlayersByPartyId()` returns a list of Player instances assigned to the provided `Class.Player.PartyId`.
+- `Class.SocialService:GetPlayersByPartyId()` returns a list of `Class.Player` instances assigned to the provided `Class.Player.PartyId`.
 
 You can adjust the number of local test players at any time using Studio's [Server & Clients](#multi-client-simulation) setting. When the test player count changes, the emulator automatically updates to include or remove players in the configuration.
 

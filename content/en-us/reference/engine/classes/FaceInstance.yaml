@@ -6,11 +6,11 @@ name: FaceInstance
 type: class
 memory_category: Instances
 summary: |
-  The FaceInstance class is an abstract class from which the `Class.Decal` class
-  inherits.
+  An abstract class from which the `Class.Decal` and `Class.Texture` classes
+  inherit.
 description: |
-  The FaceInstance class is an abstract class from which the `Class.Decal` class
-  inherits.
+  `Class.FaceInstance` is an abstract class from which the `Class.Decal` and
+  `Class.Texture` classes inherit.
 code_samples: []
 inherits:
   - Instance
@@ -23,9 +23,9 @@ deprecation_message: ''
 properties:
   - name: FaceInstance.Face
     summary: |
-      Sets what face of the brick the object appears on.
+      Sets which face of the parent `Class.BasePart` the object appears on.
     description: |
-      Sets what face of the brick the object appears on.
+      Sets which face of the parent `Class.BasePart` the object appears on.
     code_samples: []
     type: NormalId
     tags: []

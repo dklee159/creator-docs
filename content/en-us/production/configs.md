@@ -3,7 +3,7 @@ title: Experience configs
 description: Configs let you update in-game values without restarting your servers.
 ---
 
-**Experience configs** let you update in-game values in real-time without restarting servers:
+**Experience configs** let you update in-game values in real time without restarting servers:
 
 - Turn features on and off, such as enabling or disabling a new onboarding dungeon.
 - Tune in-game values like boss health, experience gain, or item prices.
@@ -41,6 +41,17 @@ You can have up to 1,000 active configs at any given time and manage them on Cre
 For more information about working with configs in your scripts, see [Add configs to your code](#add-configs-to-your-code).
 
 Editing a config is no different from creating one. Click the **Edit** button and update the value and description as-desired.
+
+### Limits
+
+Config values have the following limits by type.
+
+Type | Maximum size
+:--- | :---
+String | 100,000 characters
+Number | ±1.7976931348623157e+308, ±2^53 for exact integer representations
+Boolean | N/A
+JSON | 100,000 characters
 
 ## Publish configs
 
@@ -123,9 +134,11 @@ end)
 
 ### Error handling
 
-In rare cases when the config fails to load, `Class.ConfigService:GetConfigAsync()` returns a snapshot with the `Error` field set. `GetValue()` returns nil for all keys in this snapshot. These snapshots attempt to reconnect and fire the `UpdateAvailable` event when they successfully load.
+In rare cases when the config fails to load and has never been loaded before, `Class.ConfigService:GetConfigAsync()` throws an error.
 
-How you handle this uncommon situation is up to you. You can check for nil values and have fallback values in your code, show the player an error and wait for the snapshot to reconnect, or some other solution.
+If `Class.ConfigService` loses connection to the Roblox servers after it was previously loaded, `Class.ConfigService:GetConfigAsync()` returns a snapshot with the latest available values. These snapshots attempt to reconnect and fire the `UpdateAvailable` event when they successfully load new updates.
+
+How you handle these uncommon situations is up to you. You can wrap the call in a `Global.LuaGlobals.pcall()` and have fallback values in your code, show the player an error and wait for the snapshot to reconnect, or some other solution.
 
 ## Test configs
 

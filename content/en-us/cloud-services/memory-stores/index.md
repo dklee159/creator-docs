@@ -49,7 +49,7 @@ When users join the experience, the additional memory quota is available immedia
 
 After your experience hits the memory size quota, any API requests that increase the memory size always fail. Requests that decrease or don't change the memory size still succeed.
 
-With the [observability](../../cloud-services/memory-stores/observability.md) dashboard, you can view the memory size quota of your experience in real-time using the **Memory Usage** chart.
+With the [observability](../../cloud-services/memory-stores/observability.md) dashboard, you can view the memory size quota of your experience in real time using the **Memory Usage** chart.
 
 ### API request limits
 
@@ -75,7 +75,7 @@ Most API calls only consume one request unit, with a few exceptions:
 
 The requests quota is also applied on the experience level instead of the server level. This provides flexibility to allocate the requests among servers as long as the total request rate does not exceed the quota. If you exceed the quota, you receive an error response when the service throttles your requests.
 
-With the [observability](../../cloud-services/memory-stores/observability.md) feature available, you can view the request unit quota of your experience in real-time.
+With the [observability](../../cloud-services/memory-stores/observability.md) feature available, you can view the request unit quota of your experience in real time.
 
 ### Data structure size limits
 
@@ -111,6 +111,8 @@ To keep your memory usage pattern optimal and avoid hitting the [limits](#limits
 - Split giant data structures into multiple smaller ones by [sharding](<https://en.wikipedia.org/wiki/Shard_(database_architecture)>).
 
   It's often easier to manage data in smaller structures rather than storing everything in one large data structure. This approach can also help avoid usage and rate limits. For example, if you have a sorted map that uses prefixes for its keys, consider separating each prefix into its own sorted map. For an especially popular experience, you might even separate users into multiple maps based on the last digits of their user IDs.
+
+- [Shard](../../cloud-services/memory-stores/best-practices.md) frequently accessed keys in hash maps with multiple copies of the key to distribute load.
 
 - Compress stored values.
 
@@ -260,6 +262,8 @@ The following table lists and describes the recommended solution for each respon
           <li>Follow the [best practices](#best-practices), including:</li>
             <ul>
               <li>Sharding your data structures if you receive a significant amount of **DataStructureRequestsOverLimit**/**PartitionRequestsOverLimit** responses.</li>
+              <li>Sharding your hash map keys if you receive a significant amount of **PartitionRequestsOverLimit** responses on hash map calls.</li>
+              <li>Reducing or batching calls to specific data structures or hash map keys if you see **PartitionRequestsOverLimit** responses.</li>
               <li>Implement an exponential backoff for finding a reasonable rate of requests to send.</li>
             </ul>
         </ul>

@@ -66,6 +66,23 @@ properties:
       can_save: false
     capabilities:
       - Audio
+  - name: AudioPlayer.AudioContent
+    summary: ''
+    description: ''
+    code_samples: []
+    type: Content
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Asset
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Audio
   - name: AudioPlayer.AutoLoad
     summary: |
       Controls whether `Class.AudioPlayer.Asset|Asset` loads automatically once
@@ -82,6 +99,31 @@ properties:
       write: None
     thread_safety: ReadSafe
     category: Asset
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Audio
+  - name: AudioPlayer.AutoPlay
+    summary: |
+      Denotes whether this `Class.AudioPlayer` starts playing as soon as it
+      spawns in for the first time.
+    description: |
+      Denotes whether this `Class.AudioPlayer` starts playing as soon as it
+      enters the `Class.DataModel` for the first time. This only applies to
+      `Class.AudioPlayer|AudioPlayers` that are created or deserialized locally,
+      and does not apply to `Class.AudioPlayer|AudioPlayers` generated via
+      replication. This property is primarily used at edit time in Studio to
+      have an `Class.AudioPlayer` begin when entering a play session.
+    code_samples: []
+    type: boolean
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Playback
     serialization:
       can_load: true
       can_save: true
@@ -151,6 +193,28 @@ properties:
       can_save: true
     capabilities:
       - Audio
+  - name: AudioPlayer.Looping
+    summary: |
+      Controls whether this `Class.AudioPlayer` loops.
+    description: |
+      Controls whether this `Class.AudioPlayer` loops when exceeding the end of
+      its `Class.AudioPlayer.TimeLength|TimeLength`,
+      `Class.AudioPlayer.LoopRegion|LoopRegion`, or
+      `Class.AudioPlayer.PlaybackRegion|PlaybackRegion`.
+    code_samples: []
+    type: boolean
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Playback
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Audio
   - name: AudioPlayer.LoopRegion
     summary: |
       A range, in seconds, denoting a desired loop start and loop end within the
@@ -191,28 +255,6 @@ properties:
       write: None
     thread_safety: ReadSafe
     category: Regions
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities:
-      - Audio
-  - name: AudioPlayer.Looping
-    summary: |
-      Controls whether this `Class.AudioPlayer` loops.
-    description: |
-      Controls whether this `Class.AudioPlayer` loops when exceeding the end of
-      its `Class.AudioPlayer.TimeLength|TimeLength`,
-      `Class.AudioPlayer.LoopRegion|LoopRegion`, or
-      `Class.AudioPlayer.PlaybackRegion|PlaybackRegion`.
-    code_samples: []
-    type: boolean
-    tags: []
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Playback
     serialization:
       can_load: true
       can_save: true

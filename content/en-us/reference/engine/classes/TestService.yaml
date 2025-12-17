@@ -610,6 +610,23 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
+  - name: TestService:isFeatureEnabled
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: name
+        type: string
+        default:
+        summary: ''
+    returns:
+      - type: boolean
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
   - name: TestService:Message
     summary: |
       Prints Test message, followed by text to the output, in blue text.
@@ -674,7 +691,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: TestService:Run
+  - name: TestService:RunAsync
     summary: |
       Runs scripts which are parented to TestService.
     description: |
@@ -686,6 +703,22 @@ methods:
         summary: ''
     tags:
       - Yields
+    deprecation_message: ''
+    security: PluginSecurity
+    thread_safety: Unsafe
+    capabilities: []
+  - name: TestService:Run
+    summary: |
+      Runs scripts which are parented to TestService.
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: PluginSecurity
     thread_safety: Unsafe
@@ -750,23 +783,6 @@ methods:
         summary: ''
     returns:
       - type: ()
-        summary: ''
-    tags: []
-    deprecation_message: ''
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: TestService:isFeatureEnabled
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: name
-        type: string
-        default:
-        summary: ''
-    returns:
-      - type: boolean
         summary: ''
     tags: []
     deprecation_message: ''

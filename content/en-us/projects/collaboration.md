@@ -50,7 +50,8 @@ For [group](../projects/groups.md) experiences, only the group owner or members 
 <TabItem label="All group experiences">
 If you're the group owner or a member with sufficient permissions, you can configure collaboration across **all** group experiences, for example grant **Edit** permission to an "Audio&nbsp;Artist" group role so they can fine-tune audio playback across multiple group experiences.
 
-1. From the [Creator Dashboard](https://create.roblox.com/dashboard/creations), select the group from the **View As** dropdown menu and navigate to **Collaboration** &rang; **Roles**.
+1. From the [Creator Dashboard](https://create.roblox.com/dashboard/creations), expand the account switcher in the upper‑left and select the group.
+1. Expand the account switcher again, select **Settings** under the group's name, then select **Roles**.
 1. Enable [Edit all group experiences](../projects/groups.md#roles-and-permissions) for roles that should have editing permission. Remember to click **Save Changes** for each role that you change.
 
    In Studio's **Manage Collaborators** window for any group-owned experience, eligible roles display **Edit** permission but are muted to indicate that you can't change the permission level from Studio.
@@ -161,7 +162,9 @@ To quickly jump to a location in the workspace or to the exact line in a script 
 
 ## Comments
 
-Roblox Studio has a **comments** feature that lets you pinpoint an object in the 3D viewport and start a conversation with your collaborators, leave to‑do notes, and more. Comments update in real‑time which lets you and your team receive and respond to feedback without disrupting your workflow in Studio.
+Roblox Studio has a **comments** feature that lets you pinpoint an object in the 3D viewport and start a conversation with your collaborators, leave to-do notes, and more. Comments update in real time which lets you and your team receive and respond to feedback without disrupting your workflow in Studio. You can also receive personalized [notifications](#notifications) to help you stay on top of feedback, even when you're not using Studio.
+
+### Workflow
 
 To create a comment, click the **Comment** button on the right side of Studio's mezzanine (keyboard shortcut <kbd>C</kbd>).
 
@@ -184,9 +187,23 @@ Comments appear in the **Comments** window, accessible from Studio's **Window**&
 
 <img src="../assets/studio/collaboration/Comments-Window.png" width="360" />
 
+### Notifications
+
+To help you stay on top of feedback even when you're not using Studio, you'll receive an **email digest** that recaps all recent activity. Each email digest provides a simple overview of comment activity per place, including:
+
+- When someone mentions (tags) you in a comment, for example `@username`.
+- When someone comments in a thread that you previously replied to or were mentioned in.
+- When someone resolves a thread that you previously replied to or were mentioned in.
+
+From within the email overview, simply click **View in Studio** to go directly to the conversation in Roblox Studio.
+
+<Alert severity="info">
+You're always in control of both the type and source of comments which make up email digests. Mentions and reply notifications are on by default, while resolution notifications are off. You can also unsubscribe from a specific place or thread if you don't need updates.
+</Alert>
+
 ## Collaborative scripting
 
-In a collaborative session, you can code together in real-time through [live scripting](#live-scripting), or you can [draft](#drafts-mode) scripts in a more focused environment before committing them to a collaborator‑shared repository.
+In a collaborative session, you can code together in real time through [live scripting](#live-scripting), or you can [draft](#drafts-mode) scripts in a more focused environment before committing them to a collaborator-shared repository.
 
 ### Live scripting
 
@@ -284,7 +301,7 @@ During a collaborative session, Studio automatically saves the project to the cl
 
 ## Revert to previous versions
 
-The owner of an experience can revert changes made by other editors. See [here](../production/publishing/publish-experiences-and-places.md#revert-to-previous-versions) for instructions.
+The owner of an experience can revert changes made by other editors. See [here](../projects/configure-experiences.md#access-version-history) for instructions.
 
 <Alert severity="error">
 Be careful when reverting changes. If anyone is currently editing the experience in a collaborative session, their changes may still auto‑save and overwrite the revert action. To ensure that nobody else is editing the place when you revert, [disable collaboration](#disable-collaboration).

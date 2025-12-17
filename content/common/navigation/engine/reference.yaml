@@ -1,9 +1,6 @@
 # Don't edit this navigation file. It's auto-generated and automatically syncs with
 # engine reference YAML files in content/en-us/reference/engine/.
 
-backTo:
-  title: Back to experiences
-  path: /experiences
 navigation:
   - heading: Engine API
   - title: Overview
@@ -572,6 +569,11 @@ navigation:
                 path: /reference/engine/classes/CommerceService
                 type: engineapi
                 source: /reference/engine/classes/CommerceService.yaml
+                ignoreTranslation: true
+              - title: CompositeValueCurve
+                path: /reference/engine/classes/CompositeValueCurve
+                type: engineapi
+                source: /reference/engine/classes/CompositeValueCurve.yaml
                 ignoreTranslation: true
               - title: ConfigService
                 path: /reference/engine/classes/ConfigService
@@ -2009,6 +2011,11 @@ navigation:
                     type: engineapi
                     source: /reference/engine/classes/BanHistoryPages.yaml
                     ignoreTranslation: true
+                  - title: CapturesPages
+                    path: /reference/engine/classes/CapturesPages
+                    type: engineapi
+                    source: /reference/engine/classes/CapturesPages.yaml
+                    ignoreTranslation: true
                   - title: CatalogPages
                     path: /reference/engine/classes/CatalogPages
                     type: engineapi
@@ -2726,6 +2733,11 @@ navigation:
                 type: engineapi
                 source: /reference/engine/classes/StudioService.yaml
                 ignoreTranslation: true
+              - title: StudioTestService
+                path: /reference/engine/classes/StudioTestService
+                type: engineapi
+                source: /reference/engine/classes/StudioTestService.yaml
+                ignoreTranslation: true
               - title: StudioTheme
                 path: /reference/engine/classes/StudioTheme
                 type: engineapi
@@ -3266,7 +3278,7 @@ navigation:
             type: engineapi
             source: /reference/engine/classes/WebStreamClient.yaml
             ignoreTranslation: true
-  - title: Data Types
+  - title: Data types
     path: /reference/engine/datatypes
     source: /reference/engine/datatypes.md
     section:
@@ -3949,6 +3961,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/CameraType.yaml
         ignoreTranslation: true
+      - title: CaptureGalleryPermission
+        path: /reference/engine/enums/CaptureGalleryPermission
+        type: engineapi
+        source: /reference/engine/enums/CaptureGalleryPermission.yaml
+        ignoreTranslation: true
       - title: CaptureType
         path: /reference/engine/enums/CaptureType
         type: engineapi
@@ -4078,6 +4095,11 @@ navigation:
         path: /reference/engine/enums/CompletionTriggerKind
         type: engineapi
         source: /reference/engine/enums/CompletionTriggerKind.yaml
+        ignoreTranslation: true
+      - title: CompositeValueCurveType
+        path: /reference/engine/enums/CompositeValueCurveType
+        type: engineapi
+        source: /reference/engine/enums/CompositeValueCurveType.yaml
         ignoreTranslation: true
       - title: CompressionAlgorithm
         path: /reference/engine/enums/CompressionAlgorithm
@@ -4483,6 +4505,11 @@ navigation:
         path: /reference/engine/enums/GraphicsOptimizationMode
         type: engineapi
         source: /reference/engine/enums/GraphicsOptimizationMode.yaml
+        ignoreTranslation: true
+      - title: GroupMembershipStatus
+        path: /reference/engine/enums/GroupMembershipStatus
+        type: engineapi
+        source: /reference/engine/enums/GroupMembershipStatus.yaml
         ignoreTranslation: true
       - title: GuiState
         path: /reference/engine/enums/GuiState
@@ -5059,6 +5086,16 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/PositionAlignmentMode.yaml
         ignoreTranslation: true
+      - title: PredictionMode
+        path: /reference/engine/enums/PredictionMode
+        type: engineapi
+        source: /reference/engine/enums/PredictionMode.yaml
+        ignoreTranslation: true
+      - title: PredictionStatus
+        path: /reference/engine/enums/PredictionStatus
+        type: engineapi
+        source: /reference/engine/enums/PredictionStatus.yaml
+        ignoreTranslation: true
       - title: PreferredInput
         path: /reference/engine/enums/PreferredInput
         type: engineapi
@@ -5149,15 +5186,30 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/RaycastFilterType.yaml
         ignoreTranslation: true
+      - title: ReadCapturesFromGalleryResult
+        path: /reference/engine/enums/ReadCapturesFromGalleryResult
+        type: engineapi
+        source: /reference/engine/enums/ReadCapturesFromGalleryResult.yaml
+        ignoreTranslation: true
       - title: RecommendationActionType
         path: /reference/engine/enums/RecommendationActionType
         type: engineapi
         source: /reference/engine/enums/RecommendationActionType.yaml
         ignoreTranslation: true
+      - title: RecommendationDepartureIntent
+        path: /reference/engine/enums/RecommendationDepartureIntent
+        type: engineapi
+        source: /reference/engine/enums/RecommendationDepartureIntent.yaml
+        ignoreTranslation: true
       - title: RecommendationImpressionType
         path: /reference/engine/enums/RecommendationImpressionType
         type: engineapi
         source: /reference/engine/enums/RecommendationImpressionType.yaml
+        ignoreTranslation: true
+      - title: RecommendationItemContentType
+        path: /reference/engine/enums/RecommendationItemContentType
+        type: engineapi
+        source: /reference/engine/enums/RecommendationItemContentType.yaml
         ignoreTranslation: true
       - title: RecommendationItemVisibility
         path: /reference/engine/enums/RecommendationItemVisibility
@@ -5438,6 +5490,11 @@ navigation:
         path: /reference/engine/enums/Status
         type: engineapi
         source: /reference/engine/enums/Status.yaml
+        ignoreTranslation: true
+      - title: StepFrequency
+        path: /reference/engine/enums/StepFrequency
+        type: engineapi
+        source: /reference/engine/enums/StepFrequency.yaml
         ignoreTranslation: true
       - title: StreamingIntegrityMode
         path: /reference/engine/enums/StreamingIntegrityMode
@@ -5788,6 +5845,11 @@ navigation:
         path: /reference/engine/enums/UITheme
         type: engineapi
         source: /reference/engine/enums/UITheme.yaml
+        ignoreTranslation: true
+      - title: UploadCaptureResult
+        path: /reference/engine/enums/UploadCaptureResult
+        type: engineapi
+        source: /reference/engine/enums/UploadCaptureResult.yaml
         ignoreTranslation: true
       - title: UsageContext
         path: /reference/engine/enums/UsageContext

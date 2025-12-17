@@ -59,7 +59,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: MarketplaceService:GetProductInfo
+  - name: MarketplaceService:GetProductInfoAsync
     summary: |
       Returns the product information of an asset using its asset ID.
     description: |
@@ -347,6 +347,36 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
+  - name: MarketplaceService:GetProductInfo
+    summary: |
+      Returns the product information of an asset using its asset ID.
+    description: ''
+    code_samples:
+      - MarketplaceService-GetProductInfo1
+    parameters:
+      - name: assetId
+        type: int64
+        default:
+        summary: |
+          The asset ID of the specified product.
+      - name: infoType
+        type: InfoType
+        default: Asset
+        summary: |
+          An `Enum.InfoType` enum value specifying the type of information being
+          retrieved.
+    returns:
+      - type: Dictionary
+        summary: |
+          A dictionary containing information about the queried item, described
+          in the previous tables.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
   - name: MarketplaceService:GetSubscriptionProductInfoAsync
     summary: |
       Returns the product information of a subscription for the given
@@ -424,6 +454,39 @@ methods:
     returns:
       - type: Dictionary
         summary: ''
+    tags:
+      - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: MarketplaceService:GetUsersPriceLevelsAsync
+    summary: |
+      Returns the regionalized price level of a user, representing the
+      recommended price for an item in their regional market.
+    description: |
+      Returns the regionalized price level of a user, representing the
+      recommended price for an item in their regional market. For example, a
+      price level of 100 means that the suggested price for that user (based on
+      their region and purchasing power) is 100 Robux.
+
+      See
+      [Protect your trades and gifts](../../../production/monetization/regional-pricing.md#protect-your-trades-and-gifts)
+      for more information.
+    code_samples:
+      - MarketplaceService-GetUsersPriceLevelAsync
+    parameters:
+      - name: userIds
+        type: Array
+        default:
+        summary: |
+          An array of user IDs.
+    returns:
+      - type: Array
+        summary: |
+          Returns an array of `PriceLevelInfo` objects with a dictionary where
+          the keys are user IDs (strings) and their values are the corresponding
+          price levels (integers between 1 and 1000).
     tags:
       - Yields
     deprecation_message: ''
@@ -709,40 +772,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: MarketplaceService:GetUsersPriceLevelsAsync
-    summary: |
-      Returns the regionalized price level of a user, representing the
-      recommended price for an item in their regional market.
-    description: |
-      Returns the regionalized price level of a user, representing the
-      recommended price for an item in their regional market. For example, a
-      price level of 100 means that the suggested price for that user (based on
-      their region and purchasing power) is 100 Robux.
-
-      See
-      [Protect your trades and gifts](../../../production/monetization/regional-pricing.md#protect-your-trades-and-gifts)
-      for more information.
-    code_samples:
-      - MarketplaceService-GetUsersPriceLevelAsync
-    parameters:
-      - name: userIds
-        type: Array
-        default:
-        summary: |
-          An array of user IDs.
-    returns:
-      - type: Array
-        summary: |
-          Returns an array of `PriceLevelInfo` objects with a dictionary where
-          the keys are user IDs (strings) and their values are the corresponding
-          price levels (integers between 1 and 1000).
-    tags:
-      - Yields
-    deprecation_message: ''
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: MarketplaceService:PlayerOwnsAsset
+  - name: MarketplaceService:PlayerOwnsAssetAsync
     summary: |
       Returns whether the given user has the given asset.
     description: |
@@ -786,7 +816,37 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: MarketplaceService:PlayerOwnsBundle
+  - name: MarketplaceService:PlayerOwnsAsset
+    summary: |
+      Returns whether the given user has the given asset.
+    description: ''
+    code_samples:
+      - MarketplaceService-PlayerOwnsAsset1
+    parameters:
+      - name: player
+        type: Instance
+        default:
+        summary: |
+          The `Class.Player` whose inventory is tested for ownership of the
+          given asset.
+      - name: assetId
+        type: int64
+        default:
+        summary: |
+          The asset ID for which the given player's inventory is tested.
+    returns:
+      - type: boolean
+        summary: |
+          Indicates whether the given player's inventory contains the given
+          asset.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: MarketplaceService:PlayerOwnsBundleAsync
     summary: |
       Returns whether the given player owns the given bundle.
     description: |
@@ -814,6 +874,36 @@ methods:
           bundle.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: MarketplaceService:PlayerOwnsBundle
+    summary: |
+      Returns whether the given player owns the given bundle.
+    description: ''
+    code_samples:
+      - MarketplaceService-PlayerOwnsBundle1
+    parameters:
+      - name: player
+        type: Player
+        default:
+        summary: |
+          The `Class.Player` whose inventory is tested for ownership of the
+          given bundle.
+      - name: bundleId
+        type: int64
+        default:
+        summary: |
+          The bundle ID for which the given player's inventory is tested.
+    returns:
+      - type: boolean
+        summary: |
+          Indicates whether the given player's inventory contains the given
+          bundle.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1085,6 +1175,100 @@ methods:
       - type: ()
         summary: ''
     tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: MarketplaceService:RankProductsAsync
+    summary: |
+      Takes a list of product IDs and returns a personalized ordered list of
+      those products.
+    description: |
+      Takes a list of product IDs and returns a personalized ordered list of
+      those products.
+
+      This API has a client-side throttling limit of 10 requests per minute. If
+      you exceed this limit, wait 60 seconds and make the request again.
+    code_samples:
+      - MarketplaceService-RankProductsSample
+    parameters:
+      - name: productIdentifiers
+        type: Array
+        default:
+        summary: |
+          An array of objects identifying the products you want to rank. This
+          array can include up to 50 items.
+
+          Each `ProductIdentifier` has:
+
+          - `Enum.InfoType`: Enum.InfoType
+            - Must be either `Enum.InfoType.GamePass` or
+              `Enum.InfoType.Product`.
+          - `Id`: number
+            - The ID of the game pass or developer product.
+
+          ```lua
+          local ProductIdentifier = {
+          	InfoType = Enum.InfoType.GamePass,
+          	Id = 123456
+          }
+          ```
+    returns:
+      - type: Array
+        summary: |
+          The array of ranked items in a personalized order for the current
+          user.
+
+          Each array has:
+
+          - `ProductIdentifier`: The corresponding ID from the input array.
+          - `ProductInfo`: The standard product info dictionary returned by
+            `Class.MarketplaceService.GetProductInfo|GetProductInfo`.
+    tags:
+      - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: MarketplaceService:RecommendTopProductsAsync
+    summary: |
+      - Takes an array of `Enum.InfoType` and returns up to 50 items
+        representing the products a user is most likely to engage with and
+        purchase.
+    description: |
+      Takes an array of `Enum.InfoType` and returns up to 50 items representing
+      the products a user is most likely to engage with and purchase. If no
+      recommendations can be determined, the method returns an empty list.
+
+      This API has a client-side throttling limit of 5 requests per minute. If
+      you exceed this limit, wait 60 seconds and make the request again.
+    code_samples:
+      - MarketplaceService-RecommendTopProductsSample
+    parameters:
+      - name: infoTypes
+        type: Array
+        default:
+        summary: |
+          An array of `Enum.InfoType` values specifying the types of product to
+          retrieve recommendations for.
+
+          Supported `InfoTypes`: `Enum.InfoType.GamePass`,
+          `Enum.InfoType.Product`.
+
+          ```lua
+          local infoTypes = {
+          	Enum.InfoType.GamePass,
+          	Enum.InfoType.Product
+          }
+          ```
+    returns:
+      - type: Array
+        summary: |
+          A ranked list of up to 50 items the user is most likely to engage
+          with, based on the provided `InfoTypes`. If no recommendations can be
+          determined, the method returns an empty list.
+    tags:
+      - Yields
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1558,3 +1742,4 @@ callbacks:
     security: None
     thread_safety: Unsafe
     capabilities: []
+    writeCapabilities: []

@@ -532,7 +532,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: AssetService:GetAssetIdsForPackage
+  - name: AssetService:GetAssetIdsForPackageAsync
     summary: |
       Returns an array of asset IDs that are contained in a specified package.
     description: |
@@ -549,6 +549,27 @@ methods:
           Asset IDs that are contained in a specified package.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: AssetService:GetAssetIdsForPackage
+    summary: |
+      Returns an array of asset IDs that are contained in a specified package.
+    description: ''
+    code_samples: []
+    parameters:
+      - name: packageAssetId
+        type: int64
+        default:
+        summary: ''
+    returns:
+      - type: Array
+        summary: |
+          Asset IDs that are contained in a specified package.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -853,7 +874,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: AssetService:SearchAudio
+  - name: AssetService:SearchAudioAsync
     summary: |
       Finds audio assets matching a variety of search criteria.
     description: |
@@ -894,6 +915,27 @@ methods:
         summary: ''
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: AssetService:SearchAudio
+    summary: |
+      Finds audio assets matching a variety of search criteria.
+    description: ''
+    code_samples:
+      - printing-search-audio-result-titles
+    parameters:
+      - name: searchParameters
+        type: AudioSearchParams
+        default:
+        summary: ''
+    returns:
+      - type: AudioPages
+        summary: ''
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe

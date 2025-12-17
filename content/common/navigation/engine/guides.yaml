@@ -3,16 +3,7 @@ navigation:
   - heading: Overview
   - title: Get started
     path: /experiences
-  - title: Tutorials
-    navigation: /engine/tutorials.yaml
-    path: /tutorials
-  - title: Resources
-    navigation: /engine/resources.yaml
-    path: /samples
-  - title: Engine API reference
-    path: /reference/engine
-    navigation: /engine/reference.yaml
-  - heading: Guides
+  - heading: Create
   - title: Overview
     path: /creation
   - title: Projects
@@ -22,6 +13,13 @@ navigation:
         path: /projects/
       - title: Experiences and places
         path: /production/publishing/publish-experiences-and-places
+        section:
+          - title: Create and publish
+            path: /production/publishing/publish-experiences-and-places
+          - title: Configure
+            path: /projects/configure-experiences
+          - title: Release updates
+            path: /projects/update-experiences
       - title: Cross-platform development
         path: /projects/cross-platform
       - title: Architecture
@@ -33,8 +31,15 @@ navigation:
             path: /projects/client-server
           - title: Instance streaming
             path: /workspace/streaming
+          - title: Server authority
+            path: /projects/server-authority/
+            section:
+              - title: Overview
+                path: /projects/server-authority/
+              - title: Advanced techniques
+                path: /projects/server-authority/techniques
       - title: Manage
-        path: /production/publishing/publish-experiences-and-places
+        path: /projects/experience-ownership-transfer
         section:
           - title: Experience ownership transfer
             path: /projects/experience-ownership-transfer
@@ -280,6 +285,8 @@ navigation:
         path: /characters/
       - title: Appearance
         path: /characters/appearance
+      - title: Adaptive Animation
+        path: /characters/adaptive-animation
       - title: Emotes
         path: /characters/emotes
       - title: Pathfinding
@@ -288,8 +295,6 @@ navigation:
         path: /characters/name-health-display
       - title: R6 to R15 adapter
         path: /characters/r6-to-r15-adapter
-      - title: Generate text
-        path: /characters/generate-text
   - title: Players
     path: /players/
     section:
@@ -559,11 +564,6 @@ navigation:
     path: /unity
   - title: Roblox for Unreal developers
     path: /unreal
-#  - title: Publish
-    # section:
-      # - title: Accessories
-      #   section:
-      #   - title: Publishing
-      #     path: /production/publishing/publishing-to-marketplace
-      #   - title: Avatar Marketplace Thumbnails
-      #     path: /production/publishing/marketplace-thumbnails
+
+  - include: /scale.yaml
+  - include: /monetize.yaml

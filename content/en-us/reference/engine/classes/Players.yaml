@@ -170,6 +170,29 @@ properties:
       can_save: false
     capabilities:
       - Players
+  - name: Players.localPlayer
+    summary: ''
+    description: ''
+    code_samples: []
+    type: Player
+    tags:
+      - Hidden
+      - ReadOnly
+      - NotReplicated
+      - Deprecated
+    deprecation_message: |
+      This property is a deprecated variant of `Class.Players.LocalPlayer` which
+      should be used instead.
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities:
+      - Players
   - name: Players.MaxPlayers
     summary: |
       The maximum number of players that can be in a server.
@@ -209,6 +232,34 @@ properties:
     deprecation_message: |
       This item is deprecated. Instead, of using this item, you should count the
       number of players returned by `Class.Players:GetPlayers()`.
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities:
+      - Players
+  - name: Players.numPlayers
+    summary: |
+      Returns the number of people in the server at the current time.
+    description: |
+      This property indicates the number of people in the server at the current
+      time. It is read only. Meaning it cannot be written to, only read.
+    code_samples: []
+    type: int
+    tags:
+      - Hidden
+      - ReadOnly
+      - NotReplicated
+      - Deprecated
+    deprecation_message: |
+      This property is a deprecated variant of `Class.Players.NumPlayers` which
+      has also been deprecated. Neither property should be used in new work.
+      Instead, you should count the number of players returned by
+      `Class.Players:GetPlayers()`.
     security:
       read: None
       write: None
@@ -287,57 +338,6 @@ properties:
     serialization:
       can_load: true
       can_save: true
-    capabilities:
-      - Players
-  - name: Players.localPlayer
-    summary: ''
-    description: ''
-    code_samples: []
-    type: Player
-    tags:
-      - Hidden
-      - ReadOnly
-      - NotReplicated
-      - Deprecated
-    deprecation_message: |
-      This property is a deprecated variant of `Class.Players.LocalPlayer` which
-      should be used instead.
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Data
-    serialization:
-      can_load: false
-      can_save: false
-    capabilities:
-      - Players
-  - name: Players.numPlayers
-    summary: |
-      Returns the number of people in the server at the current time.
-    description: |
-      This property indicates the number of people in the server at the current
-      time. It is read only. Meaning it cannot be written to, only read.
-    code_samples: []
-    type: int
-    tags:
-      - Hidden
-      - ReadOnly
-      - NotReplicated
-      - Deprecated
-    deprecation_message: |
-      This property is a deprecated variant of `Class.Players.NumPlayers` which
-      has also been deprecated. Neither property should be used in new work.
-      Instead, you should count the number of players returned by
-      `Class.Players:GetPlayers()`.
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Data
-    serialization:
-      can_load: false
-      can_save: false
     capabilities:
       - Players
 methods:
@@ -492,7 +492,7 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Players:CreateHumanoidModelFromDescription
+  - name: Players:CreateHumanoidModelFromDescriptionAsync
     summary: |
       Returns a character `Class.Model` equipped with everything specified in
       the passed in `Class.HumanoidDescription`.
@@ -530,7 +530,43 @@ methods:
     capabilities:
       - Avatar
       - Players
-  - name: Players:CreateHumanoidModelFromUserId
+  - name: Players:CreateHumanoidModelFromDescription
+    summary: |
+      Returns a character `Class.Model` equipped with everything specified in
+      the passed in `Class.HumanoidDescription`.
+    description: ''
+    code_samples:
+      - create-humanoid-model-from-description
+    parameters:
+      - name: description
+        type: HumanoidDescription
+        default:
+        summary: |
+          Specifies the appearance of the returned character.
+      - name: rigType
+        type: HumanoidRigType
+        default:
+        summary: |
+          Specifies whether the returned character will be R6 or R15.
+      - name: assetTypeVerification
+        type: AssetTypeVerification
+        default: Default
+        summary: |
+          The asset type verification mode.
+    returns:
+      - type: Model
+        summary: |
+          A `Class.Humanoid` character `Class.Model`.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Avatar
+      - Players
+  - name: Players:CreateHumanoidModelFromUserIdAsync
     summary: |
       Returns a character Model set-up with everything equipped to match the
       avatar of the user specified by the passed in userId.
@@ -553,6 +589,32 @@ methods:
           A Humanoid character Model.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Players:CreateHumanoidModelFromUserId
+    summary: |
+      Returns a character Model set-up with everything equipped to match the
+      avatar of the user specified by the passed in userId.
+    description: ''
+    code_samples:
+      - create-humanoid-model-from-userid
+    parameters:
+      - name: userId
+        type: int64
+        default:
+        summary: |
+          The userId for a Roblox user. (The UserId is the number in the profile
+          of the user e.g www.roblox.com/users/1/profile).
+    returns:
+      - type: Model
+        summary: |
+          A Humanoid character Model.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -805,7 +867,7 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
-  - name: Players:GetHumanoidDescriptionFromOutfitId
+  - name: Players:GetHumanoidDescriptionFromOutfitIdAsync
     summary: |
       Returns the HumanoidDescription for a specified outfit, which will be set
       with the parts/colors/Animations etc of the outfit.
@@ -835,7 +897,34 @@ methods:
     capabilities:
       - Avatar
       - Players
-  - name: Players:GetHumanoidDescriptionFromUserId
+  - name: Players:GetHumanoidDescriptionFromOutfitId
+    summary: |
+      Returns the HumanoidDescription for a specified outfit, which will be set
+      with the parts/colors/Animations etc of the outfit.
+    description: ''
+    code_samples:
+      - get-humanoiddescription-from-outfitid
+    parameters:
+      - name: outfitId
+        type: int64
+        default:
+        summary: |
+          The ID of the outfit for which the HumanoidDescription is sought.
+    returns:
+      - type: HumanoidDescription
+        summary: |
+          HumanoidDescription initialized with the specification for the passed
+          in outfitId.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Avatar
+      - Players
+  - name: Players:GetHumanoidDescriptionFromUserIdAsync
     summary: |
       Returns a HumanoidDescription which specifies everything equipped for the
       avatar of the user specified by the passed in userId.
@@ -859,6 +948,34 @@ methods:
           specification.
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Avatar
+      - Players
+  - name: Players:GetHumanoidDescriptionFromUserId
+    summary: |
+      Returns a HumanoidDescription which specifies everything equipped for the
+      avatar of the user specified by the passed in userId.
+    description: ''
+    code_samples:
+      - get-humanoiddescription-from-userid
+    parameters:
+      - name: userId
+        type: int64
+        default:
+        summary: |
+          The userId for a Roblox user. (The UserId is the number in the profile
+          of the user e.g www.roblox.com/users/1/profile).
+    returns:
+      - type: HumanoidDescription
+        summary: |
+          HumanoidDescription initialized with the passed in user's avatar
+          specification.
+    tags:
+      - Yields
+      - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
@@ -1021,6 +1138,23 @@ methods:
     thread_safety: Safe
     capabilities:
       - Players
+  - name: Players:getPlayers
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Instances
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of `Class.Players:GetPlayers()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
   - name: Players:GetUserIdFromNameAsync
     summary: |
       Sends a query to the Roblox website for the `Class.Player.UserId|userId`
@@ -1094,6 +1228,47 @@ methods:
     tags:
       - Yields
     deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Players:playerFromCharacter
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: character
+        type: Model
+        default:
+        summary: ''
+    returns:
+      - type: Player
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This function is a deprecated variant of
+      `Class.Players:GetPlayerFromCharacter()` which should be used in new work.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+  - name: Players:players
+    summary: |
+      Returns a list of players in a game.
+    description: |
+      This function was once used to return a list of players in a game, but has
+      since been deprecated in favor of `Class.Players:GetPlayers()`
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Instances
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This item has been superseded by `Class.Players:GetPlayers()` which should
+      be used in all new work.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -1232,64 +1407,6 @@ methods:
     tags:
       - Yields
     deprecation_message: ''
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Players:getPlayers
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters: []
-    returns:
-      - type: Instances
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of `Class.Players:GetPlayers()`
-      which should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Players:playerFromCharacter
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: character
-        type: Model
-        default:
-        summary: ''
-    returns:
-      - type: Player
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This function is a deprecated variant of
-      `Class.Players:GetPlayerFromCharacter()` which should be used in new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - Players
-  - name: Players:players
-    summary: |
-      Returns a list of players in a game.
-    description: |
-      This function was once used to return a list of players in a game, but has
-      since been deprecated in favor of `Class.Players:GetPlayers()`
-    code_samples: []
-    parameters: []
-    returns:
-      - type: Instances
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This item has been superseded by `Class.Players:GetPlayers()` which should
-      be used in all new work.
     security: None
     thread_safety: Unsafe
     capabilities:

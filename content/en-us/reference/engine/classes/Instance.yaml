@@ -85,6 +85,7 @@ descendants:
   - Clouds
   - CollectionService
   - CommerceService
+  - CompositeValueCurve
   - ConfigService
   - Configuration
   - Constraint
@@ -360,6 +361,7 @@ descendants:
   - ScriptEditorService
   - SelectionHighlightManager
   - Studio
+  - StudioTestService
   - StudioTheme
   - TeamCreateService
   - VRStatusService
@@ -408,6 +410,27 @@ properties:
     category: Behavior
     serialization:
       can_load: false
+      can_save: false
+    capabilities: []
+  - name: Instance.archivable
+    summary: ''
+    description: ''
+    code_samples: []
+    type: boolean
+    tags:
+      - Hidden
+      - NotReplicated
+      - Deprecated
+    deprecation_message: |
+      This deprecated property is a variant of `Class.Instance.Archivable` which
+      should be used instead.
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
       can_save: false
     capabilities: []
   - name: Instance.Capabilities
@@ -553,6 +576,25 @@ properties:
       can_load: true
       can_save: false
     capabilities: []
+  - name: Instance.PredictionMode
+    summary: ''
+    description: ''
+    code_samples: []
+    type: PredictionMode
+    tags:
+      - ReadOnly
+      - NotReplicated
+      - NotScriptable
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities: []
   - name: Instance.RobloxLocked
     summary: |
       A deprecated property that used to protect `Class.CoreGui` objects.
@@ -619,27 +661,6 @@ properties:
       can_load: true
       can_save: true
     capabilities: []
-  - name: Instance.archivable
-    summary: ''
-    description: ''
-    code_samples: []
-    type: boolean
-    tags:
-      - Hidden
-      - NotReplicated
-      - Deprecated
-    deprecation_message: |
-      This deprecated property is a variant of `Class.Instance.Archivable` which
-      should be used instead.
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Behavior
-    serialization:
-      can_load: true
-      can_save: false
-    capabilities: []
 methods:
   - name: Instance:AddTag
     summary: |
@@ -673,6 +694,25 @@ methods:
         summary: ''
     tags: []
     deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: Instance:children
+    summary: |
+      Returns an array of the object's children.
+    description: |
+      The children function returns an array of the object's children.
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Instances
+        summary: |
+          Array of child objects/instances.
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This item has been superseded by `Class.Instance:GetChildren()` which
+      should be used in all new work.
     security: None
     thread_safety: Unsafe
     capabilities: []
@@ -761,6 +801,23 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - CreateInstances
+  - name: Instance:clone
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Instance
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:Clone()` which
+      should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - CreateInstances
   - name: Instance:Destroy
     summary: |
       Sets the `Class.Instance.Parent` property to `nil`, locks the
@@ -813,6 +870,22 @@ methods:
         summary: ''
     tags: []
     deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: Instance:destroy
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:Destroy()` which
+      should be used instead.
     security: None
     thread_safety: Unsafe
     capabilities: []
@@ -1029,6 +1102,30 @@ methods:
     security: None
     thread_safety: Safe
     capabilities: []
+  - name: Instance:findFirstChild
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: name
+        type: string
+        default:
+        summary: ''
+      - name: recursive
+        type: boolean
+        default: false
+        summary: ''
+    returns:
+      - type: Instance
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:FindFirstChild()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
   - name: Instance:FindFirstChildOfClass
     summary: |
       Returns the first child of the `Class.Instance` whose
@@ -1143,7 +1240,7 @@ methods:
     code_samples: []
     parameters: []
     returns:
-      - type: Actor
+      - type: Actor?
         summary: |
           The `Class.Actor` found.
     tags: []
@@ -1312,9 +1409,9 @@ methods:
       end
       ```
 
-      Note that the array is **not** sorted in any particular order, so manual
-      sorting (for example using `Library.table.sort()`) is advised for sorting
-      the children returned by this method.
+      Note that the returned array is **not** sorted in any particular order, so
+      manual sorting (for example using `Library.table.sort()`) is advised for
+      sorting the children returned by this method.
 
       See also the `Class.Instance:GetDescendants()|GetDescendants()` method.
     code_samples:
@@ -1328,6 +1425,22 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Safe
+    capabilities: []
+  - name: Instance:getChildren
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Instances
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:GetChildren()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
     capabilities: []
   - name: Instance:GetDebugId
     summary: |
@@ -1370,6 +1483,12 @@ methods:
       of that object. Unlike `Class.Instance:GetChildren()`, which only returns
       the immediate children of an object, this method finds every child of the
       object, every child of those children, and so on.
+
+      Note that the returned array is **not** sorted in any particular order, so
+      manual sorting (for example using `Library.table.sort()`) is advised for
+      sorting the descendants returned by this method. Also consdier the
+      `Class.Instance:QueryDescendants()|QueryDescendants()` method to query
+      descendants by a combination of selectors and combinators.
     code_samples:
       - Instance-GetDescendants1
     parameters: []
@@ -1622,6 +1741,26 @@ methods:
     security: None
     thread_safety: Safe
     capabilities: []
+  - name: Instance:isDescendantOf
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: ancestor
+        type: Instance
+        default:
+        summary: ''
+    returns:
+      - type: boolean
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:IsDescendantOf()`
+      which should be used instead.
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
   - name: Instance:IsPropertyModified
     summary: |
       Returns `true` if the value stored in the specified property is not equal
@@ -1675,7 +1814,7 @@ methods:
       grammar is similar to the one used in `Class.StyleRule` with only a few
       differences regarding which parts of the grammar are supported or not.
 
-      ##### Selectors
+      #### Selectors
 
       <table>
       <thead>
@@ -1715,6 +1854,21 @@ methods:
           <td>Matches instances which have the specified attribute and that attribute has the specified value. Same limitations apply as for property selectors.</td>
           <td width="30%"><code>[$MyAttribute = 10]</code></td>
         </tr>
+        <tr>
+          <td width="30%"><code>[$attribute]</code></td>
+          <td>Matches instances which have the specified attribute set.</td>
+          <td width="30%"><code>[$MyAttribute]</code></td>
+        </tr>
+        <tr>
+          <td width="30%"><code>:not(complex-selector-list)</code></td>
+          <td>Pseudo-class selector that matches instances which do <b>not</b> match any of the specified selectors.</td>
+          <td width="30%">See examples below</td>
+        </tr>
+        <tr>
+          <td width="30%"><code>:has(relative-selector-list)</code></td>
+          <td>Pseudo-class selector that matches instances which contain an instance matching the specified selector.</td>
+          <td width="30%">See examples below</td>
+        </tr>
       </tbody>
       </table>
 
@@ -1723,7 +1877,7 @@ methods:
       `Class.Model` with a tag `Apple` set and which have a `Kind` attribute
       equal to string `"Red"` as well as a `State` attribute equal to `4`.
 
-      ##### Combinators
+      #### Combinators
 
       <table>
       <thead>
@@ -1763,6 +1917,44 @@ methods:
       Only elements matching the filter are placed in the array. For example,
       `>#ExistingChild, >#MissingChild, >#AnotherExistingChild` will return an
       array with two elements and there will be no `nil` for the missing child.
+
+      #### Pseudo-class selectors
+
+      ##### :not(complex-selector-list)
+
+      This pseudo-class selector allows selecting instances which do **not**
+      match any of the selectors inside. It performs a negation of the
+      selectors.
+
+      Starting with the simple cases: it is possible to query instances that do
+      not match the specified class using `:not(SpotLight)`, or instances which
+      do not have an attribute set using `:not([$MyAttribute])`.
+
+      The expression inside is a list of complex selectors, so it is possible to
+      filter based on multiple conditions. For example,
+      `:not(SpotLight, PointLight)` will select all instances that are not a
+      `Class.SpotLight` or a `Class.PointLight`. This can also be written as
+      `:not(SpotLight):not(PointLight)`.
+
+      You can also use selectors with combinators. For example, given that the
+      expression `Model > .Red` will select all descendants that are a child of
+      a `Class.Model` and have a 'Red' tag, `:not(Model > .Red)` will select all
+      descendants except for those.
+
+      ##### :has(relative-selector-list)
+
+      This pseudo-class selector allows selecting instances based on which
+      instances they contain inside. The selector list is evaluated relative to
+      each instance.
+
+      For example `:has(Tool)` will select all descendants which contain 'Tool'
+      as their own descendant.
+
+      To see the difference, consider the expression `SpotLight > .Red` which
+      selects descendants with the 'Red' tag that are a child of a `SpotLight`.
+      Using `SpotLight:has(> .Red)`, it is possible to select descendants that
+      are `SpotLight` instances and **contain** an instance with the 'Red' tag
+      inside.
     code_samples: []
     parameters:
       - name: selector
@@ -1803,6 +1995,22 @@ methods:
       `Class.Instance:ClearAllChildren()`. If you must remove an object from the
       game, and wish to use the object later, set its `Parent` property to `nil`
       instead of using this method.
+    security: None
+    thread_safety: Unsafe
+    capabilities: []
+  - name: Instance:remove
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters: []
+    returns:
+      - type: ()
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated function is a variant of `Class.Instance:Remove()` which
+      has also been deprecated. Neither function should be used in new work.
     security: None
     thread_safety: Unsafe
     capabilities: []
@@ -1970,134 +2178,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
-  - name: Instance:children
-    summary: |
-      Returns an array of the object's children.
-    description: |
-      The children function returns an array of the object's children.
-    code_samples: []
-    parameters: []
-    returns:
-      - type: Instances
-        summary: |
-          Array of child objects/instances.
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This item has been superseded by `Class.Instance:GetChildren()` which
-      should be used in all new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: Instance:clone
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters: []
-    returns:
-      - type: Instance
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:Clone()` which
-      should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities:
-      - CreateInstances
-  - name: Instance:destroy
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters: []
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:Destroy()` which
-      should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: Instance:findFirstChild
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: name
-        type: string
-        default:
-        summary: ''
-      - name: recursive
-        type: boolean
-        default: false
-        summary: ''
-    returns:
-      - type: Instance
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:FindFirstChild()`
-      which should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: Instance:getChildren
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters: []
-    returns:
-      - type: Instances
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:GetChildren()`
-      which should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: Instance:isDescendantOf
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: ancestor
-        type: Instance
-        default:
-        summary: ''
-    returns:
-      - type: boolean
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:IsDescendantOf()`
-      which should be used instead.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
-  - name: Instance:remove
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters: []
-    returns:
-      - type: ()
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated function is a variant of `Class.Instance:Remove()` which
-      has also been deprecated. Neither function should be used in new work.
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
 events:
   - name: Instance.AncestryChanged
     summary: |
@@ -2205,6 +2285,22 @@ events:
           The `Class.Instance` that has been added.
     tags: []
     deprecation_message: ''
+    security: None
+    capabilities: []
+  - name: Instance.childAdded
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: child
+        type: Instance
+        default:
+        summary: ''
+    tags:
+      - Deprecated
+    deprecation_message: |
+      This deprecated event is a variant of `Class.Instance.ChildAdded` which
+      should be used instead.
     security: None
     capabilities: []
   - name: Instance.ChildRemoved
@@ -2376,22 +2472,6 @@ events:
     parameters: []
     tags: []
     deprecation_message: ''
-    security: None
-    capabilities: []
-  - name: Instance.childAdded
-    summary: ''
-    description: ''
-    code_samples: []
-    parameters:
-      - name: child
-        type: Instance
-        default:
-        summary: ''
-    tags:
-      - Deprecated
-    deprecation_message: |
-      This deprecated event is a variant of `Class.Instance.ChildAdded` which
-      should be used instead.
     security: None
     capabilities: []
 callbacks: []

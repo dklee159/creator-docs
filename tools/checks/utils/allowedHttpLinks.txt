@@ -55,6 +55,8 @@ https://digitalsake.com/
 https://digitane.jp/
 https://discord.com/developers/applications
 https://discord.com/developers/docs/topics/oauth2
+https://studio.blender.org/characters/snow/v4/
+https://www.blender.org/download/demo-files/
 https://docs.blender.org/manual/en/2.79/editors/uv_image/uv/editing/unwrapping/mapping_types.html
 https://docs.blender.org/manual/en/2.80/scene_layout/object/editing/transform/control/pivot_point.html
 https://docs.blender.org/manual/en/3.5/grease_pencil/modes/weight_paint/introduction.html
@@ -136,6 +138,7 @@ https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/d
 https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/datastores-api/v1.json
 https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/messaging-service/v1.json
 https://github.com/Roblox/creator-docs/blob/main/content/en-us/reference/cloud/universes-api/v1.json
+https://github.com/Roblox/data-stores-batch-processor-cli
 https://github.com/Roblox/roact/
 https://github.com/Roblox/roblox-blender-plugin
 https://github.com/OpenAPITools/openapi-generator
@@ -435,6 +438,8 @@ https://www.wizkidlearning.com/
 https://www.wowschool.pl/
 https://www.youthtechinc.com/
 https://www.youtube.com/@RobloxLearn
+https://www.youtube-nocookie.com/embed/HVUO3Dl7qT0
+https://www.youtube-nocookie.com/embed/rHkHXl4Qkpg
 https://www.youtube-nocookie.com/embed/Hp9pr2FpZa8
 https://www.youtube.com/@RobloxLearn/streams
 https://www.youtube-nocookie.com/embed/B0y5fLlwkF0
@@ -544,6 +549,11 @@ https://www.youtube.com/watch?v=f2pTkW-1JkE
 https://www.youtube.com/watch?v=fx33sPEAZEk
 https://www.youtube.com/watch?v=iHJ49zbGOW8&
 https://www.youtube.com/watch?v=j918PoWWaB0
+https://www.youtube.com/embed/4zoH0Qqq3BE
+https://www.youtube.com/embed/PVlCHE9pc50?si=qDmIwC7ohgMdqFgY&start=2373
+https://www.youtube.com/live/PVlCHE9pc50?t=2373s
+https://www.youtube.com/embed/SPmbTSlSv28
+https://www.youtube.com/embed/2HotST5mF3A
 https://www.youtube-nocookie.com/embed/eqW9SINYeWg
 https://www.youtube-nocookie.com/embed/llR_pNlJDQw
 https://www.youtube-nocookie.com/embed/6MPWLQmIKLk
@@ -700,6 +710,7 @@ https://youtube.com/playlist?list=PLuEQ5BB-Z1PJ8Du1rJ_JaMpW1W_G2T_lm
 https://www.youtube.com/watch?v=7DXTQcA9G_A
 https://github.com/Roblox/cryo
 https://github.com/Roblox/dash
+https://github.com/Roblox/otter
 https://github.com/Roblox/luau-regexp
 https://github.com/Roblox/luau-polyfill
 https://github.com/roblox/luau-tag-utils
@@ -723,3 +734,6 @@ https://en.wikipedia.org/wiki/SHA-1
 https://en.wikipedia.org/wiki/SHA-2
 https://en.wikipedia.org/wiki/WebSocket
 https://www.youtube-nocookie.com/embed/j6OPA95-1O0
+https://www.youtube-nocookie.com/embed/-HYByqvW2uc
+https://de.wikipedia.org/wiki/Eulerwinkel
+https://json-schema.org/
