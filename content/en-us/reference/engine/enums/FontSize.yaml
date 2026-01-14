@@ -6,99 +6,99 @@ name: FontSize
 type: enum
 summary: ''
 description: |
-  The FontSize Enum controls the font size of text in `Class.TextBox`,
-  `Class.TextLabel`, and `Class.TextButton` objects.
+  The `FontSize` enum controls the font size of text in `Class.TextBox`,
+  `Class.TextLabel`, `Class.TextButton`, and similar objects.
 code_samples: []
 tags: []
 deprecation_message: ''
 items:
   - name: Size8
     summary: |
-      Font size 8.
+      Font size `8`.
     value: 0
     tags: []
     deprecation_message: ''
   - name: Size9
     summary: |
-      Font size 9.
+      Font size `9`.
     value: 1
     tags: []
     deprecation_message: ''
   - name: Size10
     summary: |
-      Font size 10.
+      Font size `10`.
     value: 2
     tags: []
     deprecation_message: ''
   - name: Size11
     summary: |
-      Font size 11.
+      Font size `11`.
     value: 3
     tags: []
     deprecation_message: ''
   - name: Size12
     summary: |
-      Font size 12.
+      Font size `12`.
     value: 4
     tags: []
     deprecation_message: ''
   - name: Size14
     summary: |
-      Font size 14.
+      Font size `14`.
     value: 5
     tags: []
     deprecation_message: ''
   - name: Size18
     summary: |
-      Font size 18.
+      Font size `18`.
     value: 6
     tags: []
     deprecation_message: ''
   - name: Size24
     summary: |
-      Font size 24.
+      Font size `24`.
     value: 7
     tags: []
     deprecation_message: ''
   - name: Size36
     summary: |
-      Font size 36.
+      Font size `36`.
     value: 8
     tags: []
     deprecation_message: ''
   - name: Size48
     summary: |
-      Font size 48.
+      Font size `48`.
     value: 9
     tags: []
     deprecation_message: ''
   - name: Size28
     summary: |
-      Font size 28.
+      Font size `28`.
     value: 10
     tags: []
     deprecation_message: ''
   - name: Size32
     summary: |
-      Font size 32.
+      Font size `32`.
     value: 11
     tags: []
     deprecation_message: ''
   - name: Size42
     summary: |
-      Font size 42.
+      Font size `42`.
     value: 12
     tags: []
     deprecation_message: ''
   - name: Size60
     summary: |
-      Font size 60.
+      Font size `60`.
     value: 13
     tags: []
     deprecation_message: ''
   - name: Size96
     summary: |
-      Font size 96.
+      Font size `96`.
     value: 14
     tags: []
     deprecation_message: ''
