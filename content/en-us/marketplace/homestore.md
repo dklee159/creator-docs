@@ -3,7 +3,7 @@ title: UGC Homestore
 description: Showcase and sell your published avatar items in a easily customizable shop template.
 ---
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/6MPWLQmIKLk" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <br />
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/6MPWLQmIKLk" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> <br />
 
 The **UGC Homestore** is a user-friendly template that avatar item creators can use to showcase and sell their marketplace items. This template is ideal for creators with an existing UGC catalog who want a dedicated space to promote their assets. Creators who sell their own avatar items from their own experience also benefit from a [larger commission split](../marketplace/marketplace-fees-and-commissions.md#commissions).
 
@@ -63,7 +63,7 @@ By default, the catalog applies the following behavior:
 
 To set the catalog to use another creator's marketplace items:
 
-1.  In the **Security** section of [Game Settings](../studio/game-settings.md), enable **Allow Third Party Sales**.
+1.  In the **Security** section of [Experience Settings](../studio/experience-settings.md), enable **Allow Third Party Sales**.
 
     <img src="../assets/publishing/marketplace/Enable-Third-Party-Sales.png" alt="Section of the Explorer window highlighting the Settings file in Replicated Storage." width = "70%"/>
 

@@ -223,7 +223,52 @@ To play 2D text-to-speech audio:
          <td>10</td>
          <td>Retro voice #2</td>
          <td><audio controls><source src="../assets/audio/audio-objects/Retro-Voice-2.wav" type="audio/mpeg"></source></audio></td>
-         </tr>  
+         </tr>
+         <tr>
+         <td>11</td>
+         <td>Host voice</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/Narrator-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>101</td>
+         <td>Spanish male</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/Spanish-Male-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>102</td>
+         <td>Spanish female</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/Spanish-Female-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>201</td>
+         <td>German male</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/German-Male-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>202</td>
+         <td>German female</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/German-Female-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>301</td>
+         <td>Italian male</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/Italian-Male-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>302</td>
+         <td>Italian female</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/Italian-Female-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>401</td>
+         <td>French male</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/French-Male-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
+         <tr>
+         <td>402</td>
+         <td>French female</td>
+         <td><audio controls><source src="../assets/audio/audio-objects/French-Female-Voice.wav" type="audio/mpeg"></source></audio></td>
+         </tr>
          </tbody>
          </table>
 
@@ -380,7 +425,7 @@ All of these audio objects work together to generate STT text in response to pla
 - The `Class.AudioDeviceInput` captures the player's speech, as spoken into their microphone and as a stream of audio.
 - A `Class.Wire` carries the audio stream from the `Class.AudioDeviceInput` to the `Class.AudioSpeechToText`.
 - The `Class.AudioSpeechToText` converts the player's speech into text.
-- The game reads this text and performs an action, such as displaying the spoken text on the screen or opening a door at the player's command.
+- The experience reads this text and performs an action, such as displaying the spoken text on the screen or opening a door at the player's command.
 
 <img src="../assets/audio/audio-objects/STT-Audio-Diagram.png" width="100%" />
 

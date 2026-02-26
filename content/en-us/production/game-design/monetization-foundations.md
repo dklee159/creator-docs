@@ -4,7 +4,7 @@ description: Monetization foundations
 ---
 
  <figure>
-    <iframe width="880" height="495" src="https://www.youtube-nocookie.com/embed/1GKd9euwkuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="880" height="495" src="https://www.youtube-nocookie.com/embed/1GKd9euwkuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
     <figcaption>Introduction</figcaption>
   </figure>
 
@@ -23,13 +23,13 @@ Taken together, these components can foster a thriving economy within your exper
 ## Items
 
 <figure>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rPHlMWSUgGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rPHlMWSUgGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>Items and shop introduction</figcaption>
 </figure>
 
 <br />
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mWtz5UTyZX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mWtz5UTyZX0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>Items</figcaption>
 
 <br />
@@ -72,7 +72,7 @@ They can then be further divided into categories of utility:
 ## The shop
 
 <figure>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/C3YrGutsuSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/C3YrGutsuSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>The shop</figcaption>
 </figure>
 <br />
@@ -124,7 +124,7 @@ New content and item updates invites players back to the store to see what's new
 ## Merchandising
 
 <figure>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qg-hhW21EOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qg-hhW21EOw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>Merchandising</figcaption>
 </figure>
 
@@ -229,7 +229,7 @@ For out-of-the-box functionality to create bundles, see the [Bundles](../../reso
 ## Starter packs
 
 <figure>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/G0ZLMT9sHTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/G0ZLMT9sHTE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>Starter packs</figcaption>
 </figure>
 
@@ -287,14 +287,12 @@ The starter pack should be merchandised as a special deal using price calculatio
 ## Season passes
 
 <figure>
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wIT3hWvwYPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wIT3hWvwYPM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 <figcaption>Season passes</figcaption>
 </figure>
 <br />
 
-**Season passes** are limited-time, quest-based progression systems that are part of a game's content cadence. Players complete quest objectives to earn rewards for the duration of the pre-defined period of time or "season". While similar in name, season passes are not game passes. Game passes are one-time purchases that confer gameplay bonuses.
-
-To learn how to implement game passes into your experiences, see the article on [game passes](../../production/monetization/game-passes.md).
+**Season passes** are limited-time, quest-based progression systems that are part of an experience's content cadence. Players complete quest objectives to earn rewards for the duration of the pre-defined period of time or "season".
 
 To learn how to design an effective season pass, see [season pass design](../../production/game-design/season-pass-design.md).
 
@@ -389,12 +387,12 @@ For a list of common monetization terms, consult the table below.
 | Economy                    | The numerical system dictating the impact of users' behaviors in pursuit of and in response to content present in the experience and the inflows and outflows of currencies                                                                   |
 | Enhancement                | A category of in-experience item that improves the user's experience or capabilities in some way.                                                                                                                                             |
 | Expression                 | A category of in-experience item that personalizes the user's experience but typically does not provide a benefit to the user's capabilities.                                                                                                 |
-| Hard Currency              | Currency that is unique to a specific game and is primarily obtained by spending real money (represented by Robux in Roblox).                                                                                                                 |
+| Hard Currency              | Currency that is unique to a specific experience and is primarily obtained by spending real money (represented by Robux in Roblox).                                                                                                                 |
 | Item                       | An individual piece of in-experience content that users can earn or purchase.                                                                                                                                                                 |
 | Limited-time item          | An in-experience item that is in the item shop for a set period of time, after which it is unavailable                                                                                                                                        |
 | Merchandising              | The methods by which an experience attracts attention to and communicates the value of items and other content available for purchase within that experience                                                                                  |
 | Monetization               | The strategies, systems and content designed to add value to a user's experience through the purchase and spend of Robux                                                                                                                      |
 | Season Pass                | Also known as a Battle Pass. A programmatic method of content distribution and engagement incentive that allows users to earn in-experience rewards by interacting with the core loop or other content systems over a certain period of time. |
 | Shop                       | The in-experience area, typically a separate modal, where items and other in-experience content is sold for Robux or other soft currencies.                                                                                                   |
-| Soft Currency              | Currency that is unique to a specific game and is usually earned through gameplay or another action required by the experience.                                                                                                               |
+| Soft Currency              | Currency that is unique to a specific experience and is usually earned through gameplay or another action required by the experience.                                                                                                               |
 | Starter Pack               | Also known as a Starter Bundle or Beginner's Offer. An initial offer of an item or bundle of items that a new user sees within the first few minutes after joining an experience.                                                             |

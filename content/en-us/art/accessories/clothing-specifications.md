@@ -142,7 +142,8 @@ Face accessories, such as hair, eyebrows, and eyelashes are unique accessories t
 
 ## Textures
 
-Textures created for accessories must meet Roblox's [texture specifications](../../art/modeling/texture-specifications.md). Keep in mind that smaller assets, such as accessories, can use smaller texture map sizes, such as **256&times;256px**, to optimize performance with virtually no loss in detail.
+- Textures for Marketplace assets can't exceed 2048x2048 resolution.
+- Textures created for accessories must meet Roblox's [texture specifications](../../art/modeling/texture-specifications.md). High resolution textures are automatically converted to lower-resolution textures to optimize performance.
 
 ## Layerable Properties
 
@@ -174,7 +175,7 @@ Assets with invalid cage configurations may fail validation and are subject to m
 
 For a basic overview on caging, see the [Basic Clothing Tutorial](../accessories/creating/caging-setup.md) and the relevant section of the tutorial video at [8:32](https://www.youtube.com/watch?v=C-DwGRBHvmE&t=512s):
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/C-DwGRBHvmE" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/C-DwGRBHvmE" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 #### Inner Cage
 

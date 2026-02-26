@@ -66,7 +66,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:PromptCaptureGalleryPermissionAsync
     summary: ''
     description: |
@@ -94,7 +95,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:PromptSaveCapturesToGallery
     summary: |
       Prompts the user to save specified captures to their gallery.
@@ -123,7 +125,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:PromptShareCapture
     summary: |
       Prompts the user to share a specified capture.
@@ -192,7 +195,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:ReadCapturesFromGalleryAsync
     summary: ''
     description: |
@@ -203,8 +207,9 @@ methods:
       `captureTypeFilters` parameter. If this parameter isn't provided, the
       function returns all captures.
 
-      Currently, this method will only return captures taken in the experience
-      where it is called. Additionally, captures taken with
+      If `readFromAllEligibleExperiences` is `true`, captures from all eligible
+      experiences will be read. If `false`, only those from the current
+      experience will be read. Additionally, captures taken with
       `Class.CaptureService:CaptureScreenshot()|CaptureScreenshot()` and
       subsequently saved with
       `Class.CaptureService:PromptSaveCapturesToGallery()|PromptSaveCapturesToGallery()`
@@ -217,6 +222,11 @@ methods:
         default: '{}'
         summary: |
           An array of `Enum.CaptureType`.
+      - name: readFromAllEligibleExperiences
+        type: boolean
+        default: false
+        summary: |
+          A boolean; default is `false`.
     returns:
       - type: Tuple
         summary: |
@@ -227,7 +237,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:StartVideoCaptureAsync
     summary: |
       Initiates a video capture recording.
@@ -286,7 +297,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService:StopVideoCapture
     summary: |
       Ends a video capture initiated by
@@ -304,7 +316,66 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
+  - name: CaptureService:TakeScreenshotCaptureAsync
+    summary: |
+      Initiates a screenshot capture.
+    description: |
+      This method initiates a screenshot capture. The `onCaptureReady` callback
+      can be used to prompt the user to save or share the screenshot capture.
+
+      Use the `Enum.UICaptureMode` parameter in `captureParams` to specify
+      whether UI elements should be in the screenshot. By default, this is set
+      to `Enum.UICaptureMode.None`.
+
+      ```lua
+      local CaptureService = game:GetService("CaptureService")
+
+      local parent = script.Parent
+
+      local onCaptureReady = function(result, screenshotCapture)
+      	if result ~= Enum.ScreenshotCaptureResult.Success or not screenshotCapture then
+      		print("Screenshot failed to complete for reason:", result)
+      	else
+      		-- Prompt the user to save the screenshot capture to their gallery
+      		CaptureService:PromptSaveCapturesToGallery({ screenshotCapture }, function(results)
+      			for capture, result in pairs(results) do
+      				if result then
+      					print("Capture saved")
+      				end
+      			end
+      		end)
+      	end
+      end
+
+      parent.Activated:Connect(function()
+      	CaptureService:TakeScreenshotCaptureAsync(onCaptureReady, { UICaptureMode = Enum.UICaptureMode.All })
+      end)
+      ```
+    code_samples: []
+    parameters:
+      - name: onCaptureReady
+        type: Function
+        default:
+        summary: |
+          A callback function that is called on screenshot capture completion
+          with a `Enum.ScreenshotCaptureResult` and, if successful, a
+          `Class.ScreenshotCapture`.
+      - name: captureParams
+        type: Dictionary
+        default: nil
+        summary: |
+          A dictionary that modifies capture behavior.
+    returns:
+      - type: ()
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Capture
   - name: CaptureService:UploadCaptureAsync
     summary: ''
     description: |
@@ -337,7 +408,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Capture
 events:
   - name: CaptureService.CaptureBegan
     summary: |
@@ -355,7 +427,8 @@ events:
     tags: []
     deprecation_message: ''
     security: None
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService.CaptureEnded
     summary: |
       Fires after a capture finishes.
@@ -372,7 +445,8 @@ events:
     tags: []
     deprecation_message: ''
     security: None
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService.CaptureSaved
     summary: ''
     description: ''
@@ -388,7 +462,8 @@ events:
       This event has been superseded by the
       `Class.CaptureService.UserCaptureSaved|UserCaptureSaved` event.
     security: None
-    capabilities: []
+    capabilities:
+      - Capture
   - name: CaptureService.UserCaptureSaved
     summary: |
       Fires when the user saves a capture.
@@ -406,5 +481,6 @@ events:
     tags: []
     deprecation_message: ''
     security: None
-    capabilities: []
+    capabilities:
+      - Capture
 callbacks: []

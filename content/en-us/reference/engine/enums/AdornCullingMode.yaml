@@ -5,7 +5,7 @@
 name: AdornCullingMode
 type: enum
 summary: |
-  Culling method used for Adorns.
+  Culling method used for adornments.
 description: |
   Used by `Class.HandleAdornment` to determine how it is culled.
 code_samples: []

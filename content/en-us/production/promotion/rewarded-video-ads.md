@@ -3,7 +3,7 @@ title: Rewarded video ads
 description: Immersive ads allow you insert ad units into your experience that programmatically serve ad content.
 ---
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/-HYByqvW2uc" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/-HYByqvW2uc" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 <br /><br />
 
@@ -27,7 +27,7 @@ Before implementing rewarded video ads, consider where inside your experience yo
 
 <br /><br />
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/Jpj0VnA-jmI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/Jpj0VnA-jmI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 <br /><br />
 
@@ -56,7 +56,7 @@ After implementation, you can use [analytics](#analytics) to understand key metr
 
 To set up a rewarded video ad inside your experience:
 
-1. In Studio, go to **Game Settings** ⟩ **Monetization**.
+1. In Studio, go to **File** ⟩ **Experience Settings** ⟩ **Monetization**.
 2. Check the **Enable Rewarded Video Ads** checkbox.
   <img src="../../assets/promotion/ads-manager/EnableRewardedVideoAdsToggle.png" width="750" />
 3. Select the reward you want to grant the user. If the reward doesn't already exist, [create a new developer product in the Creator Hub](../monetization/developer-products.md#create-a-developer-product). This developer product must have been created for the specific universe the place is in.
@@ -220,13 +220,13 @@ local adButton = Instance.new("TextButton", screenGui)
 
 -- Register the button with AdService
 local success, err = pcall(function()
--- The second parameter is an optional Placement ID (UUID) parameter generated in the Creator Hub.
--- If you choose not to provide a Placement ID, the ad opportunity is tracked under the default placement.
-  AdService:RegisterAdOpportunityAsync(adButton, "123e4567-e89b-12d3-a456-426614174000")
+	-- The second parameter is an optional Placement ID (Number) parameter generated in the Creator Hub.
+	-- If you choose not to provide a Placement ID, the ad opportunity is tracked under the default placement.
+	AdService:RegisterAdOpportunityAsync(adButton, 1234567891234567)
 end)
 
 if not success then
-  warn("Failed to register ad opportunity:", err)
+	warn("Failed to register ad opportunity:", err)
 end
 ```
 
@@ -334,7 +334,7 @@ To prevent abuse of the rewarded ad system and to provide the best user experien
 <tbody>
   <tr>
     <th>**Experiences**</th>
-    <td>Experiences must:<br/><br/><ul><li>Be public and unrestricted.</li><li>Offer no free-form user creation or AI interaction.</li><li>Have a complete [Maturity & Compliance questionnaire](../promotion/content-maturity.md).</li><li>Have an average of at least **2 thousand unique visitors per month**.</li><li>Comply with the Roblox [terms of use](https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use), [community standards](https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards), and [publisher integrity requirements](https://en.help.roblox.com/hc/en-us/articles/13722260778260-Advertising-Standards#publisher-integrity).</li></ul></td>
+    <td>Experiences must:<br/><br/><ul><li>Be public and unrestricted.</li><li>Offer no free-form user creation.</li><li>Have a complete **Maturity and Compliance Questionnaire** that has been reviewed and approved by Roblox. If the review status is **Pending**, you can request a re-review from the experience's advertising eligibility page under **Monetization** ⟩ **Ads** ⟩ **Eligiblity**. You'll receive a response within 24 hours.</li><li>Have an average of at least **2,000 unique visitors per month**.</li><li>Comply with the [Roblox terms of use](https://en.help.roblox.com/hc/en-us/articles/115004647846-Roblox-Terms-of-Use), [community standards](https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards), and [publisher integrity requirements](https://en.help.roblox.com/hc/en-us/articles/13722260778260-Advertising-Standards#publisher-integrity).</li></ul></td>
   </tr>
   <tr>
     <th>**Publishers**</th>
@@ -342,12 +342,18 @@ To prevent abuse of the rewarded ad system and to provide the best user experien
   </tr>
   <tr>
     <th>**Rewards**</th>
-    <td>The reward for watching a video ad should:<br/><br/><ul><li>Be granted upon completion of a video ad view.</li><li>Be a developer product which would normally be available to purchase with Robux inside an in-experience shop.</li><li>Not inflate currency or unbalance the game economy.</li></ul>The right reward strategy is critical. See [Best practices](#best-practices) for more guidance on choosing the right reward for your video ad.</td>
+    <td>The reward for watching a video ad should:<br/><br/><ul><li>Be granted upon completion of a video ad view.</li><li>Be a developer product which would normally be available to purchase with Robux inside an in-experience shop.</li><li>Not inflate currency or unbalance the experience's economy.</li></ul>The right reward strategy is critical. See [Best practices](#best-practices) for more guidance on choosing the right reward for your video ad.</td>
   </tr>
 </tbody>
 </table>
 
-Any violation of the eligilibity requirements can result in account suspension, removal of content, revocation of ad payouts, or loss of eligibility to earn from ads.
+<Alert severity="info">
+  Resubmitting your **Maturity and Compliance Questionnaire** will temporarily remove your ads eligibility while the questionnaire is under review. To avoid repeated interruptions, only resubmit the questionnaire when you publish an experience update that changes your previous responses.
+</Alert>
+
+<Alert severity="warning">
+  Any violation of the eligilibity requirements can result in account suspension, removal of content, revocation of ad payouts, or loss of eligibility to earn from ads.
+</Alert>
 
 ## Best practices
 
@@ -361,7 +367,7 @@ To get the most out of your rewarded video ad, make sure to:
 For the best reward strategy, we recommend that your rewards:
 
 - Have prominent reward prompts to ensure all eligible users engage with the video.
-- Be relevant to the gameplay and align with core game mechanics. For example, extra lives in a battle game or new customization options in a roleplaying game.
+- Be relevant to the gameplay and align with core experience mechanics. For example, extra lives in a battle experience or new customization options in a roleplaying game.
 - Be scaled so that they remain valuable to users as they advance through the experience.
 - Motivate the user by offering in-experience progression, collection, customization, or competition.
 - Be offered at strategic moments, like after the user loses a life or after they complete a difficult level.

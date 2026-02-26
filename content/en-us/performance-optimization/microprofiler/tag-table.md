@@ -3,7 +3,9 @@ title: Tag reference
 description: A list of tags for the MicroProfiler.
 ---
 
-The following is a list of common tags in the [MicroProfiler](./index.md), grouped by category. Understanding these tags can help you identify problematic code in your experience. The tables contain tag label, descriptions, and advice for improving performance and optimizing your experience.
+The following is a list of common tags in the [MicroProfiler](./index.md), grouped by category. Tags are also interchangeably called tasks, timers, scopes, processes, and labels. Whatever the name, they represent a unit of work.
+
+Understanding these tags can help you identify problematic code in your experience. The tables contain tag label, descriptions, and advice for improving performance and optimizing your experience.
 
 ## Sleep
 
@@ -439,7 +441,9 @@ When threads aren't actively performing tasks, they enter a sleep state, with ta
   </tr>
   <tr>
     <td>Render/PreRender/UpdateUILayouts/Layout</td>
-    <td>Updates position and size for UI elements in an individual `Class.LayerCollector`</td>
+    <td>
+      Updates position and size for UI elements in an individual `Class.LayerCollector`. Can contain a label with information about the relevant UI, along with the amount of Relayouts, Updates and Resizes.
+    </td>
     <td>Reduce the amount of UI elements being resized or repositioned, such as those managed by `Class.UILayout` and those tweened with `Class.TweenService`, `Class.GuiObject:TweenSize()`, or `Class.GuiObject:TweenPosition()`. Consider using fixed sizes for `Class.BillboardGui|BillboardGuis`.</td>
   </tr>
 </tbody>

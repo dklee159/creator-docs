@@ -6,7 +6,7 @@ description: Comments are text that the Luau parser ignores at runtime.
 A **comment** is text that the Luau parser ignores at runtime.
 
 <Alert severity="info">
-Roblox Studio has a similarly-named [comments](../projects/collaboration.md#studio-comments) feature that is unrelated to code comments in Luau.
+Roblox Studio has a similarly-named [comments](../projects/collaboration.md#comments) feature that is unrelated to code comments in Luau.
 </Alert>
 
 ## Single-line comments
@@ -70,7 +70,7 @@ The `--!optimize` directive controls the optimization level of the Luau compiler
 
 - 0 disables optimizations.
 - 1 enables basic optimizations (default in Studio testing).
-- 2 enables further optimizations (default in live games).
+- 2 enables further optimizations (default in live experiences).
 
 Exact optimizations aren't published and are subject to change. We recommend using the default values unless you have a specific reason not to.
 

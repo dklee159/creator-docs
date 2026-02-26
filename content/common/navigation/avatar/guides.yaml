@@ -55,12 +55,14 @@ navigation:
         section:
           - title: Overview
             path: /art/characters/facial-animation/
-          - title: In Studio
+          - title: Validation process
+            path: /art/characters/head-validation
+          - title: Head specifications
+            path: /art/characters/head-specifications
+          - title: Face cage optimizations
+            path: /art/characters/face-caging-best-practices
+          - title: Testing in Studio
             path: /art/characters/facial-animation/use-heads-in-studio
-          - title: Head animation
-            path: /art/characters/facial-animation/animate-heads
-          - title: Moods
-            path: /art/characters/facial-animation/moods
           - title: FACS poses reference
             path: /art/characters/facial-animation/facs-poses-reference
   - title: Emotes
@@ -83,8 +85,6 @@ navigation:
         path: /makeup/reassign-textures
       - title: Import into Studio
         path: /makeup/import
-      - title: Face cage optimizations
-        path: /makeup/face-caging-best-practices
   - title: Publish
     section:
       - title: Overview

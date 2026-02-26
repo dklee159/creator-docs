@@ -45,6 +45,23 @@ properties:
       can_save: true
     capabilities:
       - Input
+  - name: InputBinding.ClampMagnitudeToOne
+    summary: ''
+    description: ''
+    code_samples: []
+    type: boolean
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Composite Directions
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Input
   - name: InputBinding.Down
     summary: |
       Specifies an alternate `Enum.KeyCode` for dispatching directionally "down"
@@ -174,6 +191,23 @@ properties:
       can_save: true
     capabilities:
       - Input
+  - name: InputBinding.PointerIndex
+    summary: ''
+    description: ''
+    code_samples: []
+    type: int
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Input
   - name: InputBinding.PressedThreshold
     summary: |
       Numerical value above which to fire an `Class.InputAction` with a
@@ -189,6 +223,38 @@ properties:
       be clamped to `Class.InputBinding.ReleasedThreshold|ReleasedThreshold`.
     code_samples: []
     type: float
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Input
+  - name: InputBinding.PrimaryModifier
+    summary: |
+      Specifies a primary `Enum.KeyCode` that must be pressed for the binding to
+      activate.
+    description: |
+      Specifies a `Enum.KeyCode` that serves as a required modifier for the
+      binding. The `Class.InputBinding` will only trigger the parent
+      `Class.InputAction` if this input is pressed prior to
+      `Class.InputBinding.KeyCode|KeyCode`,
+      `Class.InputBinding.UIButton|UIButton`, or composite directions.
+
+      There is no ordering requirement between
+      `Class.InputBinding.PrimaryModifier|PrimaryModifier` and
+      `Class.InputBinding.SecondaryModifier|SecondaryModifier`. If both
+      properties are set, both modifiers must be pressed to activate the
+      binding, but the order in which they are pressed does not matter.
+
+      If set to `Enum.KeyCode.Unknown`, no primary modifier is required.
+    code_samples: []
+    type: KeyCode
     tags: []
     deprecation_message: ''
     security:
@@ -305,6 +371,38 @@ properties:
       `Enum.InputActionType|Direction2D`, or `Enum.InputActionType|Direction3D`.
     code_samples: []
     type: float
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Input
+  - name: InputBinding.SecondaryModifier
+    summary: |
+      Specifies a secondary `Enum.KeyCode` that must be pressed for the binding
+      to activate.
+    description: |
+      Specifies a `Enum.KeyCode` that serves as a required modifier for the
+      binding. The `Class.InputBinding` will only trigger the parent
+      `Class.InputAction` if this input is pressed prior to
+      `Class.InputBinding.KeyCode|KeyCode`,
+      `Class.InputBinding.UIButton|UIButton`, or composite directions.
+
+      There is no ordering requirement between
+      `Class.InputBinding.PrimaryModifier|PrimaryModifier` and
+      `Class.InputBinding.SecondaryModifier|SecondaryModifier`. If both
+      properties are set, both modifiers must be pressed to activate the
+      binding, but the order in which they are pressed does not matter.
+
+      If set to `Enum.KeyCode.Unknown`, no secondary modifier is required.
+    code_samples: []
+    type: KeyCode
     tags: []
     deprecation_message: ''
     security:

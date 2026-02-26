@@ -9,11 +9,11 @@ summary: |
   Allows sending HTTP requests and provides various web-related and JSON
   methods.
 description: |
-  `HttpService` allows HTTP requests to be sent from game servers using
+  `HttpService` allows HTTP requests to be sent from experience servers using
   `Class.HttpService:RequestAsync()|RequestAsync`,
   `Class.HttpService:GetAsync()|GetAsync` and
-  `Class.HttpService:PostAsync()|PostAsync`. This service allows games to be
-  integrated with third-party web services such as analytics, data storage,
+  `Class.HttpService:PostAsync()|PostAsync`. This service allows experiences to
+  be integrated with third-party web services such as analytics, data storage,
   remote server configuration, error reporting, advanced calculations, or
   real-time communication. Additionally, it can call a subset of the Open Cloud
   APIs.
@@ -61,9 +61,10 @@ properties:
       `Class.HttpService:RequestAsync()`.
 
       This property must be toggled on through the
-      [Game Settings](../../../studio/game-settings.md) interface in Studio, or
-      for **unpublished** experiences by setting this property to `true` using
-      the [Command Bar](../../../studio/ui-overview.md#command-bar):
+      [Experience Settings](../../../studio/experience-settings.md) interface in
+      Studio, or for **unpublished** experiences by setting this property to
+      `true` using the
+      [Command Bar](../../../studio/ui-overview.md#command-bar):
 
       `game:GetService("HttpService").HttpEnabled = true`
     code_samples: []
@@ -299,8 +300,9 @@ methods:
       JSON. This may cause problems if you want to use the outputted JSON
       elsewhere.
 
-      This method also accepts `Library.buffer|buffers`, which it encodes to
-      base64 (and often compresses) before converting to a JSON object.
+      This method also accepts `Library.buffer|buffers` up to 50 MiB, which it
+      encodes to base64 (and often compresses) before converting to a JSON
+      object.
 
       To reverse the encoding process and decode a JSON object, use the
       `Class.HttpService:JSONDecode()` method.
@@ -428,6 +430,12 @@ methods:
                   <td><code>Enum.HttpCompression</code></td>
                   <td>no</td>
                   <td>An optional compression field that will compress the data in the request. The value can either be <code>Enum.HttpCompression.None</code> or <code>Enum.HttpCompression.Gzip</code>.</td>
+              </tr>
+              <tr>
+                  <td><code>Timeout</code></td>
+                  <td>Integer</td>
+                  <td>no</td>
+                  <td>An optional timeout value in seconds to make requests time out more quickly. Values must be greater than zero and no greater than the default request timeout. This can be useful when debugging hanging requests.</td>
               </tr>
           </tbody>
       </table>

@@ -40,7 +40,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.AssetId
     summary: |
       The asset ID that should be applied when applying this
@@ -61,7 +61,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Instance
     summary: |
       A reference to the `Class.Instance` that should be applied when applying
@@ -84,14 +84,15 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.IsLayered
     summary: |
       Whether the `Class.Accessory` is layered or rigid.
     description: |
-      Whether the `Class.Accessory` is layered or rigid. This will be updated
-      after calling `Class.Humanoid:ApplyDescriptionAsync()` if this property
-      doesn't match the actual `Class.Accessory` contents.
+      Whether the `Class.Accessory` is layered or rigid. This is intended to be
+      read-only. It will be corrected after calling
+      `Class.Humanoid:ApplyDescriptionAsync()` if this property doesn't match
+      the actual `Class.Accessory` contents.
     code_samples: []
     type: boolean
     tags: []
@@ -105,7 +106,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Order
     summary: |
       The layered clothing sort order, if the `Class.Accessory` is layered.
@@ -125,7 +126,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Position
     summary: |
       The accessory adjustment position offset, if the `Class.Accessory` is
@@ -146,7 +147,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Puffiness
     summary: |
       The layered clothing puffiness, if the `Class.Accessory` is layered.
@@ -166,7 +167,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Rotation
     summary: |
       The accessory adjustment rotation offset, if the `Class.Accessory` is
@@ -187,7 +188,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
   - name: AccessoryDescription.Scale
     summary: |
       The accessory adjustment scale, if the `Class.Accessory` is rigid.
@@ -207,7 +208,7 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - Avatar
+      - AvatarAppearance
 methods:
   - name: AccessoryDescription:GetAppliedInstance
     summary: |
@@ -226,6 +227,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - Avatar
+      - AvatarAppearance
 events: []
 callbacks: []

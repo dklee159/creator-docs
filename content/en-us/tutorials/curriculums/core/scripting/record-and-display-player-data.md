@@ -5,7 +5,7 @@ next: /tutorials/curriculums/core/scripting/create-player-hazards
 prev: /tutorials/curriculums/core/scripting/script-game-behavior
 ---
 
-<iframe width="880" height="495" src="https://www.youtube-nocookie.com/embed/bfWTFFFcLXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="880" height="495" src="https://www.youtube-nocookie.com/embed/bfWTFFFcLXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
 <br/>
 
@@ -372,7 +372,7 @@ data. To update **CoinService**:
 ## Playtest
 
 It's time to see if the coin collection is working as intended. When you touch
-and collect a coin in the game, you should be able to see the amount of coins
+and collect a coin in the 3D world, you should be able to see the amount of coins
 you've collected on the leaderboard UI. To playtest your experience:
 
 1. Choose **Test** from the dropdown menu and click the **Play** button to its right to begin the playtest.

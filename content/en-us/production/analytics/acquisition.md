@@ -5,7 +5,7 @@ description: Explains how to interpret and improve acquisition metrics for your 
 
 **Acquisition** measures where new and returning users are coming from and how well they convert.
 
-When acquiring users to your experience, such as announcing an in-game event or creating ad campaigns, make sure your experience has good [retention](./retention.md) and [engagement](./engagement.md) to ensure a healthy user population and game experience.
+When acquiring users to your experience, such as announcing an in-game event or creating ad campaigns, make sure your experience has good [retention](./retention.md) and [engagement](./engagement.md).
 
 ## View acquisition metrics
 
@@ -64,15 +64,15 @@ Here's a list of all the available acquisition sources:
   </tr>
   <tr>
     <td>Sponsored ads</td>
-    <td>Acquisition from [sponsored experiences](../promotion/ads-manager.md#sponsored-experiences) and **Sponsored Takeovers** on **Home**</td>
+    <td>Acquisition from [sponsored experiences](../promotion/ads-manager.md) and **Sponsored Takeovers** on **Home**</td>
   </tr>
   <tr>
     <td>Search ads</td>
-    <td>Acquisition from [search ads](../promotion/search-ads.md)</td>
+    <td>Acquisition from [search ads](../promotion/ads-manager.md)</td>
   </tr>
   <tr>
     <td>Portal ads</td>
-    <td>Acquisition from [portal ads](../promotion/ads-manager.md#portal-ads)</td>
+    <td>Acquisition from [portal ads](../monetization/immersive-ads.md#portal-ads)</td>
   </tr>
   <tr>
     <td>Teleport</td>

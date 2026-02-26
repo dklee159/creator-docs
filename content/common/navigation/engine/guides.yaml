@@ -144,6 +144,8 @@ navigation:
                 path: /physics/constraints/torque
               - title: LineForce
                 path: /physics/constraints/line-force
+              - title: Animation
+                path: /physics/constraints/animation
           - title: Sleep system
             path: /physics/sleep-system
           - title: Adaptive timestepping
@@ -179,8 +181,8 @@ navigation:
             path: /workspace/collisions
           - title: Raycasting
             path: /workspace/raycasting
-          # - title: Bézier Curves
-          #   path: /docs/mechanics/bezier-curves
+      - title: Model generation
+        path: /parts/model-generation
   - title: Scripting
     path: /scripting/
     section:
@@ -215,8 +217,22 @@ navigation:
             path: /luau/native-code-gen
           - title: Script capabilities
             path: /scripting/capabilities
-          - title: Security tactics and cheat mitigation
+      - title: Security
+        section:
+          - title: General principles
             path: /scripting/security/security-tactics
+          - title: Defensive design tactics
+            path: /scripting/security/defensive-design
+          - title: Securing the client-server boundary
+            path: /scripting/security/client-server-boundary
+          - title: Network ownership
+            path: /scripting/security/network-ownership
+          - title: Access control and confidentiality
+            path: /scripting/security/access-control
+          - title: Third-party asset vulnerability
+            path: /scripting/security/third-party-vulnerabilities
+          - title: Server-side detection and consequencing
+            path: /scripting/security/server-side-detection
       - title: Luau reference
         path: /luau/
         section:
@@ -294,6 +310,8 @@ navigation:
         path: /characters/adaptive-animation
       - title: Emotes
         path: /characters/emotes
+      - title: Moods
+        path: /art/characters/facial-animation/moods
       - title: Pathfinding
         path: /characters/pathfinding
       - title: Name and health display
@@ -520,7 +538,7 @@ navigation:
   - title: Cloud services
     path: /cloud-services/data-stores-vs-memory-stores
     section:
-      - title: Data stores vs memory stores
+      - title: Choose between cloud services
         path: /cloud-services/data-stores-vs-memory-stores
       - title: Data stores
         path: /cloud-services/data-stores/

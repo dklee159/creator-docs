@@ -4,7 +4,7 @@ description: Makeup is a cosmetic look made up of multiple facial textures and o
 ---
 
 <Alert severity ='warning'>
-Makeup is currently in beta and is not yet available for sale or implementation in-experience. The information provided is subject to change and is intended to prepare creators for the final release. For the latest news and updates, see the [DevForum announcement](https://devforum.roblox.com/t/studio-beta-introducing-avatar-makeup/3973764).
+This feature is currently in beta. Enable it through **File** ⟩ **Beta Features** ⟩ **Avatar Makeup**. The information provided is subject to change and is intended to prepare creators for the final release. For the latest news and updates, see the [DevForum announcement](https://devforum.roblox.com/t/studio-beta-introducing-avatar-makeup/3973764).
 </Alert>
 
 ## Import into Studio
@@ -41,7 +41,7 @@ These instructions apply specifically to the Makeup test place, available in the
 
 ## Test with Avatar Setup
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/rHkHXl4Qkpg" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/rHkHXl4Qkpg" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 <br />
 
 You can also use the Avatar Setup tool to preview makeup assets without playtesting.

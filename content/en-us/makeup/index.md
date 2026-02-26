@@ -3,11 +3,10 @@ title: Makeup
 description: Makeup is a cosmetic look made up of multiple facial textures and optional eyebrow and eyelashes.
 ---
 
-**Makeup** is a cosmetic look available for Roblox characters that allows additional expression, allowing you to add elements like eyeshadow, lipstick, scars, glitter, and blush. This feature uses a combination of specialized facial textures and optional eyebrow and eyelash mesh assets.
-
 <Alert severity ='warning'>
-Makeup is currently in beta and is not yet available for sale or implementation in-experience. The information provided is subject to change and is intended to prepare creators for the final release. For the latest news and updates, see the [DevForum announcement](https://devforum.roblox.com/t/studio-beta-introducing-avatar-makeup/3973764).
+This feature is currently in beta. Enable it through **File** ⟩ **Beta Features** ⟩ **Avatar Makeup**. The information provided is subject to change and is intended to prepare creators for the final release. For the latest news and updates, see the [DevForum announcement](https://devforum.roblox.com/t/studio-beta-introducing-avatar-makeup/3973764).
 </Alert>
+**Makeup** is a cosmetic look available for Roblox characters that allows additional expression, allowing you to add elements like eyeshadow, lipstick, scars, glitter, and blush. This feature uses a combination of specialized facial textures and optional eyebrow and eyelash mesh assets.
 
 <center>
 <figure>
@@ -232,4 +231,39 @@ A comprehensive `.zip` folder of `.fbx` and `.gltf` assets, including multiple r
       </CardActions>
     </Card>
   </Grid>
+</Grid>
+
+### Reference experience
+
+<Grid container alignItems="stretch" style={{}}>
+  <Grid item xs={12} md={6} lg={4} style={{ padding: 6, display: 'flex' }}>
+    <Card style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+      <CardContent style={{ flexGrow: 1 }}>
+        <center>Reference place file (download)</center>
+        <figure>
+          <center>
+            <img src="../assets/art/Generic-Icon.png" width="100%" />
+          </center>
+        </figure>
+        <figure>
+          At this time, you can only test makeup on the downloadable placefile.
+          <br />
+          In Github, select the download icon on the right-side to download the 'MakeupBeta.zip'.
+        </figure>
+      </CardContent>
+      <CardActions style={{ width: '100%' }}>
+        <Button
+          href="https://github.com/Roblox/avatar/blob/main/Makeup/MakeupBeta.zip"
+          fullWidth
+          size="large"
+          color="primary"
+          variant="contained"
+          style={{ marginBottom: '4px' }}
+        >
+          Github link
+        </Button>
+      </CardActions>
+    </Card>
+  </Grid>
+
 </Grid>

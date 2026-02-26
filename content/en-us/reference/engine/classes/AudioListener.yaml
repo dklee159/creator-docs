@@ -121,23 +121,6 @@ properties:
       can_save: true
     capabilities:
       - Audio
-  - name: AudioListener.PositionOverride
-    summary: ''
-    description: ''
-    code_samples: []
-    type: Instance
-    tags: []
-    deprecation_message: ''
-    security:
-      read: RobloxEngineSecurity
-      write: RobloxEngineSecurity
-    thread_safety: ReadSafe
-    category: Data
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities:
-      - Audio
   - name: AudioListener.SimulationFidelity
     summary: |
       Controls how detailed the audio simulation should be for this
@@ -223,10 +206,12 @@ methods:
       - name: pin
         type: string
         default:
-        summary: ''
+        summary: |
+          An input or output pin on this instance
     returns:
       - type: Instances
-        summary: ''
+        summary: |
+          An array of `Class.Wire|Wires`
     tags: []
     deprecation_message: ''
     security: None
@@ -255,13 +240,20 @@ methods:
     capabilities:
       - Audio
   - name: AudioListener:GetInputPins
-    summary: ''
-    description: ''
+    summary: |
+      Gets the list of pins that `Class.Wire` can use in `Class.Wire.TargetName`
+      to connect to this instance via its `Class.Wire.TargetInstance` property.
+    description: |
+      Gets the list of pins that `Class.Wire` can use in `Class.Wire.TargetName`
+      to connect to this instance via its `Class.Wire.TargetInstance` property.
+
+      For `Class.AudioListener`, there are none.
     code_samples: []
     parameters: []
     returns:
       - type: Array
-        summary: ''
+        summary: |
+          An array of strings representing valid pin names.
     tags: []
     deprecation_message: ''
     security: None
@@ -288,13 +280,20 @@ methods:
     capabilities:
       - Audio
   - name: AudioListener:GetOutputPins
-    summary: ''
-    description: ''
+    summary: |
+      Gets the list of pins that `Class.Wire` can use in `Class.Wire.SourceName`
+      to connect to this instance via its `Class.Wire.SourceInstance` property.
+    description: |
+      Gets the list of pins that `Class.Wire` can use in `Class.Wire.SourceName`
+      to connect to this instance via its `Class.Wire.SourceInstance` property.
+
+      For `Class.AudioListener`, this is `Output` only.
     code_samples: []
     parameters: []
     returns:
       - type: Array
-        summary: ''
+        summary: |
+          An array of strings representing valid pin names.
     tags: []
     deprecation_message: ''
     security: None

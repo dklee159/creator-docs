@@ -15,6 +15,8 @@ description: |
   Roblox uses the following formula to throttle requests for this API based on
   the number of players in your experience:
   `max requests per minute per experience = 1 + (5 * number_of_concurrent_users)`.
+  You can purchase additional usage using
+  [Extended Services](../../../cloud-services/extended-services.md).
 
   For more information, see
   [Speech-to-text](../../../audio/objects.md#speech-to-text).
@@ -98,16 +100,18 @@ methods:
       pin.
     description: |
       Returns an array of `Class.Wire|Wires` that are connected to the specified
-      pin. `Class.AudioSpeechToText` has one input pin.
+      pin. `Class.AudioSpeechToText` has one "Input" pin.
     code_samples: []
     parameters:
       - name: pin
         type: string
         default:
-        summary: ''
+        summary: |
+          An input or output pin on this instance
     returns:
       - type: Instances
-        summary: ''
+        summary: |
+          An array of `Class.Wire|Wires`
     tags: []
     deprecation_message: ''
     security: None

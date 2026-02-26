@@ -3,6 +3,10 @@ title: Reassign textures
 description: To import custom makeup, replace the existing textures on the head template with your custom textures.
 ---
 
+<Alert severity ='warning'>
+This feature is currently in beta. Enable it through **File** ⟩ **Beta Features** ⟩ **Avatar Makeup**. The information provided is subject to change and is intended to prepare creators for the final release. For the latest news and updates, see the [DevForum announcement](https://devforum.roblox.com/t/studio-beta-introducing-avatar-makeup/3973764).
+</Alert>
+
 To import custom makeup textures, use Blender or Maya to reassign the existing textures on the reference template head to your custom texture images. After replacing the textures, export the entire head model and [import](./import.md) the model into Roblox Studio.
 
 <Alert severity = 'warning'>
@@ -18,7 +22,7 @@ The following are video workflows for various tasks in exporting textures from a
 <Typography variant="label1">Reassigning textures in Blender</Typography>
 </AccordionSummary>
 <AccordionDetails>
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/B0y5fLlwkF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br /><br />
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/B0y5fLlwkF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe><br /><br />
 
 Additional notes:
 
@@ -33,7 +37,7 @@ Additional notes:
 <Typography variant="label1">Reassigning textures in Maya</Typography>
 </AccordionSummary>
 <AccordionDetails>
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/JaX5rcsStvQ" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/JaX5rcsStvQ" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 </AccordionDetails>
 </BaseAccordion>
@@ -43,7 +47,7 @@ Additional notes:
 <Typography variant="label1">Exporting textures from Photoshop</Typography>
 </AccordionSummary>
 <AccordionDetails>
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/0se12PNhVCI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br /><br />
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/0se12PNhVCI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe><br /><br />
 
 Additional notes:
 
@@ -57,7 +61,7 @@ Additional notes:
 <Typography variant="label1">Exporting textures from Substance Painter</Typography>
 </AccordionSummary>
 <AccordionDetails>
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/g79GBh0AcXA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/g79GBh0AcXA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </AccordionDetails>
 </BaseAccordion>
 

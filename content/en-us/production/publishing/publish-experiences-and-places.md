@@ -10,7 +10,7 @@ Places are comparable to scenes in Unity or maps in Unreal Engine.
 </Alert>
 
 <figure>
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/_RxK6l2y7Ac" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/_RxK6l2y7Ac" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 </figure>
 
 Many creators create additional places within an experience to organize assets for different gameplay areas. For example, if you want players to join a dungeon before [teleporting](../../projects/teleport.md) to either a vast desert or spooky island, you can organize the assets for each area into their own place.
@@ -169,23 +169,25 @@ To change the start place:
 ### Make experience public
 
 <Alert severity="warning">
-Before making a new experience public—or updating an existing public experience—you must meet **at least one** of the following requirements:
+To make a new experience public or update an existing public experience, you must:
 
-- Have an account that is [ID-verified](./account-verification.md#verify-through-government-id) **or**
-- Have made a purchase using real currency or a gift card since January 1, 2025
+- Have an account that is at least 48 hours old
+- Complete the [content maturity & compliance](../promotion/content-maturity.md) questionnaire for the specific experience
+- Meet at least one of the following:
+  - Have an [ID-verified account](./account-verification.md#verify-through-government-id) **OR**
+  - Have made a purchase using real currency or a gift card since January 1, 2025
 
-You must also complete the [content maturity & compliance](../promotion/content-maturity.md) questionnaire for this specific experience.
-
-These requirements apply to both **publishing a new experience** and **making updates to an existing public experience**, such as:
+These requirements apply to both **publishing a new experience** and **updating an existing public experience**, including:
 
 - Using **Publish to** or **Publish as** in Studio
 - Publishing a new version of a place within an existing experience
+- Setting your audience to **Public** or **Community members**
+
+You do **not** need to meet these requirements if you keep your experience private or if your audience is set to **Connections**.
 </Alert>
 
 <Alert severity="info">
-   You must meet the public experience requirements if your audience is set to **Public** or **Community members**.
-
-   You do **not** need to meet these requirements if you keep your experience private or set the audience to **Connections**.
+You can make up to **5 private experiences that have never been public before** public per day. This limit resets daily. Making an experience that was already public private and then public again does **not** count toward this limit.
 </Alert>
 
 By default, new experiences are set to **private**, meaning that they are only accessible to you as the creator, to users with **Edit** or **Playtest** access, and to group members with the appropriate [roles and permissions](../../projects/groups.md#roles-and-permissions). To make your experience available to everyone on Roblox, you have to update its privacy settings.

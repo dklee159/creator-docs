@@ -61,7 +61,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Basic
   - name: PolicyService:GetPolicyInfoForPlayerAsync
     summary: |
       Returns policy information about a player based on geolocation, age group,
@@ -91,12 +92,6 @@ methods:
       <td>Boolean</td>
       <td>Any experience that has paid random items.</td>
       <td>When <code>true</code>, the player can <b>not</b> interact with paid random item generators, either via in‑experience currency bought with Robux or Robux directly.</td>
-      </tr>
-      <tr>
-      <td><code>AllowedExternalLinkReferences</code></td>
-      <td>Array</td>
-      <td>Any experience that references external links.</td>
-      <td>A list of external link references such as social media links, handles, or iconography that a player is permitted to see. Possible values include <code>"Discord"</code>, <code>"Facebook"</code>, <code>"Twitch"</code>, <code>"YouTube"</code>, <code>"X"</code>, <code>"GitHub"</code>, and <code>"Guilded"</code>.</td>
       </tr>
       <tr>
       <td><code>IsContentSharingAllowed</code></td>
@@ -133,6 +128,12 @@ methods:
       <td>Boolean</td>
       <td>Any experience that is available in China.</td>
       <td>When <code>true</code>, an experience should enforce compliance changes. See <a href="https://devforum.roblox.com/t/new-programs-available-roblox-china-licensed-to-operate/1023361">this forum post</a> for more information.</td>
+      </tr>
+      <tr>
+      <td><code>AllowedExternalLinkReferences</code></td>
+      <td>Array</td>
+      <td>Not required.</td>
+      <td>This is a legacy field. It always returns an empty array.</td>
       </tr>
       </tbody>
       </table>
@@ -192,6 +193,7 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Basic
 events: []
 callbacks: []

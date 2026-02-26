@@ -99,7 +99,7 @@ To prevent misleading players, please adhere to the following policies. Videos w
 **Spoken Audio** — Added voice-overs, narration, voice chat conversations, and music with lyrics is **not** permitted.
 </Alert>
 <Alert severity="error" variant="outlined">
-**Text, Claims, and Advertisements** — Overlay text sparingly and only to describe gameplay contexts such as "Collect coins to boost jumps." Do not include any text, visuals, or audio that is an advertisement, promotion, or subjective claim, for example "50% off," "Free UGC," or "Best game ever!"
+**Text, Claims, and Advertisements** — Overlay text sparingly and only to describe gameplay contexts such as "Collect coins to boost jumps." Do not include any text, visuals, or audio that is an advertisement, promotion, or subjective claim, for example "50% off" or "Free UGC!".
 </Alert>
 </CardContent>
 </Card>
@@ -178,7 +178,7 @@ After you set up and activate thumbnail personalization, its algorithm shows eac
 
 <br/>
 
-<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/5NvGzKVyKxg" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/5NvGzKVyKxg" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 ### Set up thumbnail personalization
 

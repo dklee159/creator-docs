@@ -1,6 +1,6 @@
 ---
 title: Script Sync
-description: Use Studio's Script Sync feature to edit your Luau scripts in an external text editor.
+description: Use Studio's Script Sync feature to edit your Luau scripts on your local disk using an external text editor or your favorite integrated development environment (IDE).
 ---
 
 import BetaAlert from '../includes/beta-features/beta-alert.md'
@@ -9,7 +9,7 @@ import BetaAlert from '../includes/beta-features/beta-alert.md'
 
 Roblox Studio has a built-in [script editor](../studio/script-editor.md) for editing the code in your Roblox project. The editor includes key features like linting, type checking, autocomplete and collaborative editing.
 
-Many developers, however, have a preferred text editor, such as [Visual Studio Code](https://code.visualstudio.com), [Sublime Text](https://www.sublimetext.com), [Notepad++](https://notepad-plus-plus.org), or [Vim](https://www.vim.org). Popular development environments often have features or plugins that don't exist in Studio. To use an external text editor with Studio, enable the **Script Sync** feature.
+Many developers, however, have a preferred text editor or integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com), [Cursor](https://cursor.com), [Sublime Text](https://www.sublimetext.com), or [Notepad++](https://notepad-plus-plus.org). Popular development environments often have features or plugins that don't exist in Studio. To use an external editor or IDE with Studio, enable the **Script Sync** feature.
 
 Script Sync works by synchronizing the scripts in your [data model](../projects/data-model.md) to text files on your local disk. Changes made to the Luau files on disk are applied to the scripts in Studio, and vice versa. This synchronization means that you can edit a script in an external editor like VS Code and immediately see the change in Studio.
 
@@ -30,7 +30,7 @@ It is currently not possible to control Roblox Studio's debugger from an externa
 1. In the **Explorer**, select one or more folders that you want to sync.
 1. Right-click and select **Script Sync** ⟩ **Sync with Directory**.
 
-   <img src="../assets/scripting/external-tools/script-sync.png" alt="The Explorer window with the Script Sync menu expanded." width="400" />
+   <img src="../assets/studio/explorer/Script-Sync.png" alt="The Explorer window with the Script Sync menu expanded." width="400" />
 
 1. Choose a directory on your computer (or create a new one) and click **Save**.
 1. In Studio, right-click on the folder again and select **Script Sync** ⟩ **Reveal in Explorer** (Windows) or **Reveal in Finder** (macOS).
@@ -39,6 +39,8 @@ It is currently not possible to control Roblox Studio's debugger from an externa
    Alternatively, right-click an individual script in Studio and select **Open in External Editor**.
 
 You can sync individual scripts, but we **highly** recommend syncing folders; if you sync a folder, Script Sync automatically syncs its child folders and scripts, which lets you create, delete, and rename scripts without having to enable syncing each time.
+
+After you set up Script Sync, you almost certainly want to [add an LSP extension](#set-up-a-language-server) to your text editor.
 
 <Alert severity="success">
 You only have to set up syncing once. When you restart Studio and open your place, Script Sync remembers what you were syncing and resumes automatically.

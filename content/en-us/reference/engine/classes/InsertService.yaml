@@ -147,7 +147,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - Basic
   - name: InsertService:GetBaseCategories
     summary: ''
     description: ''
@@ -209,6 +210,35 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities: []
+  - name: InsertService:GetFreeDecals
+    summary: |
+      Retrieves a list of free Decals from the Catalog.
+    description: ''
+    code_samples:
+      - InsertService-GetFreeDecals1
+    parameters:
+      - name: searchText
+        type: string
+        default:
+        summary: |
+          String used to search for free decals in the Catalog.
+      - name: pageNum
+        type: int
+        default:
+        summary: |
+          The page number in the Catalog to return.
+    returns:
+      - type: Array
+        summary: |
+          A single table (of returned free decals) wrapped in a table.
+    tags:
+      - Yields
+      - Deprecated
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - AssetRead
   - name: InsertService:GetFreeDecalsAsync
     summary: |
       Retrieves a list of free Decals from the Catalog.
@@ -265,13 +295,14 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
-  - name: InsertService:GetFreeDecals
+    capabilities:
+      - AssetRead
+  - name: InsertService:GetFreeModels
     summary: |
-      Retrieves a list of free Decals from the Catalog.
+      Retrieves a list of Free Models from the Catalog.
     description: ''
     code_samples:
-      - InsertService-GetFreeDecals1
+      - InsertService-GetFreeModels1
     parameters:
       - name: searchText
         type: string
@@ -286,14 +317,15 @@ methods:
     returns:
       - type: Array
         summary: |
-          A single table (of returned free decals) wrapped in a table.
+          A single table (of returned free models) wrapped in a table.
     tags:
       - Yields
       - Deprecated
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - AssetRead
   - name: InsertService:GetFreeModelsAsync
     summary: |
       Retrieves a list of Free Models from the Catalog.
@@ -348,35 +380,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
-  - name: InsertService:GetFreeModels
-    summary: |
-      Retrieves a list of Free Models from the Catalog.
-    description: ''
-    code_samples:
-      - InsertService-GetFreeModels1
-    parameters:
-      - name: searchText
-        type: string
-        default:
-        summary: |
-          String used to search for free decals in the Catalog.
-      - name: pageNum
-        type: int
-        default:
-        summary: |
-          The page number in the Catalog to return.
-    returns:
-      - type: Array
-        summary: |
-          A single table (of returned free models) wrapped in a table.
-    tags:
-      - Yields
-      - Deprecated
-    deprecation_message: ''
-    security: None
-    thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - AssetRead
   - name: InsertService:GetLatestAssetVersionAsync
     summary: |
       Returns the latest AssetVersionId of an asset for assets created by the
@@ -402,7 +407,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - AssetRead
   - name: InsertService:GetUserCategories
     summary: ''
     description: ''
@@ -596,7 +602,8 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - LoadOwnedAsset
   - name: InsertService:loadAsset
     summary: ''
     description: ''
@@ -640,6 +647,7 @@ methods:
     deprecation_message: ''
     security: None
     thread_safety: Unsafe
-    capabilities: []
+    capabilities:
+      - LoadOwnedAsset
 events: []
 callbacks: []

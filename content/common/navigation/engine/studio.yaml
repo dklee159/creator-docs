@@ -11,7 +11,7 @@ navigation:
     path: /assistant/guide
     section:
       - title: Overview
-        path: /assistant/guide
+        path: /assistant/guide    
       - title: Prompt guide and examples
         path: /assistant/prompt-engineering
   - heading: Building tools
@@ -51,8 +51,8 @@ navigation:
     path: /studio/explorer
   - title: Properties
     path: /studio/properties
-  - title: Game Settings
-    path: /studio/game-settings
+  - title: Experience Settings
+    path: /studio/experience-settings
   - title: Avatar Settings
     path: /studio/avatar-settings
   - heading: Plugins
