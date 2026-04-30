@@ -5,6 +5,8 @@ description: Error codes you might encounter and limits you might hit when using
 
 Requests you make to data stores can fail due to poor connectivity or other issues. To handle errors and return messages with an error code, wrap data store functions in `Global.LuaGlobals.pcall()`.
 
+A failed write call, such as `Class.GlobalDataStore:UpdateAsync()|UpdateAsync()`, means the game server did not receive a successful response. It does not always guarantee that the backend write did not occur. In some failure scenarios, the final write state may be unknown to the caller until it is verified with a follow-up read without cache.
+
 ## Error code reference
 
 <table>
@@ -298,49 +300,49 @@ Requests you make to data stores can fail due to poor connectivity or other issu
   <tr>
     <td></td>
     <td>`StandardReadGameServerThrottled`</td>
-    <td>`StandardRead` request was throttled by game server limits.</td>
+    <td>`StandardRead` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.DataStore:GetAsync()|GetAsync()`, `Class.DataStore:GetVersionAsync()|GetVersionAsync()`, `Class.DataStore:GetVersionAtTimeAsync()|GetVersionAtTimeAsync()`, or the read of `Class.DataStore:UpdateAsync()|UpdateAsync()` on a standard data store exceeded the `StandardRead` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`StandardWriteGameServerThrottled`</td>
-    <td>`StandardWrite` request was throttled by game server limits.</td>
+    <td>`StandardWrite` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.DataStore:SetAsync()|SetAsync()`, `Class.DataStore:IncrementAsync()|IncrementAsync()`, or the write of `Class.DataStore:UpdateAsync()|UpdateAsync()` on a standard data store exceeded the `StandardWrite` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
-    <td>`standardListGameServerThrottled`</td>
-    <td>`StandardList` request was throttled by game server limits.</td>
+    <td>`StandardListGameServerThrottled`</td>
+    <td>`StandardList` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.DataStore:ListKeysAsync()|ListKeysAsync()`, `Class.DataStore:ListVersionsAsync()|ListVersionsAsync()`, or `Class.DataStoreService:ListDataStoresAsync()|ListDataStoresAsync()` on standard data stores exceeded the `StandardList` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`StandardRemoveGameServerThrottled`</td>
-    <td>`StandardRemove` request was throttled by game server limits.</td>
+    <td>`StandardRemove` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.DataStore:RemoveAsync()|RemoveAsync()` on a standard data store exceeded the `StandardRemove` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`OrderedReadGameServerThrottled`</td>
-    <td>`OrderedRead` request was throttled by game server limits.</td>
+    <td>`OrderedRead` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.OrderedDataStore:GetAsync()|GetAsync()` or the read of `Class.OrderedDataStore:UpdateAsync()|UpdateAsync()` on an ordered data store exceeded the `OrderedRead` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`OrderedWriteGameServerThrottled`</td>
-    <td>`OrderedWrite` request was throttled by game server limits.</td>
+    <td>`OrderedWrite` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.OrderedDataStore:SetAsync()|SetAsync()`, `Class.OrderedDataStore:IncrementAsync()|IncrementAsync()`, or the write of `Class.OrderedDataStore:UpdateAsync()|UpdateAsync()` on an ordered data store exceeded the `OrderedWrite` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`OrderedListGameServerThrottled`</td>
-    <td>`OrderedList` request was throttled by game server limits.</td>
+    <td>`OrderedList` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.OrderedDataStore:GetSortedAsync()|GetSortedAsync()` on an ordered data store exceeded the `OrderedList` game server-level rate limit.</td>
   </tr>
   <tr>
     <td></td>
     <td>`OrderedRemoveGameServerThrottled`</td>
-    <td>`OrderedRemove` request was throttled by game server limits.</td>
+    <td>`OrderedRemove` request was throttled by game server limits or the request queue was full.</td>
     <td>A request to `Class.OrderedDataStore:RemoveAsync()|RemoveAsync()` on an ordered data store exceeded the `OrderedRemove` game server-level rate limit.</td>
   </tr>
 </tbody>
@@ -358,6 +360,11 @@ Requests you make to data stores can fail due to poor connectivity or other issu
 </thead>
 <tbody>
   <tr>
+    <td>`DatastoreDeleted`</td>
+    <td>The data store is deleted.</td>
+    <td>An operation on the data store could not occur because the data store was previously deleted.</td>
+  </tr>
+  <tr>
     <td>`DatastoreThrottled`</td>
     <td>The request rate exceeds the allowed maximum for the `datastore`.</td>
     <td>Too many requests were sent to a single data store. </td>
@@ -366,6 +373,11 @@ Requests you make to data stores can fail due to poor connectivity or other issu
     <td>`InternalServerError`</td>
     <td>An internal server error occurred.</td>
     <td>Occasional error on Roblox servers. Try again, ideally with exponential backoff.</td>
+  </tr>
+  <tr>
+    <td>`InvalidExclusiveStartKey`</td>
+    <td>The provided exclusive start key is not valid.</td>
+    <td>The exclusive start key (cursor) provided to a list operation such as `Class.DataStore:ListKeysAsync()|ListKeysAsync()` is not valid.</td>
   </tr>
   <tr>
     <td>`InvalidPlace`</td>
@@ -458,66 +470,7 @@ Requests in a queue are handled in the order they are received. The called funct
 
 Each queue has a limit of 30 requests. When the limit of a queue is reached, requests fail with an error code in the 301-306 range, indicating that the requests have been dropped entirely.
 
-### Server limits
-
-<Tabs>
-<TabItem label="Server limits">
-  Each server is allowed a certain number of data store requests based on the request type and number of users. Servers often receive a one-time allotment of additional requests when they first start up. Use `Class.DataStoreService:GetRequestBudgetForRequestType()|GetRequestBudgetForRequestType()` to confirm the number of data store requests that the current place can make.
-
-For each request type, the limit is shared among all listed functions.
-
-  <table>
-  <thead>
-    <tr>
-      <th>Request type</th>
-      <th>Functions</th>
-      <th>Requests per minute</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Get</b></td>
-      <td>`Class.GlobalDataStore:GetAsync()|GetAsync()`</td>
-      <td>60 + numPlayers × 10</td>
-    </tr>
-    <tr>
-      <td><b>Set</b></td>
-      <td>`Class.DataStore:SetAsync()|SetAsync()`<br></br>`Class.DataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.DataStore:UpdateAsync()|UpdateAsync()`<br></br>`Class.DataStore:RemoveAsync()|RemoveAsync()`</td>
-      <td>60 + numPlayers × 10</td>
-    </tr>
-    <tr>
-      <td><b>Get Sorted</b></td>
-      <td>`Class.OrderedDataStore:GetSortedAsync()|GetSortedAsync()`</td>
-      <td>5 + numPlayers × 2</td>
-    </tr>
-    <tr>
-      <td><b>Ordered Set</b></td>
-      <td>`Class.OrderedDataStore:SetAsync()|SetAsync()`<br></br>`Class.OrderedDataStore:IncrementAsync()|IncrementAsync()`<br></br>`Class.OrderedDataStore:UpdateAsync()|UpdateAsync()`<br></br>`Class.OrderedDataStore:RemoveAsync()|RemoveAsync()`</td>
-      <td>30 + numPlayers × 5</td>
-    </tr>
-    <tr>
-      <td><b>Get Version</b></td>
-      <td>`Class.DataStore:GetVersionAsync()|GetVersionAsync()`<br></br>`Class.DataStore:GetVersionAtTimeAsync()|GetVersionAtTimeAsync()`</td>
-      <td>5 + numPlayers × 2</td>
-    </tr>
-    <tr>
-      <td><b>List</b></td>
-      <td>`Class.DataStoreService:ListDataStoresAsync()|ListDataStoresAsync()`<br></br>`Class.DataStore:ListKeysAsync()|ListKeysAsync()`<br></br>`Class.DataStore:ListVersionsAsync()|ListVersionsAsync()`</td>
-      <td>5 + numPlayers × 2</td>
-    </tr>
-    <tr>
-      <td><b>Remove Version</b></td>
-      <td>`Class.DataStore:RemoveVersionAsync()|RemoveVersionAsync()`</td>
-      <td>5 + numPlayers × 2</td>
-    </tr>
-  </tbody>
-  </table>
-</TabItem>
-<TabItem label="Future limits">
-
-<Alert severity="info">
-The limits described below will be active starting in April 2026.
-</Alert>
+### Access limits
 
 Data stores are subject to both <b>experience and server-level limits</b>. Experience-level limits scale with total concurrent users across the experience, while server-level limits are configurable and meant to be used as a tool by the creator.
 
@@ -692,9 +645,6 @@ The following **default rate limits** apply if the API is not called:
     Data store requests made in Studio Run mode are subject to a separate set of static limits, which may be lower than the limits configured with `Class.DataStoreService:SetRateLimitForRequestType()|SetRateLimitForRequestType()`. When testing rate limits, we recommend using Studio Team Create instead.
   </Alert>
 
-</TabItem>
-</Tabs>
-
 ### Data limits
 
 Data stores limit how much data can be used per entry.
@@ -794,17 +744,10 @@ In addition to the above throughput limits, Roblox organizes data into partition
 
 ### Storage limits
 
-<Tabs>
-<TabItem label="Storage limits">
-  Currently, there are no enforced storage limits on data stores.
-</TabItem>
-<TabItem label="Future storage limits">
-  In the future, to provide a scalable and stable storage experience, data stores will implement an experience-level storage limit on your storage usage.
+In the future, to provide a scalable and stable storage experience, data stores will implement an experience-level storage limit on your storage usage.
 
 This limit will be the sum of a base limit for each of your experiences and a per-user limit based on the number of lifetime users in your experience. A lifetime user is any user who has joined your experience at least once.
 
 The storage limit will be calculated using the formula `Total latest version storage limit = 100 MB + 1 MB * lifetime user count`.
 
 Any data that you delete or replace, even if still accessible through version APIs, will not count towards your experience's storage usage.
-</TabItem>
-</Tabs>

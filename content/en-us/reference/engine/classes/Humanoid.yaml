@@ -84,8 +84,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.AutomaticScalingEnabled
     summary: |
       When Enabled, AutomaticScalingEnabled causes the size of the character to
@@ -165,8 +165,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.BreakJointsOnDeath
     summary: |
       Determines whether the humanoid's joints break when in the
@@ -187,7 +187,6 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.CameraOffset
     summary: |
@@ -216,7 +215,6 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.CollisionType
     summary: |
@@ -238,8 +236,7 @@ properties:
     serialization:
       can_load: true
       can_save: true
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid.DisplayDistanceType
     summary: |
       Controls the distance behavior of the humanoid's name and health display.
@@ -363,8 +360,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.FloorMaterial
     summary: |
       Describes the `Enum.Material` that the `Class.Humanoid` is currently
@@ -416,8 +413,8 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.Health
     summary: |
       Describes the current health of the Humanoid on the range [0,
@@ -474,7 +471,6 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.HealthDisplayDistance
     summary: |
@@ -584,6 +580,7 @@ properties:
       can_save: true
     capabilities:
       - AvatarAppearance
+    simulationAccess: true
   - name: Humanoid.Jump
     summary: |
       If `true`, the `Class.Humanoid` jumps with an upwards force.
@@ -606,8 +603,8 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.JumpHeight
     summary: |
       Provides control over the height that the `Class.Humanoid` jumps to.
@@ -638,8 +635,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.JumpPower
     summary: |
       Determines how much upwards force is applied to the `Class.Humanoid` when
@@ -674,8 +671,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.LeftLeg
     summary: |
       A reference to the humanoid's _Left Leg_ part.
@@ -700,7 +697,7 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
+      - AvatarBehavior
   - name: Humanoid.MaxHealth
     summary: |
       The maximum value of a humanoid's `Class.Humanoid.Health|Health`.
@@ -726,7 +723,6 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.maxHealth
     summary: ''
@@ -748,7 +744,7 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
+      - AvatarBehavior
   - name: Humanoid.MaxSlopeAngle
     summary: |
       The maximum slope angle that a humanoid can walk on without slipping.
@@ -777,7 +773,6 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.MoveDirection
     summary: |
@@ -805,8 +800,8 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.NameDisplayDistance
     summary: |
       Used in conjunction with the `Class.Humanoid.DisplayDistanceType` property
@@ -890,7 +885,6 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.RequiresNeck
     summary: |
@@ -914,7 +908,6 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.RightLeg
     summary: |
@@ -940,7 +933,7 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
+      - AvatarBehavior
   - name: Humanoid.RigType
     summary: |
       Describes whether this `Class.Humanoid` is utilizing the legacy R6
@@ -973,16 +966,30 @@ properties:
       - AvatarAppearance
   - name: Humanoid.RootPart
     summary: |
-      A reference to the humanoid's **HumanoidRootPart** object.
+      A reference to the humanoid's `HumanoidRootPart` object.
     description: |
-      A reference to the humanoid's **HumanoidRootPart** object, the root
-      driving part of the `Class.Humanoid` that controls a humanoid's movement
-      through the 3D world. This part is normally invisible.
+      A reference to the humanoid's `HumanoidRootPart` object. The
+      `HumanoidRootPart` is required for all assemblies that include a
+      `Class.Humanoid` and is the primary driving part of the `Class.Humanoid`
+      that controls a humanoid's movement through the 3D world. This part is
+      normally invisible and typically resides in the local origin center of the
+      character model.
 
-      For R15 characters, `Class.Model.PrimaryPart` of the
-      `Class.Player.Character` model is set to **HumanoidRootPart**.
+      The `HumanoidRootPart` is included in all platform-wide avatar characters,
+      and automatically created when a character model is imported into Studio.
+      It's possible to manually add a `HumanoidRootPart` to a model by adding a
+      `Class.Part` named `HumanoidRootPart` and ensuring it's the root part of
+      the assembly.
 
-      For R6 characters, `Class.Model.PrimaryPart` is set to the `Head` part.
+      Use this property to reference the specific `HumanoidRootPart` without
+      searching the model hierarchy. You can get or set the `Class.CFrame` of
+      this part to change position or reorient the entire character model.
+
+      For R15 or higher-fidelity characters, the `Class.Model.PrimaryPart` of
+      the `Class.Player.Character` model is also set to `HumanoidRootPart`.
+
+      While R6 characters also include a `HumanoidRootPart`, the R6 characters,
+      `Class.Model.PrimaryPart` is set to the `Head` part.
     code_samples: []
     type: BasePart
     tags:
@@ -998,8 +1005,8 @@ properties:
       can_load: false
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.SeatPart
     summary: |
       A reference to the seat that a `Class.Humanoid` is currently sitting in,
@@ -1029,8 +1036,8 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.Sit
     summary: |
       Describes whether the `Class.Humanoid` is currently sitting.
@@ -1061,8 +1068,8 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.TargetPoint
     summary: |
       Describes the 3D position where the `Class.Player` controlling the
@@ -1093,7 +1100,6 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Torso
     summary: |
@@ -1120,7 +1126,7 @@ properties:
       can_load: true
       can_save: false
     capabilities:
-      - AvatarAppearance
+      - AvatarBehavior
   - name: Humanoid.UseJumpPower
     summary: |
       Determines whether the `Class.Humanoid.JumpHeight|JumpHeight` (false) or
@@ -1146,8 +1152,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.WalkSpeed
     summary: |
       Describes the humanoid's maximum movement speed in studs per second.
@@ -1187,8 +1193,8 @@ properties:
       can_load: true
       can_save: true
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid.WalkToPart
     summary: |
       A reference to a part whose position is trying to be reached by a
@@ -1224,7 +1230,6 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.WalkToPoint
     summary: |
@@ -1256,8 +1261,8 @@ properties:
       can_load: false
       can_save: false
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
 methods:
   - name: Humanoid:AddAccessory
     summary: |
@@ -1325,8 +1330,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:AddStatus
     summary: |
       Adds a BoolValue to the Humanoid's _Status_ object.
@@ -1351,8 +1355,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:ApplyDescription
     summary: |
       Makes the character's look match that of the passed in
@@ -1387,7 +1390,9 @@ methods:
   - name: Humanoid:ApplyDescriptionAsync
     summary: |
       Makes the character's look match that of the passed in
-      `Class.HumanoidDescription`.
+      `Class.HumanoidDescription`. If `HumanoidDescription.UseAvatarSettings` is
+      true, the Avatar Settings for the experience will also be applied to the
+      character.
     description: |
       This yielding method makes the character's look match that of the passed
       in `Class.HumanoidDescription`. A copy of the passed
@@ -1544,7 +1549,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:ChangeState
     summary: |
@@ -1595,8 +1599,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:EquipTool
     summary: |
       Makes the `Class.Humanoid` equip the given `Class.Tool`.
@@ -1626,7 +1630,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:GetAccessories
     summary: |
@@ -1726,7 +1729,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:GetLimb
     summary: |
@@ -1766,7 +1768,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:GetMoveVelocity
     summary: ''
@@ -1781,7 +1782,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:GetPlayingAnimationTracks
     summary: |
@@ -1809,7 +1809,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
+      - Animation
   - name: Humanoid:GetState
     summary: |
       Returns the humanoid's current `Enum.HumanoidStateType`.
@@ -1833,8 +1833,8 @@ methods:
     security: None
     thread_safety: Safe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:GetStateEnabled
     summary: |
       Returns whether a `Enum.HumanoidStateType` is enabled for the
@@ -1873,8 +1873,8 @@ methods:
     security: None
     thread_safety: Safe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:GetStatuses
     summary: |
       Returns a table of the Humanoid's statuses, and custom statuses.
@@ -1894,8 +1894,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:HasCustomStatus
     summary: |
       Returns boolean based on if custom statuses exist.
@@ -1919,8 +1918,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:HasStatus
     summary: |
       Returns a boolean based on if a status exists.
@@ -1943,8 +1941,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:LoadAnimation
     summary: |
       Loads an `Class.Animation` onto a `Class.Humanoid`, returning an
@@ -1971,7 +1968,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
+      - Animation
+    simulationAccess: true
   - name: Humanoid:loadAnimation
     summary: ''
     description: ''
@@ -1992,7 +1990,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
+      - Animation
+    simulationAccess: true
   - name: Humanoid:Move
     summary: |
       Causes the `Class.Humanoid` to walk in the given direction.
@@ -2046,8 +2045,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:MoveTo
     summary: |
       Causes the `Class.Humanoid` to attempt to walk to the given location by
@@ -2107,8 +2106,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:PlayEmote
     summary: |
       Plays emotes and returns if was successfully ran.
@@ -2133,7 +2132,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:PlayEmoteAsync
     summary: |
@@ -2159,7 +2157,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:RemoveAccessories
     summary: |
@@ -2212,8 +2209,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:RemoveStatus
     summary: |
       Removes the defined status from the Status model in the Humanoid.
@@ -2237,8 +2233,7 @@ methods:
       not use it for new work.
     security: None
     thread_safety: Unsafe
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid:ReplaceBodyPartR15
     summary: |
       Dynamically replaces a Humanoid body part with a different part.
@@ -2310,8 +2305,8 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
+    simulationAccess: true
   - name: Humanoid:TakeDamage
     summary: |
       Lowers the `Class.Humanoid.Health` of the `Class.Humanoid` by the given
@@ -2358,7 +2353,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid:takeDamage
     summary: ''
@@ -2380,7 +2374,7 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
+      - AvatarBehavior
   - name: Humanoid:UnequipTools
     summary: |
       Unequips any `Class.Tool` currently equipped by the `Class.Humanoid`.
@@ -2408,7 +2402,6 @@ methods:
     security: None
     thread_safety: Unsafe
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
 events:
   - name: Humanoid.AnimationPlayed
@@ -2445,7 +2438,7 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
+      - Animation
   - name: Humanoid.ApplyDescriptionFinished
     summary: ''
     description: ''
@@ -2495,7 +2488,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.CustomStatusAdded
     summary: |
@@ -2516,8 +2508,7 @@ events:
       library which would have allowed you to add conditions to a Humanoid. Do
       not use it for new work.
     security: None
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid.CustomStatusRemoved
     summary: |
       Fired when a status is removed from the Humanoid.
@@ -2537,8 +2528,7 @@ events:
       library which would have allowed you to add conditions to a Humanoid. Do
       not use it for new work.
     security: None
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid.Died
     summary: |
       Fires when the `Class.Humanoid` dies.
@@ -2558,7 +2548,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.FallingDown
     summary: |
@@ -2584,7 +2573,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.FreeFalling
     summary: |
@@ -2614,7 +2602,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.GettingUp
     summary: |
@@ -2646,7 +2633,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.HealthChanged
     summary: |
@@ -2673,7 +2659,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Jumping
     summary: |
@@ -2703,7 +2688,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.MoveToFinished
     summary: |
@@ -2737,7 +2721,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.PlatformStanding
     summary: |
@@ -2769,7 +2752,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Ragdoll
     summary: |
@@ -2801,7 +2783,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Running
     summary: |
@@ -2834,7 +2815,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Seated
     summary: |
@@ -2876,7 +2856,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.StateChanged
     summary: |
@@ -2914,7 +2893,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.StateEnabledChanged
     summary: |
@@ -2951,7 +2929,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.StatusAdded
     summary: |
@@ -2972,8 +2949,7 @@ events:
       library which would have allowed you to add conditions to a Humanoid. Do
       not use it for new work.
     security: None
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid.StatusRemoved
     summary: |
       Fired when a status is removed from the Humanoid.
@@ -2993,8 +2969,7 @@ events:
       library which would have allowed you to add conditions to a Humanoid. Do
       not use it for new work.
     security: None
-    capabilities:
-      - AvatarAppearance
+    capabilities: []
   - name: Humanoid.Strafing
     summary: |
       Fires when the `Class.Humanoid` enters or leaves the `StrafingNoPhysics`
@@ -3028,7 +3003,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Swimming
     summary: |
@@ -3063,7 +3037,6 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
   - name: Humanoid.Touched
     summary: |
@@ -3116,6 +3089,5 @@ events:
     deprecation_message: ''
     security: None
     capabilities:
-      - AvatarAppearance
       - AvatarBehavior
 callbacks: []

@@ -36,7 +36,9 @@ You can import custom audio through the [Asset Manager](../projects/assets/manag
 - Its sample rate is less than or equal to 48 kHz.
 - Its channels are set to mono or stereo 2.0, 3.0, or 5.1 surround.
 
-If you're [ID verified](../production/publishing/account-verification.md), you can import 100 free audio assets per 30 days; if you're unverified, you can import 10 free audio assets per 30 days. Studio assigns each new audio asset a **unique asset ID** that you can use within your experiences to [play the audio](../audio/objects.md).
+If you're [ID verified](../production/publishing/account-verification.md), you can import 2,000 free audio assets per 30 days; if you're unverified, you can import 100 free audio assets per 30 days. If a daily import limit exists, it's removed and replaced with a simplified monthly limit.
+
+Studio assigns each new audio asset a **unique asset ID** that you can use within your experiences to [play the audio](../audio/objects.md).
 
 <Tabs>
   <TabItem key = "1" label="Asset Manager">
@@ -103,4 +105,4 @@ To import audio through an HTTP request:
   </TabItem>
 </Tabs>
 
-After the audio assets pass moderation, you can reuse them in any project on the platform. Although you are initially the only one who can view and use private audio assets, the [asset privacy](../projects/assets/privacy.md) system lets you grant usage permissions to specific connections and experiences.
+After the audio assets pass moderation, you can reuse them in any project on the platform. Although you are initially the only one who can view and use private audio assets, the [asset privacy](../projects/assets/privacy.md) system lets you grant usage permissions to specific friends and experiences.

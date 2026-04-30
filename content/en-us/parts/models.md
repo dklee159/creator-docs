@@ -108,19 +108,20 @@ To prevent parts that have fallen off of an experience's map from continuing to 
 
 ## Model streaming
 
-Instance [streaming](../workspace/streaming.md) dynamically loads and unloads `Class.Model|Models` on a player's device as their character explores the 3D world. With streaming enabled, you can specify the way each model should be treated under streaming behavior. For example, a model set to [Persistent](../workspace/streaming.md#persistent) will never stream out, or a model set to [Atomic](../workspace/streaming.md#atomic) will stream in and out as a single unit with all of its descendants. For more information, see [Per-model streaming controls](../workspace/streaming.md#per-model-streaming-controls).
+Instance [streaming](../workspace/streaming/index.md) dynamically loads and unloads `Class.Model|Models` on a player's device as their character explores the 3D world. With streaming enabled, you can specify the way each model should be treated under streaming behavior. For example, a model set to [Persistent](../workspace/streaming/index.md#persistent) will never stream out, or a model set to [Atomic](../workspace/streaming/index.md#atomic) will stream in and out as a single unit with all of its descendants. For more information, see [per-model streaming controls](../workspace/streaming/index.md#per-model-streaming-controls).
 
-Because the 3D content that exists on the client changes dynamically in a streaming-enabled experience, models might suddenly disappear, which can be visually jarring for the player. To avoid this situation, you can set specific models to render as optimized "SLIM" meshes or as lower resolution "imposter" meshes when streamed out. See [Model level of detail](../workspace/streaming.md#model-level-of-detail).
+Because the 3D content that exists on the client changes dynamically in a streaming-enabled experience, models might suddenly disappear, which can be visually jarring for the player. To avoid this situation, you can set specific models to render as optimized "SLIM" meshes or as lower resolution "imposter" meshes when streamed out. See [model level of detail](../workspace/streaming/techniques.md#set-model-level-of-detail).
 
 ## Upload models
 
-When you upload or import a `.gltf`, `.fbx` and `.obj` model file to the cloud using the [3D Importer](../art/accessories/creating-rigid/importing.md), Roblox represents it as a cloud-based asset with a unique corresponding ID. This cloud-based asset system allows you to store models through Roblox and reuse them across the platform in various contexts without maintaining local copies as part of each saved Studio experience.
+When you upload or import a `.gltf`, `.fbx` and `.obj` model file to the cloud using the [Importer](../art/accessories/creating-rigid/importing.md), Roblox represents it as a cloud-based asset with a unique corresponding ID. This cloud-based asset system allows you to store models through Roblox and reuse them across the platform in various contexts without maintaining local copies as part of each saved Studio experience.
 
 To upload a model you made in Studio:
 
 1. In the **Explorer** window, right-click your model. A contextual menu displays.
 2. Select **Save to Roblox**. The **Asset Configuration** window displays.
 3. In the **Asset Configuration** window,
+
    1. Set **Content Type** to **Development Item**.
    1. Set **Asset Category** to **Model**.
    1. Complete the following fields:
@@ -132,25 +133,23 @@ To upload a model you made in Studio:
 
    1. Click the **Save** button. After a moment, the **Asset Configuration** window displays your model's asset ID that you can use in your projects or share with other creators, groups, or experiences. For more information on granting permission to collaborators and experiences so that they can use your models, see [Asset privacy](../projects/assets/privacy.md)
 
-## Distribute models
+## Distribute and sell models
 
-You can distribute models with less than 15,000 dependencies to the [Creator Store](../production/creator-store.md) for other creators to use within their own experiences as long as each model only references:
+You can publicly distribute and sell your own models on the Creator Store for United States Dollars (USD), as long as the models have less than 15,000 dependencies. Each of these dependencies must be an:
 
-- Open use assets.
-- Restricted assets that you created, excluding audio and video.
-- Audio and video assets from the Creator Store.
+- Open use asset or a restricted asset that you created, excluding audio and video.
+- Audio or video asset that you acquired from the Creator Store.
 
-If you are in a supported country, you can sell models you created on the Creator Store for **United States Dollars** (USD). Eligible Creators must complete an application form through Stripe to create their seller account, set prices, and receive payouts. For more information and to start onboarding, see [Sell on the Creator Store](../production/sell-on-creator-store.md).
+This monetization method lets you earn 100% of net proceeds on transactions, bypassing platform fees and DevEx rates. For more information on asset and seller requirements, including how to set up a seller account to set prices and receive payouts, see [Creator Store - Requirements](../production/creator-store.md#requirements).
 
-<Alert severity="warning">
+<Alert severity="info">
 If you want to distribute a model with a child audio asset that you created, you must distribute the audio asset on the Creator Store **_before_** making it a child of the model in order for the audio to be audible at runtime.
 </Alert>
 
-As with any asset, all models must adhere to the [Community Rules](https://en.help.roblox.com/hc/articles/203313410), [Terms of Use](https://en.help.roblox.com/hc/articles/115004647846), the [DMCA Guidelines](../production/publishing/dmca-guidelines.md) regarding copyright, and Creator Store [asset moderation](../production/creator-store.md#asset-moderation) rules. If you suspect a rights violation involving your asset, you can submit the content for removal using the [Rights Manager](../production/publishing/rights-manager.md).
+When creating models for the Creator Store, ensure:
 
-When creating models for the Creator Store:
-
-- Read about Roblox [texture specifications and limits](../art/modeling/texture-specifications.md).
-- Limit each mesh to a maximum of 20,000 triangles.
-- Read and address any warnings shown during the import process.
-- Scale and orient your model appropriately during import so that it's usable out of the box when inserted from the Creator Store.
+- The model and its dependencies adhere to the [Community Rules](https://en.help.roblox.com/hc/articles/203313410), [Terms of Use](https://en.help.roblox.com/hc/articles/115004647846), [DMCA Guidelines](../production/publishing/dmca-guidelines.md), and Creator Store requirements.
+- The model is set to a reasonable scale and orientation so that it's usable out of the box when inserted from the Creator Store.
+- All of the model's dependencies import into Studio without any warnings.
+- Each mesh dependency contains no more than 20,000 triangles.
+- Each texture dependency meets Roblox's [texture specifications](../art/modeling/texture-specifications.md).

@@ -92,6 +92,7 @@ properties:
     capabilities:
       - Physics
       - Environment
+    simulationAccess: true
   - name: Workspace.AirTurbulenceIntensity
     summary: |
       Controls the strength of turbulence present in the wind velocity field,
@@ -128,6 +129,7 @@ properties:
     capabilities:
       - Physics
       - Environment
+    simulationAccess: true
   - name: Workspace.AllowThirdPartySales
     summary: |
       Determines whether assets created by other users can be sold in the game.
@@ -168,8 +170,16 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.AvatarUnificationMode
-    summary: ''
-    description: ''
+    summary: |
+      Enables the R6 to R15 adapter, allowing R15 avatars to join R6
+      experiences.
+    description: |
+      When `Enum.AvatarUnificationMode.Enabled`, R15 avatars can join R6
+      experiences via the R6 to R15 adapter. R15 characters receive invisible
+      adapter parts with R6-compatible names welded to their corresponding R15
+      parts, preserving R6-like scale and movement while enabling R15 features
+      such as layered clothing and animatable heads. Only relevant when the
+      experience's avatar type is set to R6.
     code_samples: []
     type: AvatarUnificationMode
     tags:
@@ -325,8 +335,16 @@ properties:
     capabilities:
       - Basic
   - name: Workspace.FallHeightEnabled
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether parts that fall below
+      `Class.Workspace.FallenPartsDestroyHeight` are automatically destroyed.
+    description: |
+      When `false`, the kill plane defined by
+      `Class.Workspace.FallenPartsDestroyHeight` is disabled and falling parts
+      are not automatically removed. Defaults to `true`.
+
+      This property can be read by scripts but can only be set by plugins, the
+      command bar, or the properties window in Studio.
     code_samples: []
     type: boolean
     tags: []
@@ -413,6 +431,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: Workspace.Gravity
     summary: |
       Determines the acceleration due to gravity applied to falling
@@ -438,6 +457,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: Workspace.IKControlConstraintSupport
     summary: |
       Enables support for constraints for IKControls. If disabled, IKControls
@@ -461,8 +481,12 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.InsertPoint
-    summary: ''
-    description: ''
+    summary: |
+      The world position at which new objects are placed when inserted from the
+      toolbox.
+    description: |
+      Stores the world-space position used when inserting new objects into the
+      workspace via the Studio IDE.
     code_samples: []
     type: Vector3
     tags:
@@ -499,8 +523,13 @@ properties:
     capabilities:
       - Physics
   - name: Workspace.LayeredClothingCacheOptimizations
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether layered clothing cache optimizations are enabled.
+    description: |
+      Controls whether the engine caches layered clothing rendering data to
+      improve performance for experiences with many characters wearing layered
+      clothing. `Enum.RolloutState|Default` follows the current engine-wide
+      rollout state.
     code_samples: []
     type: RolloutState
     tags:
@@ -514,10 +543,14 @@ properties:
     serialization:
       can_load: true
       can_save: true
-    capabilities: []
+    capabilities:
+      - AvatarAppearance
   - name: Workspace.LuauTypeCheckMode
-    summary: ''
-    description: ''
+    summary: |
+      Sets the Luau type checking mode for scripts in the experience.
+    description: |
+      Controls the Luau type checking mode applied to scripts in the experience.
+      See `Enum.LuauTypeCheckMode` for the available modes.
     code_samples: []
     type: LuauTypeCheckMode
     tags: []
@@ -539,7 +572,7 @@ properties:
       Sets whether character Heads and Accessories should be downloaded as
       `Class.MeshPart|MeshParts`. The `Default` value is the same as `Enabled`.
       If this feature is enabled, built-in avatars will use
-      `Class.MeshPart|MeshParts` for the character's Head and Accessories.
+      `Class.MeshPart|MeshParts` for the character's head and accessories.
     code_samples: []
     type: MeshPartHeadsAndAccessories
     tags:
@@ -554,9 +587,39 @@ properties:
       can_load: true
       can_save: true
     capabilities: []
+  - name: Workspace.MeshStreamingAndImprovedLods
+    summary: |
+      Controls whether the experience uses the new mesh streaming and improved
+      LOD system.
+    description: |
+      This `Enum.RolloutState` property determines whether the experience uses
+      the new mesh streaming and Wild Mesh Simplifier LOD system. When set to
+      `Enum.RolloutState|Enabled`, mesh requests fetch the lowest quality LOD
+      first and stream in higher detail over time. When set to
+      `Enum.RolloutState|Disabled`, the legacy mesh loading behavior is used.
+      `Enum.RolloutState|Default` follows the current engine-wide rollout state.
+    code_samples: []
+    type: RolloutState
+    tags:
+      - NotScriptable
+    deprecation_message: ''
+    security:
+      read: None
+      write: None
+    thread_safety: ReadSafe
+    category: Behavior
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities: []
   - name: Workspace.ModelStreamingBehavior
-    summary: ''
-    description: ''
+    summary: |
+      Controls how `Class.Model|Models` are replicated in experiences when
+      instance streaming is enabled.
+    description: |
+      This `Enum.ModelStreamingBehavior` property controls how
+      `Class.Model|Models` are replicated in experiences when instance streaming
+      is enabled.
     code_samples: []
     type: ModelStreamingBehavior
     tags:
@@ -567,47 +630,6 @@ properties:
       write: None
     thread_safety: ReadSafe
     category: Streaming
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities: []
-  - name: Workspace.MoverConstraintRootBehavior
-    summary: |
-      Controls the logic used to select the assembly root part when using any of
-      the mover constraints.
-    description: |
-      Controls the logic used to select the assembly root part for mechanisms
-      that use any of the following constraints:
-
-      - `Class.AlignOrientation`
-      - `Class.AlignPosition`
-      - `Class.AngularVelocity`
-      - `Class.LinearVelocity`
-
-      When this property is set to
-      `Enum.MoverConstraintRootBehaviorMode.Enabled`, these constraints will be
-      ignored when selecting the assembly root part if the constraint does not
-      transmit forces between two parts (some examples being
-      `Class.AngularVelocity.ReactionTorqueEnabled` set to `false`,
-      `Class.AlignPosition.ReactionForceEnabled` set to `false`, or
-      `Class.AlignOrientation.Mode` set to
-      `Enum.OrientationAlignmentMode.OneAttachment`).
-
-      When this property is set to
-      `Enum.MoverConstraintRootBehaviorMode.Disabled`, these constraints may be
-      erroneously considered when selecting the assembly root part, leading to
-      inconsistent network ownership and delays when adding these constraints to
-      a mechanism.
-    code_samples: []
-    type: MoverConstraintRootBehaviorMode
-    tags:
-      - NotScriptable
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Behavior
     serialization:
       can_load: true
       can_save: true
@@ -636,8 +658,14 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.PathfindingUseImprovedSearch
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether an improved search algorithm is used by
+      `Class.PathfindingService`.
+    description: |
+      When `Enum.PathfindingUseImprovedSearch|Enabled`,
+      `Class.PathfindingService` uses an improved pathfinding algorithm.
+      `Enum.PathfindingUseImprovedSearch|Default` follows the current
+      engine-wide rollout state.
     code_samples: []
     type: PathfindingUseImprovedSearch
     tags:
@@ -653,8 +681,13 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.PhysicsImprovedSleep
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether the improved partial physics sleep algorithm is enabled.
+    description: |
+      Controls whether the physics engine uses an improved algorithm for partial
+      sleep, the process by which the engine stops simulating parts that are no
+      longer actively moving. Enabling this property can reduce CPU overhead in
+      games with many near-stationary parts.
     code_samples: []
     type: RolloutState
     tags:
@@ -697,8 +730,14 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.PlayerCharacterDestroyBehavior
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether the engine automatically calls `Destroy()` on a player's
+      character when it is replaced and on the `Player` object when the player
+      leaves.
+    description: |
+      When enabled, the engine automatically calls `Destroy()` on a player's old
+      character when it is replaced (for example, on respawn) and on the
+      `Class.Player` object itself when the player leaves the server.
     code_samples: []
     type: PlayerCharacterDestroyBehavior
     tags:
@@ -736,8 +775,12 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.PrimalPhysicsSolver
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether the experimental Primal Physics Solver is enabled.
+    description: |
+      The Primal Physics Solver is an experimental constraint solver that can
+      improve accuracy in complex setup. Setting this property to
+      `Enum.PrimalPhysicsSolver|Experimental` enables it.
     code_samples: []
     type: PrimalPhysicsSolver
     tags:
@@ -753,8 +796,15 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.RejectCharacterDeletions
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether the server rejects attempts by clients to delete player
+      characters from the workspace.
+    description: |
+      When enabled, the server ignores client requests to delete player
+      `Class.Model|character` objects from the workspace, preventing exploits
+      that attempt to abuse this replication path.
+      `Enum.RejectCharacterDeletions|Default` is currently equivalent to
+      `Enabled`.
     code_samples: []
     type: RejectCharacterDeletions
     tags:
@@ -770,8 +820,12 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.RenderingCacheOptimizations
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether rendering cache optimizations are enabled.
+    description: |
+      Controls whether the engine caches rendering state data to reduce
+      redundant per-frame work. When enabled, the renderer can skip recomputing
+      state for static objects, improving frame rates in scenes with many parts.
     code_samples: []
     type: RenderingCacheOptimizationMode
     tags:
@@ -788,8 +842,13 @@ properties:
     capabilities:
       - Physics
   - name: Workspace.ReplicateInstanceDestroySetting
-    summary: ''
-    description: ''
+    summary: |
+      Controls how `Instance:Destroy()` calls are replicated from the server to
+      clients.
+    description: |
+      Determines the replication behavior when `Instance:Destroy()` is called on
+      the server. When `Enum.ReplicateInstanceDestroySetting|Enabled`, the
+      engine uses improved replication semantics for instance destruction.
     code_samples: []
     type: ReplicateInstanceDestroySetting
     tags:
@@ -805,8 +864,13 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.Retargeting
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether animation retargeting is enabled for character
+      animations.
+    description: |
+      Sets the animation retargeting mode. Retargeting adapts animations to
+      character rigs of different proportions, allowing a single animation to
+      play correctly on characters of varying sizes and shapes.
     code_samples: []
     type: AnimatorRetargetingMode
     tags: []
@@ -822,8 +886,11 @@ properties:
     capabilities:
       - Animation
   - name: Workspace.SandboxedInstanceMode
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether sandboxed instance mode (script capabilities) is enabled.
+    description: |
+      When set to `Enum.SandboxedInstanceMode|Experimental`, the engine enables
+      sandboxed instance mode, which lets you use script capabilities.
     code_samples: []
     type: SandboxedInstanceMode
     tags:
@@ -833,7 +900,7 @@ properties:
       read: None
       write: None
     thread_safety: ReadSafe
-    category: Behavior
+    category: Permissions
     serialization:
       can_load: true
       can_save: true
@@ -879,11 +946,11 @@ properties:
     summary: |
       Whether content streaming is enabled for the place.
     description: |
-      The **StreamingEnabled** property determines whether game content
-      streaming is enabled for the place. This property is not scriptable and
-      therefore must be set on the **Workspace** object in Studio.
+      This property determines whether in-experience content streaming is
+      enabled for the place. This property is not scriptable and therefore must
+      be set on the `Workspace` object in Studio.
 
-      See also:
+      #### See also
 
       - `Class.Workspace.StreamingMinRadius`
       - `Class.Workspace.StreamingTargetRadius`
@@ -903,10 +970,10 @@ properties:
     capabilities: []
   - name: Workspace.StreamingIntegrityMode
     summary: |
-      Determines whether StreamingIntegrityMode is active.
+      Determines whether streaming integrity mode is active.
     description: |
-      If instance [streaming](../../../workspace/streaming.md) is enabled, an
-      experience may behave in unintended ways if a player's character moves
+      If instance [streaming](../../../workspace/streaming/index.md) is enabled,
+      an experience may behave in unintended ways if a player's character moves
       into a region of the world that has not been streamed to their client. The
       streaming integrity feature offers a way to avoid those potentially
       problematic situations.
@@ -929,16 +996,15 @@ properties:
       Minimum distance that content will be streamed to players with high
       priority.
     description: |
-      The **StreamingMinRadius** property indicates the radius around the
-      player's character or the current
-      `Class.Player.ReplicationFocus|ReplicationFocus` in which content will be
-      streamed in at the highest priority. Defaults to 64 studs.
+      This property indicates the radius around the player's character or the
+      current `Class.Player.ReplicationFocus|ReplicationFocus` in which content
+      will be streamed in at the highest priority. Defaults to 64 studs.
 
       Care should be taken when increasing the default minimum radius since
       doing so will require more memory and more server bandwidth at the expense
       of other components.
 
-      See also:
+      #### See also
 
       - `Class.Workspace.StreamingEnabled` which controls whether content
         streaming is enabled
@@ -962,15 +1028,14 @@ properties:
     summary: |
       Maximum distance that content will be streamed to players.
     description: |
-      The **StreamingTargetRadius** property controls the maximum distance away
-      from the player's character or the current
-      `Class.Player.ReplicationFocus|ReplicationFocus` in which content will be
-      streamed in. Defaults to 1024 studs.
+      This property controls the maximum distance away from the player's
+      character or the current `Class.Player.ReplicationFocus|ReplicationFocus`
+      in which content will be streamed in. Defaults to 1024 studs.
 
       Note that the engine is allowed to retain previously loaded content beyond
       the target radius, memory permitting.
 
-      See also:
+      #### See also
 
       - `Class.Workspace.StreamingEnabled` which controls whether content
         streaming is enabled
@@ -992,14 +1057,14 @@ properties:
     capabilities: []
   - name: Workspace.StreamOutBehavior
     summary: |
-      Configures how the engine decides when to Stream content away from
+      Configures how the engine decides when to stream content away from
       players.
     description: |
-      The **StreamOutBehavior** controls where content will be unloaded from the
-      `Class.Player.ReplicationFocus|ReplicationFocus` based on device Memory
-      Conditions, or based on Streaming Radius.
+      This property controls where content will be unloaded from the
+      `Class.Player.ReplicationFocus|ReplicationFocus` based on device memory
+      conditions, or based on the streaming radius.
 
-      See also:
+      #### See also
 
       - `Class.Workspace.StreamingEnabled` which controls whether content
         streaming is enabled
@@ -1075,23 +1140,6 @@ properties:
       can_load: true
       can_save: true
     capabilities: []
-  - name: Workspace.TouchEventsUseCollisionGroups
-    summary: ''
-    description: ''
-    code_samples: []
-    type: RolloutState
-    tags:
-      - NotScriptable
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Behavior
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities: []
   - name: Workspace.UseFixedSimulation
     summary: |
       When `true`, enables `Class.RunService:BindToSimulation()` which calls a
@@ -1120,8 +1168,16 @@ properties:
       can_save: true
     capabilities: []
   - name: Workspace.UseNewLuauTypeSolver
-    summary: ''
-    description: ''
+    summary: |
+      Controls whether the new Luau type solver is used for type inference.
+    description: |
+      This `Enum.RolloutState` property controls whether the new Luau type
+      solver is used for type inference and type checking in scripts. The new
+      type solver provides improved accuracy and performance for type analysis.
+      Note that `Class.Workspace.LuauTypeCheckMode` controls the mode (strict,
+      nonstrict, etc.) while this property controls which solver implementation
+      is active. `Enum.RolloutState|Default` follows the current engine-wide
+      rollout state.
     code_samples: []
     type: RolloutState
     tags:
@@ -1222,47 +1278,19 @@ methods:
       Returns an integer, between 0 and 100, representing the percentage of real
       time that physics simulation is currently being throttled to.
     description: |
-      Returns an integer, between 0 and 100, representing the percentage of real
-      time that physics simulation is currently being throttled to.
-
-      This function can be used to determine whether, and to what degree,
-      physics throttling is occurring.
-
-      #### What is physics throttling?
-
-      Physics throttling occurs when the physics engine detects it cannot keep
-      up with the game in real time. When physics is being throttled, it will
-      update less frequently causing `Class.BasePart|BaseParts` to appear to
-      move slower.
-
-      Without throttling, the physics simulation would fall further behind out
-      of sync with the game. This can lead to lower frame rates and other
-      undesirable behavior.
+      Returns an integer, between `0` and `100`, representing the percentage of
+      real time that physics simulation is currently being throttled to. Physics
+      throttling occurs when the physics engine detects it cannot keep up with
+      the game in real time. When physics is being throttled, it will update
+      less frequently causing `Class.BasePart|BaseParts` to appear to move
+      slower.
 
       Objects associated with `Class.Humanoid|Humanoids` are exempt from physics
       throttling.
 
-      See also `Class.Workspace:SetPhysicsThrottleEnabled()`.
+      #### See also
 
-      #### Demonstrating physics throttling
-
-      Developers should always avoid creating places that overload the physics
-      engine, as it leads to sub-par experience for players. Those wishing to
-      simulate physics throttling for research purposes however, need only
-      create a lot of `Class.Part|Parts` very quickly.
-
-      ```
-      local Workspace = game:GetService("Workspace")
-
-      local i = 0
-      while true do
-      	i += 1
-      	if i % 5 == 0 then
-      		task.wait()
-      	end
-      	local part = Instance.new("Part", Workspace)
-      end
-      ```
+      - `Class.Workspace:SetPhysicsThrottleEnabled()`.
     code_samples: []
     parameters: []
     returns:
@@ -1335,7 +1363,7 @@ methods:
       for things like timed rewards, as it is not secure compared to tracking
       such timers on the server.
 
-      See also:
+      #### See also
 
       - `Class.Workspace.DistributedGameTime|DistributedGameTime`, a game-time
         clock

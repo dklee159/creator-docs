@@ -675,6 +675,31 @@ properties:
       can_save: false
     capabilities:
       - Players
+  - name: Player.HasRobloxSubscription
+    summary: |
+      Indicates whether the player has an active Roblox subscription.
+    description: |
+      This read-only property is `true` when the player has an active Roblox
+      subscription (the flagship Roblox membership), and `false` otherwise. It
+      is set by the server and cannot be changed by scripts.
+
+      Use this property instead of `Class.Player.MembershipType` to check for
+      the Roblox subscription.
+    code_samples:
+      - check-roblox-subscription
+    type: boolean
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: RobloxEngineSecurity
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities:
+      - Players
   - name: Player.HasVerifiedBadge
     summary: |
       Indicates if a player has a **Verified** badge.
@@ -715,6 +740,23 @@ properties:
       write: None
     thread_safety: ReadSafe
     category: Camera
+    serialization:
+      can_load: true
+      can_save: true
+    capabilities:
+      - Players
+  - name: Player.InputLatency
+    summary: ''
+    description: ''
+    code_samples: []
+    type: int
+    tags: []
+    deprecation_message: ''
+    security:
+      read: RobloxEngineSecurity
+      write: RobloxEngineSecurity
+    thread_safety: ReadSafe
+    category: Data
     serialization:
       can_load: true
       can_save: true
@@ -762,7 +804,9 @@ properties:
     tags:
       - ReadOnly
       - NotReplicated
-    deprecation_message: ''
+    deprecation_message: |
+      This property is deprecated. Use `Class.Player.HasRobloxSubscription` to
+      check whether a player has an active Roblox subscription.
     security:
       read: None
       write: None
@@ -1155,8 +1199,8 @@ methods:
       - Players
   - name: Player:GetFriendsOnline
     summary: |
-      Returns a dictionary of online connections. Returns the product
-      information of an asset using its asset ID.
+      Returns a dictionary of online friends. Returns the product information of
+      an asset using its asset ID.
     description: ''
     code_samples:
       - how-to-get-a-list-of-online-friends
@@ -1165,11 +1209,11 @@ methods:
         type: int
         default: 200
         summary: |
-          The maximum number of online connections to return.
+          The maximum number of online friends to return.
     returns:
       - type: Array
         summary: |
-          A dictionary of online connections (see the table above).
+          A dictionary of online friends (see the table above).
     tags:
       - Yields
       - Deprecated
@@ -1183,9 +1227,9 @@ methods:
       - Social
   - name: Player:GetFriendsOnlineAsync
     summary: |
-      Returns a dictionary of online connections.
+      Returns a dictionary of online friends.
     description: |
-      This function returns a dictionary array of online connections, using a 30
+      This function returns a dictionary array of online friends, using a 30
       second cache. In the returned array, some fields are only present for
       certain location types; for example, `PlaceId` won't be present when
       `LocationType` is `0` (mobile website).
@@ -1202,47 +1246,47 @@ methods:
               <tr>
                   <td><code>VisitorId</code></td>
                   <td>number</td>
-                  <td>The <code>Class.Player.UserId|UserId</code> of the connection.</td>
+                  <td>The <code>Class.Player.UserId|UserId</code> of the friend.</td>
               </tr>
               <tr>
                   <td><code>UserName</code></td>
                   <td>string</td>
-                  <td>The username of the connection.</td>
+                  <td>The username of the friend.</td>
               </tr>
               <tr>
                   <td><code>DisplayName</code></td>
                   <td>string</td>
-                  <td>The <code>Class.Player.DisplayName|DisplayName</code> of the connection.</td>
+                  <td>The <code>Class.Player.DisplayName|DisplayName</code> of the friend.</td>
               </tr>
               <tr>
                   <td><code>LastOnline</code></td>
                   <td>string</td>
-                  <td>When the connection was last online.</td>
+                  <td>When the friend was last online.</td>
               </tr>
               <tr>
                   <td><code>IsOnline</code></td>
                   <td>boolean</td>
-                  <td>If the connection is currently online.</td>
+                  <td>If the friend is currently online.</td>
               </tr>
               <tr>
                   <td><code>LastLocation</code></td>
                   <td>string</td>
-                  <td>The name of the connection's current location.</td>
+                  <td>The name of the friend's current location.</td>
               </tr>
               <tr>
                   <td><code>PlaceId</code></td>
                   <td>number</td>
-                  <td>The place ID of the connection's last location.</td>
+                  <td>The place ID of the friend's last location.</td>
               </tr>
               <tr>
                   <td><code>GameId</code></td>
                   <td>string</td>
-                  <td>The <code>Class.DataModel.JobId</code> of the connection's last location.</td>
+                  <td>The <code>Class.DataModel.JobId</code> of the friend's last location.</td>
               </tr>
               <tr>
                   <td><code>LocationType</code></td>
                   <td>number</td>
-                  <td>The location type of the connection's last location.</td>
+                  <td>The location type of the friend's last location.</td>
               </tr>
           </tbody>
       </table>
@@ -1253,11 +1297,32 @@ methods:
         type: int
         default: 200
         summary: |
-          The maximum number of online connections to return.
+          The maximum number of online friends to return.
     returns:
       - type: Array
         summary: |
-          A dictionary of online connections (see the table above).
+          A dictionary of online friends (see the table above).
+    tags:
+      - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Players
+      - Social
+  - name: Player:GetFriendsWhoPlayedAsync
+    summary: ''
+    description: |
+      Returns an array of user IDs of any friends who have previously played
+      this game. For example, if a player has had two friends play the game, the
+      method might return `{1111111111, 2222222222}`. If no friends have played
+      this game, the method returns an empty array (`{}`).
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Array
+        summary: |
+          An array of user IDs.
     tags:
       - Yields
     deprecation_message: ''
@@ -1582,7 +1647,7 @@ methods:
       - Players
   - name: Player:IsBestFriendsWith
     summary: |
-      Returns whether a player is connections with the specified user.
+      Returns whether a player is friends with the specified user.
     description: |
       This function was once used to return whether a player is best friends
       with the specified user, but the feature has since been removed.
@@ -1607,7 +1672,7 @@ methods:
       - Players
   - name: Player:IsFriendsWith
     summary: |
-      Checks whether a player is a connection of the user with the given
+      Checks whether a player is a friend of the user with the given
       `Class.Player.UserId`.
     description: ''
     code_samples: []
@@ -1620,7 +1685,7 @@ methods:
     returns:
       - type: boolean
         summary: |
-          A boolean indicating whether a player is a connection of the specified
+          A boolean indicating whether a player is a friend of the specified
           user.
     tags:
       - Yields
@@ -1657,13 +1722,13 @@ methods:
       - Players
   - name: Player:IsFriendsWithAsync
     summary: |
-      Checks whether a player is a connection of the user with the given
+      Checks whether a player is a friend of the user with the given
       `Class.Player.UserId`.
     description: |
-      This method sends a request to Roblox asking whether a player is a
-      connection of another user, given the `Class.Player.UserId|UserId` of that
-      user. This method caches results so multiple calls on the same player with
-      the same `userId` may not yield the most up-to-date result.
+      This method sends a request to Roblox asking whether a player is a friend
+      of another user, given the `Class.Player.UserId|UserId` of that user. This
+      method caches results so multiple calls on the same player with the same
+      `userId` may not yield the most up-to-date result.
     code_samples: []
     parameters:
       - name: userId
@@ -1674,7 +1739,7 @@ methods:
     returns:
       - type: boolean
         summary: |
-          A boolean indicating whether a player is a connection of the specified
+          A boolean indicating whether a player is a friend of the specified
           user.
     tags:
       - Yields
@@ -1986,7 +2051,7 @@ methods:
           will be equipped to the loaded character.
       - name: assetTypeVerification
         type: AssetTypeVerification
-        default:
+        default: Default
         summary: |
           The asset type verification mode.
     returns:
@@ -2031,7 +2096,7 @@ methods:
           will be equipped to the loaded character.
       - name: assetTypeVerification
         type: AssetTypeVerification
-        default:
+        default: Default
         summary: |
           The asset type verification mode.
     returns:
@@ -2233,7 +2298,7 @@ methods:
       Removes a previously added replication focus.
     description: |
       This method removes a replication focus previously added by
-      `Class.Player:AddReplicationFocus()|AddReplicationFocus(). Has no effect
+      `Class.Player:AddReplicationFocus()|AddReplicationFocus()`. Has no effect
       in experiences that are not streaming enabled.
 
       This method should only be called on the server. It has no effect when
@@ -2260,13 +2325,14 @@ methods:
       location.
     description: |
       For experiences where
-      [instance streaming](../../../workspace/streaming.md) is enabled, requests
-      that the server stream to the player regions (parts and terrain) around
-      the specified **X**, **Y**, **Z** location in the 3D world. It is useful
-      if the experience knows that the player's `Datatype.CFrame` will be set to
-      the specified location in the near future. Without providing the location
-      with this call, the player may not have streamed in content for the
-      destination, resulting in a streaming pause or other undesirable behavior.
+      [instance streaming](../../../workspace/streaming/index.md) is enabled,
+      requests that the server stream to the player regions (parts and terrain)
+      around the specified **X**, **Y**, **Z** location in the 3D world. It is
+      useful if the experience knows that the player's `Datatype.CFrame` will be
+      set to the specified location in the near future. Without providing the
+      location with this call, the player may not have streamed in content for
+      the destination, resulting in a streaming pause or other undesirable
+      behavior.
 
       The effect of this call will be temporary and there are no guarantees of
       what will be streamed in around the specified location. Client memory

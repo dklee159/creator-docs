@@ -296,7 +296,7 @@ In the above example, `Images` is the category/folder that appears in the [Asset
 An asset's privacy status determines who has permission to use the asset within their experiences. By default, all assets are **private** when you or your [group](../../projects/groups.md) members import them into Studio. If you want to grant everyone access to the asset ID, you must distribute the asset to the [Creator Store][CreatorMarketplaceURL].
 
 <Alert severity="warning">
-Special privacy rules and workflows apply to **audio** and **video** assets. See [asset privacy](../../projects/assets/privacy.md) for details on sharing these asset types among connections and experiences.
+Special privacy rules and workflows apply to **audio** and **video** assets. See [asset privacy](../../projects/assets/privacy.md) for details on sharing these asset types among friends and experiences.
 </Alert>
 
 ## Asset moderation
@@ -330,7 +330,7 @@ Roblox offers several tools to import, store, and publish your assets:
             <td>Stores every asset that you or your [groups](../../projects/groups.md) have ever imported into Studio, regardless of what experience you currently have open. Also includes assets from the [Creator Store][CreatorMarketplaceURL], allowing you to quickly drop user-generated assets directly into your experiences.</td>
         </tr>
         <tr>
-            <td>[3D Importer](../../art/modeling/3d-importer.md)</td>
+            <td>[Importer](../../studio/importer.md)</td>
             <td>Imports 3D models from third-party modeling tools as a custom `Class.Model` instance. </td>
         </tr>
     </tbody>

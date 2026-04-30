@@ -1047,6 +1047,12 @@ navigation:
                 type: engineapi
                 source: /reference/engine/classes/Folder.yaml
                 ignoreTranslation: true
+                section:
+                  - title: GeneratedFolder
+                    path: /reference/engine/classes/GeneratedFolder
+                    type: engineapi
+                    source: /reference/engine/classes/GeneratedFolder.yaml
+                    ignoreTranslation: true
               - title: ForceField
                 path: /reference/engine/classes/ForceField
                 type: engineapi
@@ -2010,6 +2016,11 @@ navigation:
                                 type: engineapi
                                 source: /reference/engine/classes/Flag.yaml
                                 ignoreTranslation: true
+                      - title: ProceduralModel
+                        path: /reference/engine/classes/ProceduralModel
+                        type: engineapi
+                        source: /reference/engine/classes/ProceduralModel.yaml
+                        ignoreTranslation: true
                       - title: Status
                         path: /reference/engine/classes/Status
                         type: engineapi
@@ -2097,12 +2108,6 @@ navigation:
                     type: engineapi
                     source: /reference/engine/classes/InventoryPages.yaml
                     ignoreTranslation: true
-                    section:
-                      - title: EmotesPages
-                        path: /reference/engine/classes/EmotesPages
-                        type: engineapi
-                        source: /reference/engine/classes/EmotesPages.yaml
-                        ignoreTranslation: true
                   - title: MemoryStoreHashMapPages
                     path: /reference/engine/classes/MemoryStoreHashMapPages
                     type: engineapi
@@ -2217,6 +2222,11 @@ navigation:
                 path: /reference/engine/classes/PluginCapabilities
                 type: engineapi
                 source: /reference/engine/classes/PluginCapabilities.yaml
+                ignoreTranslation: true
+              - title: PluginConnectionService
+                path: /reference/engine/classes/PluginConnectionService
+                type: engineapi
+                source: /reference/engine/classes/PluginConnectionService.yaml
                 ignoreTranslation: true
               - title: PluginDebugService
                 path: /reference/engine/classes/PluginDebugService
@@ -2779,6 +2789,11 @@ navigation:
                 type: engineapi
                 source: /reference/engine/classes/Studio.yaml
                 ignoreTranslation: true
+              - title: StudioDeviceSimulatorService
+                path: /reference/engine/classes/StudioDeviceSimulatorService
+                type: engineapi
+                source: /reference/engine/classes/StudioDeviceSimulatorService.yaml
+                ignoreTranslation: true
               - title: StudioService
                 path: /reference/engine/classes/StudioService
                 type: engineapi
@@ -3314,6 +3329,11 @@ navigation:
             type: engineapi
             source: /reference/engine/classes/MLSession.yaml
             ignoreTranslation: true
+          - title: PluginConnection
+            path: /reference/engine/classes/PluginConnection
+            type: engineapi
+            source: /reference/engine/classes/PluginConnection.yaml
+            ignoreTranslation: true
           - title: TerrainIterateOperation
             path: /reference/engine/classes/TerrainIterateOperation
             type: engineapi
@@ -3338,6 +3358,11 @@ navigation:
             path: /reference/engine/classes/VideoSampler
             type: engineapi
             source: /reference/engine/classes/VideoSampler.yaml
+            ignoreTranslation: true
+          - title: VirtualInput
+            path: /reference/engine/classes/VirtualInput
+            type: engineapi
+            source: /reference/engine/classes/VirtualInput.yaml
             ignoreTranslation: true
           - title: WebStreamClient
             path: /reference/engine/classes/WebStreamClient
@@ -3746,6 +3771,11 @@ navigation:
         path: /reference/engine/enums/AnnotationRequestType
         type: engineapi
         source: /reference/engine/enums/AnnotationRequestType.yaml
+        ignoreTranslation: true
+      - title: AntiAliasing
+        path: /reference/engine/enums/AntiAliasing
+        type: engineapi
+        source: /reference/engine/enums/AntiAliasing.yaml
         ignoreTranslation: true
       - title: AppLifecycleManagerState
         path: /reference/engine/enums/AppLifecycleManagerState
@@ -4251,6 +4281,11 @@ navigation:
         path: /reference/engine/enums/CreateAssetResult
         type: engineapi
         source: /reference/engine/enums/CreateAssetResult.yaml
+        ignoreTranslation: true
+      - title: CreateContentResult
+        path: /reference/engine/enums/CreateContentResult
+        type: engineapi
+        source: /reference/engine/enums/CreateContentResult.yaml
         ignoreTranslation: true
       - title: CreateOutfitFailure
         path: /reference/engine/enums/CreateOutfitFailure
@@ -4992,11 +5027,6 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/MouseBehavior.yaml
         ignoreTranslation: true
-      - title: MoverConstraintRootBehaviorMode
-        path: /reference/engine/enums/MoverConstraintRootBehaviorMode
-        type: engineapi
-        source: /reference/engine/enums/MoverConstraintRootBehaviorMode.yaml
-        ignoreTranslation: true
       - title: MoveState
         path: /reference/engine/enums/MoveState
         type: engineapi
@@ -5142,6 +5172,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/PermissionLevelShown.yaml
         ignoreTranslation: true
+      - title: PhysicalConstraintType
+        path: /reference/engine/enums/PhysicalConstraintType
+        type: engineapi
+        source: /reference/engine/enums/PhysicalConstraintType.yaml
+        ignoreTranslation: true
       - title: PhysicsSimulationRate
         path: /reference/engine/enums/PhysicsSimulationRate
         type: engineapi
@@ -5196,6 +5231,11 @@ navigation:
         path: /reference/engine/enums/PlayerPlatformSpenderStatus
         type: engineapi
         source: /reference/engine/enums/PlayerPlatformSpenderStatus.yaml
+        ignoreTranslation: true
+      - title: PluginConnectionTargetType
+        path: /reference/engine/enums/PluginConnectionTargetType
+        type: engineapi
+        source: /reference/engine/enums/PluginConnectionTargetType.yaml
         ignoreTranslation: true
       - title: PoseEasingDirection
         path: /reference/engine/enums/PoseEasingDirection

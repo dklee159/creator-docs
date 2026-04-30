@@ -171,7 +171,7 @@ You've completed the exporting section of this tutorial. If desired, download a 
 
 ## Import to Studio
 
-Studio's 3D Importer provides a quick and easy way to import third-party 3D assets into your projects. The importer provides object previews and error-checking to ensure that your asset meets Studio's general 3D requirements.
+Studio's Importer provides a quick and easy way to import third-party 3D assets into your projects. The importer provides object previews and error-checking to ensure that your asset meets Studio's general 3D requirements.
 
 To import your asset, check out the latest information on [importing rigid accessories](./importing.md).
 
@@ -190,7 +190,7 @@ For additional information and instructions on this process, see [uploading and 
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/swQW2VS9ZMA" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 <br />
 
-You now have your accessory added to the Marketplace catalog! Use the item's Marketplace link to view your listing at any time, or to send to your connections and followers for additional engagement.
+You now have your accessory added to the Marketplace catalog! Use the item's Marketplace link to view your listing at any time, or to send to your friends and followers for additional engagement.
 
 <img src="../../assets/art/accessories/creating-rigid/Marketplace-Listing.png" />
 

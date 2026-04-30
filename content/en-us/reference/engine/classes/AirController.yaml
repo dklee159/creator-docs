@@ -39,6 +39,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: AirController.BalanceSpeed
     summary: |
       The maximum angular speed used to align the character upright.
@@ -60,25 +61,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
-  - name: AirController.LinearImpulse
-    summary: ''
-    description: ''
-    code_samples: []
-    type: Vector3
-    tags:
-      - Hidden
-      - NotReplicated
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Movement
-    serialization:
-      can_load: false
-      can_save: false
-    capabilities:
-      - Basic
+    simulationAccess: true
   - name: AirController.MaintainAngularMomentum
     summary: |
       Determines whether angular momentum is preserved when input has stopped.
@@ -101,6 +84,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: AirController.MaintainLinearMomentum
     summary: |
       Determines whether linear momentum is preserved when input has stopped.
@@ -123,6 +107,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: AirController.MoveMaxForce
     summary: |
       The maximum force that can be applied on the
@@ -150,6 +135,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: AirController.TurnMaxTorque
     summary: |
       The maximum torque that can be applied on the
@@ -177,6 +163,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: AirController.TurnSpeedFactor
     summary: |
       The value multiplied by the `Class.ControllerManager.BaseTurnSpeed`.
@@ -199,6 +186,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
 methods: []
 events: []
 callbacks: []

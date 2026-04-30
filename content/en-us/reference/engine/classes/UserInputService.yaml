@@ -591,7 +591,9 @@ properties:
     tags:
       - ReadOnly
       - NotReplicated
-    deprecation_message: ''
+    deprecation_message: |
+      This property has been superseded by `Class.VRService.VREnabled` which
+      should be used in all new work.
     security:
       read: None
       write: None
@@ -603,6 +605,32 @@ properties:
     capabilities:
       - Input
 methods:
+  - name: UserInputService:CreateVirtualInput
+    summary: |
+      Creates a `Class.VirtualInput` object that a Studio plugin can use to
+      simulate mouse, keyboard, and pointer input.
+    description: |
+      This method creates a `Class.VirtualInput` object that a Studio plugin can
+      use to simulate mouse, keyboard, and pointer input as if it were performed
+      by a real user. It is intended for plugin-driven testing and automation
+      workflows that need to simulate user interaction inside a running
+      experience.
+
+      Always check that the returned value is not `nil` before calling any
+      methods on it.
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Object
+        summary: |
+          A new `Class.VirtualInput` object, or `nil` if the feature is not
+          available.
+    tags: []
+    deprecation_message: ''
+    security: PluginSecurity
+    thread_safety: Unsafe
+    capabilities:
+      - Input
   - name: UserInputService:GamepadSupports
     summary: |
       Returns whether the given `Enum.UserInputType` gamepad supports a button
@@ -692,7 +720,7 @@ methods:
       gravity vector. The vector is determined by the device's orientation
       relative to the real-world force of gravity. For example:
 
-      - `Datatype.Vector3|Vector3.new(0, 0, -9.18)` if the device is perfectly
+      - `Datatype.Vector3|Vector3.new(0, 0, -9.81)` if the device is perfectly
         upright (portrait)
       - `Datatype.Vector3|Vector3.new(9.81, 0, 0)` if the left side of the
         device is pointing down
@@ -806,7 +834,7 @@ methods:
         summary: |
           The `Enum.UserInputType` corresponding with the gamepad in question.
     returns:
-      - type: Instances
+      - type: List<InputObject>
         summary: |
           An array of `Class.InputObject|InputObjects` representing the current
           state of all available inputs for the given gamepad.
@@ -860,7 +888,7 @@ methods:
     code_samples: []
     parameters: []
     returns:
-      - type: Instances
+      - type: List<InputObject>
         summary: |
           An array of `Class.InputObject|InputObjects` associated with the keys
           currently being pressed.
@@ -918,7 +946,7 @@ methods:
       - UserInputService-GetMouseButtonsPressed
     parameters: []
     returns:
-      - type: Instances
+      - type: List<InputObject>
         summary: |
           An array of `Class.InputObject|InputObjects` corresponding to the
           mouse buttons currently being currently held down.

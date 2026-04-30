@@ -58,7 +58,37 @@ methods:
           The format of the requested ad. For example, `RewardedVideo`.
     returns:
       - type: Dictionary
-        summary: ''
+        summary: |
+          A dictionary with the `Enum.AdAvailabilityResult` for the requested ad
+          format.
+    tags:
+      - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Monetization
+  - name: AdService:GetCampaignEligibilityAsync
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: campaignId
+        type: string
+        default:
+        summary: |
+          The id of the campaign that you want to check a `Player`'s eligibility
+          for.
+      - name: player
+        type: Player?
+        default: nil
+        summary: |
+          The `Player` you want to check eligibility for. If omitted, it will
+          default to `Players.LocalPlayer`.
+    returns:
+      - type: Dictionary
+        summary: |
+          A dictionary that looks like `{ IsEligible: boolean }`.
     tags:
       - Yields
     deprecation_message: ''
@@ -90,6 +120,30 @@ methods:
         summary: ''
     tags:
       - Yields
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Monetization
+  - name: AdService:RegisterDisclosureButton
+    summary: ''
+    description: ''
+    code_samples: []
+    parameters:
+      - name: disclosureButton
+        type: GuiButton
+        default:
+        summary: |
+          The `GuiButton` you want to mark as an ad disclosure.
+      - name: adIntegrationPlacementId
+        type: string
+        default:
+        summary: |
+          The id of the placement that this disclosure is attached to.
+    returns:
+      - type: ()
+        summary: ''
+    tags: []
     deprecation_message: ''
     security: None
     thread_safety: Unsafe

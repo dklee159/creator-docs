@@ -5,7 +5,7 @@ description: An overview of promotional tools you can use to promote your experi
 
 **Promotion** on Roblox allows you to engage a global audience to drive traffic and awareness to your experiences, avatar items, and social media.
 
-All promotional content on the platform must adhere to Roblox's [Community Standards](https://en.help.roblox.com/hc/articles/203313410) and [Terms of Use](https://en.help.roblox.com/hc/en-us/articles/115004647846), and if your promotional content is advertising, it must also adhere to Roblox's [Advertising Standards](https://en.help.roblox.com/hc/articles/13722260778260). For information on how all advertising works on the platform, including details for both advertising campaigns using Roblox's promotion products, and compliant independent advertising campaigns for experiences, see [Advertise on Roblox](../../production/promotion/advertise-on-roblox.md) and [Comply with advertising standards](../../production/promotion/comply-with-advertising-standards.md).
+All promotional content on the platform must adhere to Roblox's [Community Standards](https://en.help.roblox.com/hc/articles/203313410) and [Terms of Use](https://en.help.roblox.com/hc/en-us/articles/115004647846), and if your promotional content is advertising, it must also adhere to Roblox's [Advertising Standards](https://en.help.roblox.com/hc/articles/13722260778260).
 
 ## Experiences
 
@@ -38,11 +38,11 @@ The following table details promotional methods for experiences on the platform.
 	</tr>
 	<tr>
 		<td>**Player invite prompts**</td>
-		<td>[Player invite prompts](../../production/promotion/invite-prompts.md), implemented directly inside your experience, encourage players to invite their connections and increase co‑experience gameplay.</td>
+		<td>[Player invite prompts](../../production/promotion/invite-prompts.md), implemented directly inside your experience, encourage players to invite their friends and increase co‑experience gameplay.</td>
 	</tr>
 	<tr>
-		<td>**Connection invite reward system**</td>
-		<td>The [connection reward invite system](../../production/promotion/referral-system.md) rewards existing users for bringing in new users to your experiences.</td>
+		<td>**Friend invite reward system**</td>
+		<td>The [friend reward invite system](../../production/promotion/referral-system.md) rewards existing users for bringing in new users to your experiences.</td>
 	</tr>
 	<tr>
 		<td>**Experience notifications**</td>

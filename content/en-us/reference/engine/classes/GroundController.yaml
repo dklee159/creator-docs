@@ -14,23 +14,6 @@ descendants: []
 tags: []
 deprecation_message: ''
 properties:
-  - name: GroundController.AccelerationLean
-    summary: ''
-    description: ''
-    code_samples: []
-    type: float
-    tags: []
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Balance
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities:
-      - Basic
   - name: GroundController.AccelerationTime
     summary: |
       Estimated time taken to reach the desired speed.
@@ -53,6 +36,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.BalanceMaxTorque
     summary: |
       The maximum torque used to keep the `Class.ControllerManager.RootPart`
@@ -79,6 +63,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.BalanceSpeed
     summary: |
       The maximum angular speed used to align the
@@ -102,6 +87,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.DecelerationTime
     summary: |
       Estimated time taken to reach a complete stop from full speed.
@@ -124,6 +110,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.Friction
     summary: |
       The coefficient of friction of the character on the ground.
@@ -145,6 +132,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.FrictionWeight
     summary: |
       Amount the character's friction is weighed against the ground friction.
@@ -168,6 +156,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
   - name: GroundController.GroundOffset
     summary: |
       The target distance above the ground to keep the
@@ -192,40 +181,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
-  - name: GroundController.StandForce
-    summary: ''
-    description: ''
-    code_samples: []
-    type: float
-    tags: []
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Movement
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities:
-      - Basic
-  - name: GroundController.StandSpeed
-    summary: ''
-    description: ''
-    code_samples: []
-    type: float
-    tags: []
-    deprecation_message: ''
-    security:
-      read: None
-      write: None
-    thread_safety: ReadSafe
-    category: Movement
-    serialization:
-      can_load: true
-      can_save: true
-    capabilities:
-      - Basic
+    simulationAccess: true
   - name: GroundController.TurnSpeedFactor
     summary: |
       The value multiplied by the `Class.ControllerManager.BaseTurnSpeed`.
@@ -248,6 +204,7 @@ properties:
       can_save: true
     capabilities:
       - Basic
+    simulationAccess: true
 methods: []
 events: []
 callbacks: []

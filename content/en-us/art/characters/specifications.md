@@ -18,7 +18,7 @@ When ready to export, see the [export requirements](../../art/characters/export-
 
 ## Geometry
 
-Avatar character models are made up of 15 separate mesh objects and require additional geometry requirements to import into Studio and publish successfully. In addition to the body [types](#body-scale), [parts](#body-parts), and [budget](#triangle-budgets) specifications, ensure that your models also fulfill the following general requirements when modeling:
+Avatar character models are made up of 15 separate mesh objects and require additional geometry requirements to import into Studio and publish successfully. In addition to the body [scale types](#body-scale), [parts](#body-parts), and [triangle budget](#triangle-budgets) specifications, ensure that your models also fulfill the following general requirements when modeling:
 
 - **Watertight** - All geometry must be watertight without exposed holes or backfaces. Meshes used as outer cages do not need to be watertight.
 - **No N-gons** - Model your assets in quads where possible.
@@ -28,7 +28,7 @@ Avatar character models are made up of 15 separate mesh objects and require addi
 
 ### Body scale
 
-Roblox supports 3 standards of body scales: **Normal**, **Slender**, and **Classic**. These standards allow developers to create experiences and spaces with consistent body sizes for standardizing movement and interaction. You can select a body scale on import using [Rig Scale options](../modeling/3d-importer.md#rig-general), or modify the [body scale manually](../../art/accessories/body-scale.md). Body scale persists when the asset is [uploaded to the Marketplace](../../marketplace/publish-to-marketplace.md#upload-an-asset).
+Roblox supports 3 standards of body scales: **Normal**, **Slender**, and **Classic**. These standards allow developers to create experiences and spaces with consistent body sizes for standardizing movement and interaction. You can select a body scale on import using [Rig Scale options](../../studio/importer.md), or modify the [body scale manually](../../art/accessories/body-scale.md). Body scale persists when the asset is [uploaded to the Marketplace](../../marketplace/publish-to-marketplace.md#upload-an-asset).
 
 <center>
 <figure>
@@ -54,7 +54,7 @@ A Rthro Normal body scale [downloadable mannequin](../../avatar/resources.md#ref
 </figure>
 </center>
 
-In the [3D importer](../../art/modeling/3d-importer.md#avatar-general), use **Rig Type** > **Rthro** to import your model as a Normal body scale.
+In the [Importer](../../studio/importer.md#avatar-general), use **Rig Type** > **Rthro** to import your model as a Normal body scale.
 
 <br />
 
@@ -162,7 +162,7 @@ A Rthro Slender (Narrow) body scale [downloadable mannequin](../../avatar/resour
 </figure>
 </center>
 
-In the [3D importer](../../art/modeling/3d-importer.md#avatar-general), use **Rig Type** > **Rthro Narrow** to import your model as a Slender body scale.
+In the [Importer](../../studio/importer.md#avatar-general), use **Rig Type** > **Rthro Narrow** to import your model as a Slender body scale.
 
 <br />
 
@@ -270,7 +270,7 @@ A Classic body scale [downloadable mannequin](../../avatar/resources.md#referenc
 </figure>
 </center>
 
-In the [3D Importer](../../art/modeling/3d-importer.md#avatar-general), use **Rig Type** > **Default** to import your model as a Classic body scale.
+In the [Importer](../../studio/importer.md#avatar-general), use **Rig Type** > **Default** to import your model as a Classic body scale.
 
 <br />
 
@@ -471,7 +471,7 @@ To ensure that avatar sizes are visually consistent, you must standardize body p
 
 Attachments are points on the humanoid model where rigid accessories attach. Like many [character components](./index.md#components-of-an-avatar), attachment points are set up in third-party modeling software and imported as `Class.Attachment` objects.
 
-The 3D Importer automatically recognizes and converts mesh objects as attachment points if the objects include the affix `\_Att` and follow the naming conventions below. This only applies when importing meshes with caging data, such as bodies (accessory attachment points are created using the Accessory Fitting Tool). Check out examples of this implementation in any of the [downloadable reference models](../../avatar/resources.md#references).
+The Importer automatically recognizes and converts mesh objects as attachment points if the objects include the affix `\_Att` and follow the naming conventions below. This only applies when importing meshes with caging data, such as bodies (accessory attachment points are created using the Accessory Fitting Tool). Check out examples of this implementation in any of the [downloadable reference models](../../avatar/resources.md#references).
 
 Generally, when placing attachment points, position them so they overlap halfway with the character model's mesh part.
 
@@ -602,36 +602,47 @@ Unlike generic rigs, humanoid models require a specific hierarchy and naming con
 
 See the following requirements for humanoid rigging:
 
-- **Rig Hierarchy** - Humanoid rigs require a specific bone hierarchy and naming convention:
+- **Rig Hierarchy** - Humanoid rigs require a specific bone or joint hierarchy and naming convention:
 
   - Root
-  - HumanoidRootNode
-  - LowerTorso
-  - UpperTorso
-  - Head (representing the base of the neck)
-  - LeftUpperArm
-  - LeftLowerArm
-  - LeftHand
-  - RightUpperArm
-  - RightLowerArm
-  - RightHand
-  - LeftUpperLeg
-  - LeftLowerLeg
-  - LeftFoot
-  - RightUpperLeg
-  - RightLowerLeg
-  - RightFoot
+    - HumanoidRootNode
+      - LowerTorso
+        - UpperTorso
+          - Head (representing the base of the neck)
+          - LeftUpperArm
+            - LeftLowerArm
+              - LeftHand
+          - RightUpperArm
+            - RightLowerArm
+              - RightHand
+        - LeftUpperLeg
+          - LeftLowerLeg
+            - LeftFoot
+        - RightUpperLeg
+          - RightLowerLeg
+            - RightFoot
 
-  <GridContainer numColumns="2">
-    <figure>
-      <img src="../../assets/modeling/skinned-meshes/Rig-Hierarchy-Blender.png" />
-      <figcaption>Blender rig hierarchy</figcaption>
-    </figure>
-    <figure>
-      <img src="../../assets/modeling/skinned-meshes/Rig-Hierarchy-Maya.png" />
-      <figcaption>Maya rig hierarchy</figcaption>
-    </figure>
-  </GridContainer>
+<BaseAccordion>
+<AccordionSummary>
+<Typography variant="subtitle2">Blender standard humanoid rig hierarchy with all bones</Typography>
+</AccordionSummary>
+<AccordionDetails>
+
+<img src="../../assets/modeling/skinned-meshes/Rig-Hierarchy-Blender.png" />
+
+</AccordionDetails>
+</BaseAccordion>
+
+<BaseAccordion>
+<AccordionSummary>
+<Typography variant="subtitle2">Maya standard humanoid rig hierarchy with all joints</Typography>
+</AccordionSummary>
+<AccordionDetails>
+
+<img src="../../assets/modeling/skinned-meshes/Rig-Hierarchy-Maya.png" />
+
+</AccordionDetails>
+</BaseAccordion>
 
 - **LowerTorso and Root** - The LowerTorso and Root bone or joint position must be set to `0`, `0`, `0`.
 - **Pose** - Export your character model in an I-Pose, A-Pose, or T-Pose for the best Studio compatibility. The LeftUpperArm and RightUpperArm bones can be exported with rotation values to meet this requirement.

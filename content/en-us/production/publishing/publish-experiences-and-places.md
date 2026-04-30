@@ -3,6 +3,8 @@ title: Create and publish experiences and places
 description: Explains how to create and publish experiences.
 ---
 
+import PlaceSizeLimit from '../../includes/place-size-limit.md'
+
 When you open Studio and create a new **experience**, your project starts with a single **place** that players load into when they first join the experience. Experiences can have one or multiple places that each contain all components for that portion of the experience, including its specific environment, 3D objects, and scripts.
 
 <Alert severity="info">
@@ -54,15 +56,10 @@ When creating and collaborating on experiences as part of a [group](../../projec
 To publish an experience:
 
 1. In the top-left corner of your computer, click **File** ⟩ **Publish to Roblox**.
-2. In the **Publish Game** window, fill in the following fields:
+2. In the **Publish Experience** window, fill in the following fields:
 
    - **Name** / **Description** — The experience name and a description that describes what a potential player should expect. See the metadata best practices dropdown at the bottom of this section for guidelines.
-   - **Creator** — The creator you'd like to attribute as the creator of the experience.
-
-     <Alert severity="success">
-     It's highly recommended that you [create a group](../../projects/groups.md) and publish a new experience under the group's account, not your personal account. Even if you're a solo creator, this allows you to expand your team over time, recruit playtesters, and operate as an independent studio.
-     </Alert>
-
+   - **Creator** — The creator or [group](../../projects/groups.md) (<Chip label="RECOMMENDED" size="small" variant="outlined" color="success" />) you'd like to attribute as the creator of the experience.
    - **Devices** — Each applicable device type that you want to support. The default options are practical for most new creators.
 
 3. Click **Create**.
@@ -130,13 +127,15 @@ Play our fun granny obby game. Obby obby obby obby obby obby obby adopt me bloxb
 </AccordionDetails>
 </BaseAccordion>
 
+<PlaceSizeLimit components={props.components} />
+
 ### Create additional places
 
 After you have published your experience, you can add additional places for different gameplay areas. To create a new place within an existing experience:
 
 1. Open an existing place file or create a new place from any Studio template.
 2. Select **File** ⟩ **Publish to Roblox As…**.
-3. In the **Publish Game** window, click the tile for the experience you'd like to add the place to.
+3. In the **Publish Experience** window, click the tile for the experience you'd like to add the place to.
 4. Select **Add as a new place**, then click **Create**.
 
 Whether you choose to have a single, large place or many smaller places is mostly personal preference. For more information, see [design for performance](../../performance-optimization/design.md#streaming-and-teleportation).
@@ -183,7 +182,7 @@ These requirements apply to both **publishing a new experience** and **updating 
 - Publishing a new version of a place within an existing experience
 - Setting your audience to **Public** or **Community members**
 
-You do **not** need to meet these requirements if you keep your experience private or if your audience is set to **Connections**.
+You do **not** need to meet these requirements if you keep your experience private or if your audience is set to **Friends**.
 </Alert>
 
 <Alert severity="info">
@@ -211,7 +210,7 @@ After you make your experience public, you can choose the scope of your audience
 1. Go to **Audience** ⟩ **Access Settings**.
 1. Under **Join**, select one of the following options:
    - **Public** — available to all users on Roblox.
-   - **Connections** — available only to the experience owner's connections. This option only appears for non–group-owned experiences.
+   - **Friends** — available only to the experience owner's friends. This option only appears for non–group-owned experiences.
    - **Community members** — available only to group members. This option only appears for group-owned experiences.
 1. Click **Save Changes**.
 
