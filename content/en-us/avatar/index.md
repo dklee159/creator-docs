@@ -16,7 +16,7 @@ title: "Design a 2D classic shirt",
 description: "Use an image editor of your choice and create your first basic 2D cosmetic.",
 video: "https://www.youtube-nocookie.com/embed/r_unfGZT5Ps",
 links: [
-{ text: "Learn more", href: "../art/classic-clothing.md" }
+{ text: "Learn more", href: "../avatar/classic-clothing.md" }
 ]
 },
 {
@@ -24,7 +24,7 @@ title: "Create a 3D accessory",
 description: "Use a 3D modeling tool and Roblox Studio to make a 3D cosmetic.",
 video: "https://www.youtube-nocookie.com/embed/Eed29gV0hLA",
 links: [
-{ text: "Guides and tutorials", href: "../art/accessories.md" },
+{ text: "Guides and tutorials", href: "../art/accessories/creating-rigid/index.md" },
 { text: "Get Blender", href: "https://www.blender.org" },
 { text: "Get Studio", href: "./studio/setup/" }
 ]
@@ -34,7 +34,7 @@ title: "Make 3D layered clothing",
 description: "Use your 3D modeling skills and Roblox Studio to create clothing that stretches, fits, and layers.",
 video:"https://www.youtube-nocookie.com/embed/C-DwGRBHvmE",
 links: [
-{ text: "Guides and tutorials", href: "../art/accessories/layered-clothing.md" },
+{ text: "Guides and tutorials", href: "../avatar/layered-accessories/" },
 { text: "Get Blender", href: "https://www.blender.org" },
 { text: "Get Studio", href: "./studio/setup/" }
 ]
@@ -87,7 +87,7 @@ title: "Roblox Studio",
 description: "Use native tools in Roblox Studio to quickly convert your custom models into Roblox-ready accessories. Studio is your portal to getting your 3D assets into the Roblox ecosystem.",
 links: [
 { text: "Get Studio", href: "./studio/setup/" },
-{ text: "Accessory Fitting Tool", href: "../art/accessories/accessory-fitting-tool.md" },
+{ text: "Accessory Fitting Tool", href: "../avatar/accessory-fitting-tool.md" },
 { text: "Avatar Setup", href: "./avatar-setup/" }
 ]
 },
@@ -101,11 +101,11 @@ links: [
 },
 {
 title: "Marketplace and beyond",
-description: "Create your own home store and a higher share of your commission! Or build experiences that allow others to customize and create avatar items in-game.",
+description: "Create your own home store and a higher share of your commission! Or build games that allow others to customize and create avatar items in-game.",
 links: [
 { text: "Marketplace policy", href: "../marketplace/marketplace-policy.md" },
 { text: "Create your own home store", href: "../marketplace/homestore.md" },
-{ text: "In-experience creation", href: "./in-experience-creation.md" }
+{ text: "In-game creation", href: "./in-experience-creation.md" }
 ]
 }
 ]
@@ -142,9 +142,9 @@ title: "Create more complex items",
 description: "Create even more advanced avatar items, like advanced clothing, bodies, heads, and more.",
 video: "https://www.youtube-nocookie.com/embed/NHgYM78afqc",
 links: [
-{ text: "Clothing guides", href: "../art/accessories/layered-clothing.md" },
-{ text: "Character bodies", href: "./art/characters/"},
-{ text: "Animateable heads", href: "../art/characters/facial-animation.md" }
+{ text: "Clothing guides", href: "../avatar/layered-accessories/" },
+{ text: "Character bodies", href: "./avatar/character-bodies/"},
+{ text: "Animateable heads", href: "../avatar/dynamic-heads/index.md" }
 ]
 },
 ]
@@ -158,8 +158,8 @@ video: "https://www.youtube-nocookie.com/embed/6MPWLQmIKLk",
 links: [{ text: "Learn more", href: "../marketplace/homestore.md" }]
 },
 {
-title: "In-experience creation",
-description: "Create an experience where players can build their own avatar items. Recommended for advanced developers.",
+title: "In-game creation",
+description: "Create a game where players can build their own avatar items. Recommended for advanced developers.",
 image: "../assets/landing/scripting.png",
 links: [
 { text: "Learn more", href: "./in-experience-creation.md" }
@@ -175,7 +175,7 @@ links: [
 <Grid container direction="row" spacing={4} style={{ marginBottom: 48 }}>
 <Grid item xs={12} md={5}>
 
-<p>Every Roblox user is represented by an **avatar** — a fully customizable character with cosmetics and accessories that persist across experiences.</p>
+<p>Every Roblox user is represented by an **avatar** — a fully customizable character with cosmetics and accessories that persist across games.</p>
 <p>Create avatar bodies, items, and clothing using our robust tools and upload them to the [Marketplace](https://www.roblox.com/catalog) where millions of users browse and shop every day.</p>
 <Button
 style={{ marginTop: 8, marginRight: 24 }}

@@ -1,11 +1,11 @@
 ---
 title: Style Editor
-description: Explore the built-in Style Editor, a comprehensive tool that allows you to create, manage, and apply UI styles for Roblox experiences.
+description: Explore the built-in Style Editor, a comprehensive tool that allows you to create, manage, and apply UI styles for Roblox games.
 ---
 
 import BetaAlert from '../../includes/beta-features/beta-alert.md'
 
-The built-in **Style Editor** is a comprehensive tool that allows you to create, manage, and apply UI styles for Roblox experiences through a combination of [tokens](#style-tokens), [design sheets](#design-sheets), [style rules](#style-rules), and [themes](#style-themes).
+The built-in **Style Editor** is a comprehensive tool that allows you to create, manage, and apply UI styles for Roblox games through a combination of [tokens](#style-tokens), [design sheets](#design-sheets), [style rules](#style-rules), and [themes](#style-themes).
 
 <figure>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_k1ea0OIKaU?si=A9mdnnG95qdaZbB_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
@@ -38,9 +38,11 @@ Although not required for UI styling, tokens are highly recommended for extensib
    1. In the left column of the Style Editor, hover over **Tokens**, click the **&CirclePlus;**, and select **New&nbsp;Token&nbsp;StyleSheet**.
    2. Rename the new sheet to `TokenSheet`.
 
-   <img src="../../assets/ui/ui-styling/SE-TokenSheet-New.png" width="640" alt="New token sheet created in Style Editor." />
+   <img src="../../assets/ui/ui-styling/SE-TokenSheet-New.png" width="240" alt="New token sheet created in the Style Editor." />
 
 2. With the new token sheet selected, create several tokens by clicking **Add&nbsp;a&nbsp;Token…** in the main panel. These tokens will be used throughout this guide for both [rules](#style-rules) and [themes](#style-themes).
+
+   <img src="../../assets/ui/ui-styling/SE-TokenSheet-Add-Token.png" width="640" alt="Token addition field in the Style Editor." />
 
    <table size="small">
 	 <thead>
@@ -109,9 +111,9 @@ A prepopulated design sheet named **StyleSheet** is created via the **Create&nbs
 
 <img src="../../assets/ui/ui-styling/SE-Initial-Config.png" width="640" alt="Initial configuration of design sheet in Style Editor." />
 
-Once you have a design sheet, you can set up a test [on‑screen container](../on-screen-containers.md) to use with the Style Editor, or an [in‑experience container](../in-experience-containers.md) if desired.
+Once you have a design sheet, you can set up a test [on‑screen container](../on-screen-containers.md) to use with the Style Editor, or an [in‑game container](../in-experience-containers.md) if desired.
 
-1. Hover over `Class.StarterGui` in the **Explorer** and insert a `Class.ScreenGui`.
+1. Hover over `Class.StarterGui` in the [Explorer](../../studio/explorer.md) and insert a `Class.ScreenGui`.
 2. Confirm that a new `Class.StyleLink` instance appears under the `Class.ScreenGui` with its `Class.StyleLink.StyleSheet|StyleSheet` property set to the **StyleSheet** design sheet.
 
    <Grid container spacing={3}>
@@ -123,8 +125,8 @@ Once you have a design sheet, you can set up a test [on‑screen container](../o
    </Grid>
    </Grid>
 
-   <Alert severity="success">
-   If the `Class.StyleLink` is not created, you can quickly create one by selecting the `Class.ScreenGui` in the **Explorer** as well as the **StyleSheet** design sheet in the left column of the Style Editor. Then, click the **Insert&nbsp;StyleLink** button in the upper‑right section of the editor's main panel.
+   <Alert severity="info">
+   If the `Class.StyleLink` is not created, you can quickly create one by selecting the `Class.ScreenGui` in the [Explorer](../../studio/explorer.md) as well as the **StyleSheet** design sheet in the left column of the Style Editor. Then, click the **Insert&nbsp;StyleLink** button in the upper‑right section of the editor's main panel.
 	 </Alert>
 
 ## Style rules
@@ -147,7 +149,7 @@ A style **class** selector targets all instances of a given UI class. The follow
 
 2. Link two previously created [style tokens](#style-tokens) to two `Class.Frame` properties:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
 	 <thead>
 	   <tr>
 	   <th>Property</th>
@@ -171,7 +173,7 @@ A style **class** selector targets all instances of a given UI class. The follow
    3. Click the `$` which appears in the value field and select the proper associated token.
 
 	 <figure>
-	 <br /><img src="../../assets/ui/ui-styling/SE-Class-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
+	 <img src="../../assets/ui/ui-styling/SE-Class-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
 	 </figure>
 
 	 <img src="../../assets/ui/ui-styling/SE-Class-Rule-Tokens.png" width="400" alt="Class rule configured with tokens in the Style Editor." />
@@ -194,7 +196,7 @@ Instance **tag** selectors target specific UI objects [tagged](../../studio/prop
 
 3. Link three previously created [style tokens](#style-tokens) to three `Class.TextButton` properties:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
 	 <thead>
 	   <tr>
 	   <th>Property</th>
@@ -222,18 +224,18 @@ Instance **tag** selectors target specific UI objects [tagged](../../studio/prop
    3. Click the `$` which appears in the value field and select the proper associated token.
 
    <figure>
-	 <br /><img src="../../assets/ui/ui-styling/SE-Tag-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
+	 <img src="../../assets/ui/ui-styling/SE-Tag-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
 	 </figure>
 
 	 <img src="../../assets/ui/ui-styling/SE-Tag-Rule-Tokens.png" width="400" alt="Tag rule configured with tokens in the Style Editor." />
 
 4. Insert a new `Class.TextButton` into the `Class.ScreenGui` you previously [created and linked](#design-sheets) and [tag](../../studio/properties.md#instance-tags) it as `ButtonPrimary`. A convenient shortcut is as follows:
 
-   1. Make sure the new `Class.TextButton` is selected in the **Explorer**.
+   1. Make sure the new `Class.TextButton` is selected in the [Explorer](../../studio/explorer.md).
    2. With the **.ButtonPrimary** tag rule selected in the left column of the Style Editor, click **Apply&nbsp;Tag** in the main panel. The styles you defined should automatically apply to the button.
 
    <figure>
-	 <br /><img src="../../assets/ui/ui-styling/SE-Tag-Rule-Apply-Tag.png" width="640" alt="Tag linking workflow diagrammed in the Style Editor." />
+	 <img src="../../assets/ui/ui-styling/SE-Tag-Rule-Apply-Tag.png" width="640" alt="Tag linking workflow diagrammed in the Style Editor." />
 	 </figure>
 
 	 <img src="../../assets/ui/ui-styling/SE-Tag-Rule-Result.png" width="840" alt="Final styled tag rule in the Style Editor." />
@@ -253,7 +255,7 @@ Instance modifier selectors apply phantom `Class.UIComponent|UIComponents` such 
    3. Click the `$` which appears in the value field and select the `$Text32` token.
 
    <figure>
-	 <br /><img src="../../assets/ui/ui-styling/SE-Modifier-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
+	 <img src="../../assets/ui/ui-styling/SE-Modifier-Rule-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
 	 </figure>
 
 	 <img src="../../assets/ui/ui-styling/SE-Modifier-Rule-Tokens.png" width="400" alt="Class rule configured with tokens in the Style Editor." />
@@ -309,30 +311,103 @@ A **pseudo instance** is required to configure and apply rounded corners to othe
 
 Style **queries**, similar to [CSS container and media queries](./css-comparisons.md#queries), allow you to apply conditional logic to your UI based on container size, input type, or other factors. The Style Editor provides a streamlined workflow to create both the query logic (conditions) and the resulting styles as a unified set.
 
-<BetaAlert betaName="StyleQuery" leadIn="This feature is currently in beta. Enable it through " leadOut="." components={props.components} />
+### Built-in queries
 
-### Create a query
+Some `Class.StyleQuery` conditions are very common, such as changing properties based on the `Class.GuiService.ViewportDisplaySize|ViewportDisplaySize`. To simplify this, the Style Editor includes **built‑in** queries which allow you to create conditional rules without needing a pseudo or real instance of a `Class.StyleQuery`; instead, you simply use a query rule with a predefined selector like `ViewportDisplaySizeSmall`.
+
+The following steps demonstrate how to generate built‑in queries for a `Class.TextLabel` to handle `Enum.DisplaySize.Small|Small`, `Enum.DisplaySize.Medium|Medium`, and `Enum.DisplaySize.Large|Large` viewport sizes.
+
+1. In the left column of the Style Editor, hover over **TextLabel**, click the **⋮** button, and navigate through to **New**&nbsp;⟩ **StyleQuery**&nbsp;⟩ **Builtin**&nbsp;⟩ **ViewportDisplaySize**.
+
+   <img src="../../assets/ui/ui-styling/SE-Query-New-Builtin.png" width="840" alt="Creation of a built-in StyleQuery in the Style Editor." />
+
+   This creates a **Queries** folder under the **TextLabel** rule containing three query rules:
+
+   - **@ViewportDisplaySizeLarge** — Define properties that apply when the viewport is `Enum.DisplaySize.Large|Large`.
+   - **@ViewportDisplaySizeMedium** — Define properties that apply when the viewport is `Enum.DisplaySize.Medium|Medium`.
+   - **@ViewportDisplaySizeSmall** — Define properties that apply when the viewport is `Enum.DisplaySize.Small|Small`.
+
+   <img src="../../assets/ui/ui-styling/SE-Query-Builtin-Hierarchy.png" width="400" alt="Hierarchy of a StyleQuery within a class rule." />
+
+2. Click **Add a Property…** under each query rule and set the specific `Class.TextLabel.Text|Text` string that should display when that query is active:
+
+   <table size="small">
+   <thead>
+     <tr>
+       <th>Query Rule</th>
+       <th>Property</th>
+       <th>Value</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>**@ViewportDisplaySizeLarge**</td>
+       <td>`Class.TextLabel.Text|Text`</td>
+       <td>`Large Text`</td>
+     </tr>
+     <tr>
+       <td>**@ViewportDisplaySizeMedium**</td>
+       <td>`Class.TextLabel.Text|Text`</td>
+       <td>`Medium Text`</td>
+     </tr>
+     <tr>
+       <td>**@ViewportDisplaySizeSmall**</td>
+       <td>`Class.TextLabel.Text|Text`</td>
+       <td>`Small Text`</td>
+     </tr>
+   </tbody>
+   </table>
+
+3. To verify the queries, use the [Device Emulator](../../studio/testing-modes.md#device-emulation) to test how the UI responds to different resolutions across three distinct devices:
+
+   1. Insert a new `Class.TextLabel` into the `Class.ScreenGui`.
+   2. Change the **Device** in the [Device Emulator](../../studio/testing-modes.md#device-emulation) to see the text change in real time.
+
+      <table size="small">
+      <thead>
+      <tr>
+       <th>Size</th>
+       <th>Example Emulations</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+       <td>`Enum.DisplaySize.Large|Large`</td>
+       <td>**PS5**, **PS4**, **Xbox One**</td>
+      </tr>
+      <tr>
+       <td>`Enum.DisplaySize.Medium|Medium`</td>
+       <td>**Average Laptop**, **HD 720**</td>
+      </tr>
+      <tr>
+       <td>`Enum.DisplaySize.Small|Small`</td>
+       <td>**iPhone XR**, **iPad 7th Generation**</td>
+      </tr>
+      </tbody>
+      </table>
+
+### Custom query
 
 You can add a style query to any existing rule to create responsive UI that adapts to its container. The following setup configures a `Class.TextLabel` to automatically change its appearance only when it expands to a width of 400 pixels or more.
 
-1. In the left column of the Style Editor, hover over **TextLabel**, click the **⋮** button, and navigate through to **New**&nbsp;⟩ **StyleQuery**.
+1. In the left column of the Style Editor, hover over **TextLabel**, click the **⋮** button, and navigate through to **New**&nbsp;⟩ **StyleQuery**&nbsp;⟩ **Custom**.
 
-   <img src="../../assets/ui/ui-styling/SE-Query-New.png" width="600" alt="Creation of a StyleQuery in the Style Editor." />
+   <img src="../../assets/ui/ui-styling/SE-Query-New-Custom.png" width="680" alt="Creation of a custom StyleQuery in the Style Editor." />
 
    This action creates a **Queries** folder under the **TextLabel** rule containing two linked items:
 
    - **::StyleQuery** pseudo-instance rule where you define the **Conditions**.
    - **@StyleQuery** rule where you define the **Properties** to apply when those conditions are met.
 
-   <img src="../../assets/ui/ui-styling/SE-Query-Hierarchy.png" width="400" alt="Hierarchy of a StyleQuery within a class rule." />
+   <img src="../../assets/ui/ui-styling/SE-Query-Custom-Hierarchy.png" width="400" alt="Hierarchy of a StyleQuery within a class rule." />
 
 2. Select the parent **TextLabel** rule in the main panel and define the following default properties:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
    <thead>
      <tr>
      <th>Property</th>
-     <th>Style Token</th>
+     <th>Value</th>
      </tr>
    </thead>
    <tbody>
@@ -349,7 +424,7 @@ You can add a style query to any existing rule to create responsive UI that adap
 
 3. Select the **::StyleQuery** rule in the main panel, click **Add&nbsp;a&nbsp;Condition…**, and configure the following:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
    <thead>
      <tr>
      <th>Condition</th>
@@ -364,13 +439,17 @@ You can add a style query to any existing rule to create responsive UI that adap
    </tbody>
    </table>
 
+	 <Alert severity="info">
+	 See `Class.StyleQuery.IsActive` as a reference for other conditions available through the **::StyleQuery** rule.
+	 </Alert>
+
 4. Select the **@StyleQuery** rule in the main panel and set the properties that should apply when the query is active:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
    <thead>
      <tr>
      <th>Property</th>
-     <th>Style Token</th>
+     <th>Value</th>
      </tr>
    </thead>
    <tbody>
@@ -384,8 +463,6 @@ You can add a style query to any existing rule to create responsive UI that adap
      </tr>
    </tbody>
    </table>
-
-### Test responsive logic
 
 To verify the query, you can manually resize a `Class.TextLabel` in the viewport.
 
@@ -405,11 +482,208 @@ To verify the query, you can manually resize a `Class.TextLabel` in the viewport
    </TabItem>
    </Tabs>
 
-<Alert severity="success">
+<Alert severity="info">
 While manual resizing is a quick way to check responsive logic, you can also use Studio's built‑in emulation tools for more precise testing:
 - Use the [Device Emulator](../../studio/testing-modes.md#device-emulation) to test how your UI responds to specific screen resolutions and `Class.GuiService.ViewportDisplaySize|ViewportDisplaySize` conditions.
 - Use the [Controller Emulator](../../studio/testing-modes.md#controller-simulation) to verify `Class.UserInputService.PreferredInput|PreferredInput` logic, such as switching styles when a gamepad is detected.
 </Alert>
+
+## Style transitions
+
+Style **transitions**, comparable to [CSS transitions](./css-comparisons.md#transitions), let you tween property values over a set duration.
+
+<BetaAlert betaName="Styling Transitions" leadIn="This feature is currently in beta. Enable it through " leadOut="." components={props.components} />
+
+### Default
+
+To tween many UI properties with the same parameters, you can set a default transition that applies to **all** properties unless another transition is explicitly set for a specific property.
+
+1. Select **TextButton** in the **UI&nbsp;Elements** branch and then, in the main panel, add three new properties with the following values:
+
+   <table size="small">
+	 <thead>
+	   <tr>
+	   <th>Property</th>
+	   <th>Value</th>
+	   </tr>
+   </thead>
+	 <tbody>
+     <tr>
+       <td>`Class.TextButton.AutoButtonColor|AutoButtonColor`</td>
+       <td>`false`</td>
+     </tr>
+	   <tr>
+       <td>`Class.TextButton.BackgroundColor3|BackgroundColor3`</td>
+       <td>`#335FFF`</td>
+     </tr>
+     <tr>
+       <td>`Class.TextButton.Rotation|Rotation`</td>
+       <td>`0`</td>
+     </tr>
+   </tbody>
+   </table>
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-New-Class.png" width="640" alt="Class style in the Style Editor." />
+
+2. Hover over the parent **TextButton** row, click the ⋮ button, and navigate through to **Insert**&nbsp;⟩ **Transition**.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Add-Default-Transition.png" width="680" alt="Add default transition to a rule in the Style Editor." />
+
+   A default transition of `1, Quad, Out, 0` inserts directly under the **TextButton** rule, indicating a transition of 1&nbsp;second, easing style `Enum.EasingStyle.Quad|Quad`, easing direction `Enum.EasingDirection.Out|Out`, and no delay.
+
+	 <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Default-Transition-Added.png" width="400" alt="Default transition highlighted in the Style Editor." />
+
+3. Hover over the parent **TextButton** row, click the **⋮** button, and navigate through to **New**&nbsp;⟩ **GuiState**&nbsp;⟩ **Hover**.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Default-New-State.png" width="840" alt="Creation of state rule in the Style Editor." />
+
+4. For the new **Hover** modifier, add two new properties as the **targets** for the hover state.
+
+   <table size="small">
+	 <thead>
+	   <tr>
+	   <th>Property</th>
+	   <th>Value</th>
+	   </tr>
+   </thead>
+	 <tbody>
+	   <tr>
+       <td>`Class.TextButton.BackgroundColor3|BackgroundColor3`</td>
+       <td>`#33AAFF`</td>
+     </tr>
+     <tr>
+       <td>`Class.TextButton.Rotation|Rotation`</td>
+       <td>`-5`</td>
+     </tr>
+   </tbody>
+   </table>
+
+	 <img src="../../assets/ui/ui-styling/SE-Transition-Rule-State-Properties.png" width="400" alt="Properties on hover state rule in the Style Editor." />
+
+5. Insert a new `Class.TextButton` into the `Class.ScreenGui` you previously [created and linked](#design-sheets). When you hover over the button in the viewport, it should gradually brighten and rotate 5 degrees counterclockwise.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Result.png" width="840" alt="Final styled state rule in the Style Editor." />
+
+### Token-linked
+
+To reuse transition behaviors across multiple rules, you can define **tokens** representing the `Datatype.TweenInfo` data type. The following rule setup creates a hover state to transition all `Class.TextButton|TextButtons` to/from -5 degrees rotation and a lighter background color.
+
+1. If you haven't already, create a [token style sheet](#style-tokens) named `TokenSheet`.
+
+   <img src="../../assets/ui/ui-styling/SE-TokenSheet-New.png" width="240" alt="New token sheet created in the Style Editor." />
+
+2. With the new token sheet selected, create two new tokens by clicking **Add&nbsp;a&nbsp;Token…** in the main panel.
+
+   <table>
+	 <thead>
+	   <tr>
+	   <th>Token Name</th>
+	   <th>Type</th>
+	   <th>Tween Parameters</th>
+	   </tr>
+   </thead>
+	 <tbody>
+	   <tr>
+       <td>`CubicOut`</td>
+       <td>`Datatype.TweenInfo`</td>
+       <td><ul><li>`Duration`&nbsp;=&nbsp;`1.25`</li><li>`EasingStyle`&nbsp;=&nbsp;`Cubic`</li><li>`EasingDirection`&nbsp;=&nbsp;`Out`</li><li>`Delay`&nbsp;=&nbsp;`0`</li></ul></td>
+     </tr>
+	   <tr>
+       <td>`QuadInOut`</td>
+       <td>`Datatype.TweenInfo`</td>
+       <td><ul><li>`Duration`&nbsp;=&nbsp;`0.5`</li><li>`EasingStyle`&nbsp;=&nbsp;`Quad`</li><li>`EasingDirection`&nbsp;=&nbsp;`InOut`</li><li>`Delay`&nbsp;=&nbsp;`0`</li></ul></td>
+     </tr>
+   </tbody>
+   </table>
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Tokens-Defined.png" width="400" alt="Tokens added to TokenSheet in Style Editor." />
+
+3. Select **TextButton** in the **UI&nbsp;Elements** branch and then, in the main panel, add three new properties with the following values:
+
+   <table size="small">
+	 <thead>
+	   <tr>
+	   <th>Property</th>
+	   <th>Value</th>
+	   </tr>
+   </thead>
+	 <tbody>
+     <tr>
+       <td>`Class.TextButton.AutoButtonColor|AutoButtonColor`</td>
+       <td>`false`</td>
+     </tr>
+	   <tr>
+       <td>`Class.TextButton.BackgroundColor3|BackgroundColor3`</td>
+       <td>`#335FFF`</td>
+     </tr>
+     <tr>
+       <td>`Class.TextButton.Rotation|Rotation`</td>
+       <td>`0`</td>
+     </tr>
+   </tbody>
+   </table>
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-New-Class.png" width="640" alt="Class style in the Style Editor." />
+
+4. For each new property except for `Class.TextButton.AutoButtonColor|AutoButtonColor`, hover over its row, click the **⋮** button, and select **Insert**&nbsp;⟩ **Transition**.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Add-Transition.png" width="680" alt="Add transition to a property in the Style Editor." />
+
+5. Hover over the new **Transition** row under each property, click the **⋮** button, and select **Link&nbsp;Token**. Then, instead of entering a static value, click the `$` which appears in the value field and select the proper transition token.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Tokens-Link.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
+
+   <table size="small">
+	 <thead>
+	   <tr>
+	   <th>Property Transition</th>
+	   <th>Transition Token</th>
+	   </tr>
+   </thead>
+	 <tbody>
+	   <tr>
+       <td>`Class.TextButton.BackgroundColor3|BackgroundColor3`</td>
+       <td>`$CubicOut`</td>
+     </tr>
+     <tr>
+       <td>`Class.TextButton.Size|Size`</td>
+       <td>`$QuadInOut`</td>
+     </tr>
+   </tbody>
+   </table>
+
+	 <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Tokens-Linked.png" width="400" alt="Transition tokens linked in the Style Editor." />
+
+6. Hover over the parent **TextButton** row, click the **⋮** button, and navigate through to **New**&nbsp;⟩ **GuiState**&nbsp;⟩ **Hover**.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-New-State.png" width="840" alt="Creation of state rule in the Style Editor." />
+
+7. For the new **Hover** modifier, add two new properties as the **targets** for the hover state.
+
+   <table size="small">
+	 <thead>
+	   <tr>
+	   <th>Property</th>
+	   <th>Value</th>
+	   </tr>
+   </thead>
+	 <tbody>
+	   <tr>
+       <td>`Class.TextButton.BackgroundColor3|BackgroundColor3`</td>
+       <td>`#33AAFF`</td>
+     </tr>
+     <tr>
+       <td>`Class.TextButton.Rotation|Rotation`</td>
+       <td>`-5`</td>
+     </tr>
+   </tbody>
+   </table>
+
+	 <img src="../../assets/ui/ui-styling/SE-Transition-Rule-State-Properties.png" width="400" alt="Properties on hover state rule in the Style Editor." />
+
+8. Insert a new `Class.TextButton` into the `Class.ScreenGui` you previously [created and linked](#design-sheets). When you hover over the button in the viewport, it should gradually brighten and rotate 5 degrees counterclockwise.
+
+   <img src="../../assets/ui/ui-styling/SE-Transition-Rule-Result.png" width="840" alt="Final styled state rule in the Style Editor." />
 
 ## Style themes
 
@@ -441,7 +715,7 @@ With **ThemeA** selected in the left column of the Style Editor:
 
 1. Link three previously created [style tokens](#style-tokens) to three new theme tokens:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
 	 <thead>
 	   <tr>
 	   <th>Theme Token</th>
@@ -475,7 +749,7 @@ With **ThemeA** selected in the left column of the Style Editor:
 
 3. Link the theme's tokens to three new `Class.TextButton` properties:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
 	 <thead>
 	   <tr>
 	   <th>Property</th>
@@ -503,7 +777,7 @@ With **ThemeA** selected in the left column of the Style Editor:
    3. Click the `$` which appears in the value field and select the proper theme token.
 
    <figure>
-	 <br /><img src="../../assets/ui/ui-styling/SE-Themes-Theme-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
+	 <img src="../../assets/ui/ui-styling/SE-Themes-Theme-Configure.png" width="526" alt="Token linking workflow diagrammed in the Style Editor." />
 	 <Alert severity="warning">
 	 When linking the theme's tokens, look for **\$\[Token\] in ThemeA** in the hover‑over to know the token is coming from the **theme** and not from the global token sheet (remember that the theme already derives the global tokens).
 	 </Alert>
@@ -522,7 +796,7 @@ Once you have a theme generally established, you can **duplicate** it and change
 
 3. Link two of the theme's tokens to two different style tokens:
 
-   <table size="small" style={{width: '60%;'}}>
+   <table size="small">
 	 <thead>
 	   <tr>
 	   <th>Theme Token</th>

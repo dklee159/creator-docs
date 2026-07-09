@@ -2476,6 +2476,11 @@ navigation:
                 type: engineapi
                 source: /reference/engine/classes/RunService.yaml
                 ignoreTranslation: true
+              - title: SceneAnalysisService
+                path: /reference/engine/classes/SceneAnalysisService
+                type: engineapi
+                source: /reference/engine/classes/SceneAnalysisService.yaml
+                ignoreTranslation: true
               - title: ScreenshotHud
                 path: /reference/engine/classes/ScreenshotHud
                 type: engineapi
@@ -2496,6 +2501,11 @@ navigation:
                 path: /reference/engine/classes/ScriptContext
                 type: engineapi
                 source: /reference/engine/classes/ScriptContext.yaml
+                ignoreTranslation: true
+              - title: ScriptDebuggerService
+                path: /reference/engine/classes/ScriptDebuggerService
+                type: engineapi
+                source: /reference/engine/classes/ScriptDebuggerService.yaml
                 ignoreTranslation: true
               - title: ScriptDocument
                 path: /reference/engine/classes/ScriptDocument
@@ -2789,10 +2799,20 @@ navigation:
                 type: engineapi
                 source: /reference/engine/classes/Studio.yaml
                 ignoreTranslation: true
+              - title: StudioCaptureService
+                path: /reference/engine/classes/StudioCaptureService
+                type: engineapi
+                source: /reference/engine/classes/StudioCaptureService.yaml
+                ignoreTranslation: true
               - title: StudioDeviceSimulatorService
                 path: /reference/engine/classes/StudioDeviceSimulatorService
                 type: engineapi
                 source: /reference/engine/classes/StudioDeviceSimulatorService.yaml
+                ignoreTranslation: true
+              - title: StudioScreenshotCapture
+                path: /reference/engine/classes/StudioScreenshotCapture
+                type: engineapi
+                source: /reference/engine/classes/StudioScreenshotCapture.yaml
                 ignoreTranslation: true
               - title: StudioService
                 path: /reference/engine/classes/StudioService
@@ -3334,26 +3354,6 @@ navigation:
             type: engineapi
             source: /reference/engine/classes/PluginConnection.yaml
             ignoreTranslation: true
-          - title: TerrainIterateOperation
-            path: /reference/engine/classes/TerrainIterateOperation
-            type: engineapi
-            source: /reference/engine/classes/TerrainIterateOperation.yaml
-            ignoreTranslation: true
-          - title: TerrainModifyOperation
-            path: /reference/engine/classes/TerrainModifyOperation
-            type: engineapi
-            source: /reference/engine/classes/TerrainModifyOperation.yaml
-            ignoreTranslation: true
-          - title: TerrainReadOperation
-            path: /reference/engine/classes/TerrainReadOperation
-            type: engineapi
-            source: /reference/engine/classes/TerrainReadOperation.yaml
-            ignoreTranslation: true
-          - title: TerrainWriteOperation
-            path: /reference/engine/classes/TerrainWriteOperation
-            type: engineapi
-            source: /reference/engine/classes/TerrainWriteOperation.yaml
-            ignoreTranslation: true
           - title: VideoSampler
             path: /reference/engine/classes/VideoSampler
             type: engineapi
@@ -3373,6 +3373,11 @@ navigation:
     path: /reference/engine/datatypes
     source: /reference/engine/datatypes.md
     section:
+      - title: AdReward
+        path: /reference/engine/datatypes/AdReward
+        type: engineapi
+        source: /reference/engine/datatypes/AdReward.yaml
+        ignoreTranslation: true
       - title: Axes
         path: /reference/engine/datatypes/Axes
         type: engineapi
@@ -3572,6 +3577,11 @@ navigation:
         path: /reference/engine/datatypes/UDim2
         type: engineapi
         source: /reference/engine/datatypes/UDim2.yaml
+        ignoreTranslation: true
+      - title: User
+        path: /reference/engine/datatypes/User
+        type: engineapi
+        source: /reference/engine/datatypes/User.yaml
         ignoreTranslation: true
       - title: ValueCurveKey
         path: /reference/engine/datatypes/ValueCurveKey
@@ -4317,6 +4327,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/DataStoreRequestType.yaml
         ignoreTranslation: true
+      - title: DebugBreakModeType
+        path: /reference/engine/enums/DebugBreakModeType
+        type: engineapi
+        source: /reference/engine/enums/DebugBreakModeType.yaml
+        ignoreTranslation: true
       - title: DebuggerEndReason
         path: /reference/engine/enums/DebuggerEndReason
         type: engineapi
@@ -4336,6 +4351,11 @@ navigation:
         path: /reference/engine/enums/DebuggerPauseReason
         type: engineapi
         source: /reference/engine/enums/DebuggerPauseReason.yaml
+        ignoreTranslation: true
+      - title: DebuggerResumeType
+        path: /reference/engine/enums/DebuggerResumeType
+        type: engineapi
+        source: /reference/engine/enums/DebuggerResumeType.yaml
         ignoreTranslation: true
       - title: DebuggerStatus
         path: /reference/engine/enums/DebuggerStatus
@@ -4382,6 +4402,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/DeviceLevel.yaml
         ignoreTranslation: true
+      - title: DeviceSimulatorScalingMode
+        path: /reference/engine/enums/DeviceSimulatorScalingMode
+        type: engineapi
+        source: /reference/engine/enums/DeviceSimulatorScalingMode.yaml
+        ignoreTranslation: true
       - title: DeviceType
         path: /reference/engine/enums/DeviceType
         type: engineapi
@@ -4421,6 +4446,11 @@ navigation:
         path: /reference/engine/enums/DisplaySize
         type: engineapi
         source: /reference/engine/enums/DisplaySize.yaml
+        ignoreTranslation: true
+      - title: DomainType
+        path: /reference/engine/enums/DomainType
+        type: engineapi
+        source: /reference/engine/enums/DomainType.yaml
         ignoreTranslation: true
       - title: DominantAxis
         path: /reference/engine/enums/DominantAxis
@@ -4477,6 +4507,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/ElasticBehavior.yaml
         ignoreTranslation: true
+      - title: EmitterPositionType
+        path: /reference/engine/enums/EmitterPositionType
+        type: engineapi
+        source: /reference/engine/enums/EmitterPositionType.yaml
+        ignoreTranslation: true
       - title: EnviromentalPhysicsThrottle
         path: /reference/engine/enums/EnviromentalPhysicsThrottle
         type: engineapi
@@ -4496,6 +4531,11 @@ navigation:
         path: /reference/engine/enums/ExplosionType
         type: engineapi
         source: /reference/engine/enums/ExplosionType.yaml
+        ignoreTranslation: true
+      - title: ExternalEditorMode
+        path: /reference/engine/enums/ExternalEditorMode
+        type: engineapi
+        source: /reference/engine/enums/ExternalEditorMode.yaml
         ignoreTranslation: true
       - title: FacialAgeEstimationResultType
         path: /reference/engine/enums/FacialAgeEstimationResultType
@@ -4792,6 +4832,16 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/InputActionType.yaml
         ignoreTranslation: true
+      - title: InputBindingType
+        path: /reference/engine/enums/InputBindingType
+        type: engineapi
+        source: /reference/engine/enums/InputBindingType.yaml
+        ignoreTranslation: true
+      - title: InputSink
+        path: /reference/engine/enums/InputSink
+        type: engineapi
+        source: /reference/engine/enums/InputSink.yaml
+        ignoreTranslation: true
       - title: InputType
         path: /reference/engine/enums/InputType
         type: engineapi
@@ -4842,6 +4892,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/KeyCode.yaml
         ignoreTranslation: true
+      - title: KeyCodeStringFormat
+        path: /reference/engine/enums/KeyCodeStringFormat
+        type: engineapi
+        source: /reference/engine/enums/KeyCodeStringFormat.yaml
+        ignoreTranslation: true
       - title: KeyInterpolationMode
         path: /reference/engine/enums/KeyInterpolationMode
         type: engineapi
@@ -4891,6 +4946,11 @@ navigation:
         path: /reference/engine/enums/ListenerLocation
         type: engineapi
         source: /reference/engine/enums/ListenerLocation.yaml
+        ignoreTranslation: true
+      - title: ListenerPositionType
+        path: /reference/engine/enums/ListenerPositionType
+        type: engineapi
+        source: /reference/engine/enums/ListenerPositionType.yaml
         ignoreTranslation: true
       - title: ListenerType
         path: /reference/engine/enums/ListenerType
@@ -5342,6 +5402,11 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/ProximityPromptStyle.yaml
         ignoreTranslation: true
+      - title: PurchaseOption
+        path: /reference/engine/enums/PurchaseOption
+        type: engineapi
+        source: /reference/engine/enums/PurchaseOption.yaml
+        ignoreTranslation: true
       - title: QualityLevel
         path: /reference/engine/enums/QualityLevel
         type: engineapi
@@ -5361,6 +5426,16 @@ navigation:
         path: /reference/engine/enums/ReadCapturesFromGalleryResult
         type: engineapi
         source: /reference/engine/enums/ReadCapturesFromGalleryResult.yaml
+        ignoreTranslation: true
+      - title: ReceiptDecision
+        path: /reference/engine/enums/ReceiptDecision
+        type: engineapi
+        source: /reference/engine/enums/ReceiptDecision.yaml
+        ignoreTranslation: true
+      - title: ReceiptType
+        path: /reference/engine/enums/ReceiptType
+        type: engineapi
+        source: /reference/engine/enums/ReceiptType.yaml
         ignoreTranslation: true
       - title: RecommendationActionType
         path: /reference/engine/enums/RecommendationActionType
@@ -5386,6 +5461,16 @@ navigation:
         path: /reference/engine/enums/RecommendationItemVisibility
         type: engineapi
         source: /reference/engine/enums/RecommendationItemVisibility.yaml
+        ignoreTranslation: true
+      - title: RecommendationPreferenceTargetType
+        path: /reference/engine/enums/RecommendationPreferenceTargetType
+        type: engineapi
+        source: /reference/engine/enums/RecommendationPreferenceTargetType.yaml
+        ignoreTranslation: true
+      - title: RecommendationPreferenceType
+        path: /reference/engine/enums/RecommendationPreferenceType
+        type: engineapi
+        source: /reference/engine/enums/RecommendationPreferenceType.yaml
         ignoreTranslation: true
       - title: RejectCharacterDeletions
         path: /reference/engine/enums/RejectCharacterDeletions
@@ -5552,6 +5637,21 @@ navigation:
         type: engineapi
         source: /reference/engine/enums/ScreenOrientation.yaml
         ignoreTranslation: true
+      - title: ScreenshotCaptureResult
+        path: /reference/engine/enums/ScreenshotCaptureResult
+        type: engineapi
+        source: /reference/engine/enums/ScreenshotCaptureResult.yaml
+        ignoreTranslation: true
+      - title: ScriptStoppedReason
+        path: /reference/engine/enums/ScriptStoppedReason
+        type: engineapi
+        source: /reference/engine/enums/ScriptStoppedReason.yaml
+        ignoreTranslation: true
+      - title: ScriptVariableScope
+        path: /reference/engine/enums/ScriptVariableScope
+        type: engineapi
+        source: /reference/engine/enums/ScriptVariableScope.yaml
+        ignoreTranslation: true
       - title: ScrollBarInset
         path: /reference/engine/enums/ScrollBarInset
         type: engineapi
@@ -5686,6 +5786,16 @@ navigation:
         path: /reference/engine/enums/StrokeSizingMode
         type: engineapi
         source: /reference/engine/enums/StrokeSizingMode.yaml
+        ignoreTranslation: true
+      - title: StudioCaptureBufferStatus
+        path: /reference/engine/enums/StudioCaptureBufferStatus
+        type: engineapi
+        source: /reference/engine/enums/StudioCaptureBufferStatus.yaml
+        ignoreTranslation: true
+      - title: StudioCaptureScreenshotFormat
+        path: /reference/engine/enums/StudioCaptureScreenshotFormat
+        type: engineapi
+        source: /reference/engine/enums/StudioCaptureScreenshotFormat.yaml
         ignoreTranslation: true
       - title: StudioCloseMode
         path: /reference/engine/enums/StudioCloseMode

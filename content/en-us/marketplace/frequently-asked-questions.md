@@ -44,9 +44,13 @@ description: Marketplace FAQ providing answers and resources for common question
 
   <dd><p />Yes, creators can make free Limited items only and these will be charged for each unit created ([per-unit fee](./marketplace-fees-and-commissions.md#per-unit-fee)). As of today, the per-unit fee for free Limited items is 100 Robux. These per-unit fees will continue to be dynamic and can be changed in the future.<p /></dd><br />
 
+  <dt>**Can I increase the quantity of a free Limited item after publishing?**</dt>
+
+  <dd><p />Yes. You can [restock](./marketplace-fees-and-commissions.md#restocking) a free Limited item to increase its available quantity by editing the quantity on the item's configure page. Restocking charges the same [per-unit fee](./marketplace-fees-and-commissions.md#per-unit-fee) as publishing for each additional unit. Restocking is only available for free Limited items that have never been made resellable.<p /></dd><br />
+
   <dt>**How much can I earn from selling my items in Marketplace?**</dt>
 
-  <dd><p />Creators will earn at least 30% of the gross of any item sales. The remainder is shared between the platform and, if your item is sold in an experience, the developer who created that experience (who could be you). You can learn about earnings from creating, selling, and reselling avatar items [here](./marketplace-fees-and-commissions.md).<p /></dd><br />
+  <dd><p />Creators will earn at least 30% of the gross of any item sales. The remainder is shared between the platform and, if your item is sold in a game, the developer who created that game (who could be you). You can learn about earnings from creating, selling, and reselling avatar items [here](./marketplace-fees-and-commissions.md).<p /></dd><br />
 
   <dt>**Does this mean you are sunsetting the [UGC Program](https://devforum.roblox.com/t/updates-and-changes-to-the-ugc-catalog-application/1974990)?**</dt>
 
@@ -58,7 +62,7 @@ description: Marketplace FAQ providing answers and resources for common question
 
   <dt>**How can I protect my [intellectual property (IP)](./intellectual-property.md)?**</dt>
 
-  <dd><p />IP owners are the ones best positioned to tell us what they believe infringes on their rights. Use the [Rights Manager](../production/publishing/rights-manager.md) for managing IP infringement removal requests. You can use Rights Manager to report experiences, avatar items, and assets such as models, audio, and images that infringe on your IP. <p /> Roblox investigates each report and takes appropriate action, which may include removing or disabling the infringing content, and, in appropriate circumstances, permanently terminating the accounts of users who have repeatedly infringed on the IP of others.<p /></dd><br />
+  <dd><p />IP owners are the ones best positioned to tell us what they believe infringes on their rights. Use the [Rights Manager](../production/publishing/rights-manager.md) for managing IP infringement removal requests. You can use Rights Manager to report games, avatar items, and assets such as models, audio, and images that infringe on your IP. <p /> Roblox investigates each report and takes appropriate action, which may include removing or disabling the infringing content, and, in appropriate circumstances, permanently terminating the accounts of users who have repeatedly infringed on the IP of others.<p /></dd><br />
 
   <dt>**One of my items was taken down. How do I appeal?**</dt>
 

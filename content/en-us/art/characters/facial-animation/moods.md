@@ -3,7 +3,7 @@ title: Moods
 description: Moods are a type of facial animation that loop indefinitely, allowing users to express persistent facial emotion.
 ---
 
-A **mood** is a type of [facial animation](../../../art/characters/facial-animation/index.md) for animatable heads that loops indefinitely, allowing users to express themselves and react to others with a persistent facial emotion. Moods play simultaneously with other character [default animations](../../../animation/using.md#default-character-animations), such as walking, climbing, and swimming, and if the default animation has a facial animation, the default animation blends with the character's mood.
+A **mood** is a type of facial animation for [animatable heads](../../../avatar/dynamic-heads/index.md) that loops indefinitely, allowing users to express themselves and react to others with a persistent facial emotion. Moods play simultaneously with other character [default animations](../../../animation/using.md#default-character-animations), such as walking, climbing, and swimming, and if the default animation has a facial animation, the default animation blends with the character's mood.
 
 <GridContainer numColumns="2">
   <figure>
@@ -47,7 +47,7 @@ To create a mood:
 
    <img width="20%" img src="../../../assets/avatar/dynamic-heads/moods/HappyMood.png" />
 
-1. **(Optional)** To assign an asset ID to your mood animation and save it to the [Toolbox](../../../projects/assets/toolbox.md) to use across your experiences,
+1. **(Optional)** To assign an asset ID to your mood animation and save it to the [Toolbox](../../../projects/assets/toolbox.md) to use across your games,
 
    1. In the **Explorer** window, right-click on your new mood animation. A contextual menu displays.
    1. Select **Save to Roblox**. The **Asset Configuration** window displays.
@@ -57,7 +57,7 @@ To create a mood:
       - **Description**: A description that describes what a potential user should expect the plugin to do.
       - **Creator**: The creator you'd like to attribute as the creator of the plugin.
 
-   1. Click the **Submit** button. After a moment, the Asset Configuration dialog displays your mood's `Class.Animation.AnimationID` that you can use to set the mood to characters within your experiences.
+   1. Click the **Submit** button. After a moment, the Asset Configuration dialog displays your mood's `Class.Animation.AnimationID` that you can use to set the mood to characters within your games.
 
       <img width="80%" img src="../../../assets/avatar/dynamic-heads/moods/Animation-ID.png" />
 
@@ -68,12 +68,12 @@ Every character with an animatable head has a child **Animate** `Class.LocalScri
 <img src="../../../assets/avatar/dynamic-heads/moods/animate-localscript-hierarchy.jpg" width="20%" />
 
 <Alert severity="warning">
-   The code for playing moods doesn't occur in the  **Animate** `Class.LocalScript`, but in a hidden, internal Roblox script. While you can't edit this internal script, the **mood** `Class.StringValue` allows you to interact with it in order to customize moods within your experiences.
+   The code for playing moods doesn't occur in the  **Animate** `Class.LocalScript`, but in a hidden, internal Roblox script. While you can't edit this internal script, the **mood** `Class.StringValue` allows you to interact with it in order to customize moods within your games.
 </Alert>
 
 ### Edit AnimationIds
 
-You can set a specific mood for each character within your experience by editing their mood's `Class.Animation.AnimationID` whenever a user triggers an event. For example, the following `Class.Script` edits any previously set mood to an animation that [opens the character's mouth](https://www.roblox.com/library/7715145252/moods-11-FaceAnimation) as soon as the user enters the experience:
+You can set a specific mood for each character within your game by editing their mood's `Class.Animation.AnimationID` whenever a user triggers an event. For example, the following `Class.Script` edits any previously set mood to an animation that [opens the character's mouth](https://www.roblox.com/library/7715145252/moods-11-FaceAnimation) as soon as the user enters the game:
 
 ```lua
 local Players = game:GetService("Players")
@@ -107,7 +107,7 @@ end
 
 ## Disable moods
 
-To disable moods from your experience, you can delete the mood object underneath the **Animate** `Class.LocalScript`. For example, the following `Class.Script` removes every character's **mood** `Class.StringValue` as soon as they join the experience:
+To disable moods from your game, you can delete the mood object underneath the **Animate** `Class.LocalScript`. For example, the following `Class.Script` removes every character's **mood** `Class.StringValue` as soon as they join the game:
 
 ```lua
 local Players = game:GetService("Players")

@@ -25,12 +25,12 @@ For more information on monetizing meshes, see [Monetize avatar items](../../mon
 
 <GridContainer numColumns="3">
   <figure>
-    <img src="../../assets/modeling/meshes/Mystery-of-Duvall-Example.png" alt="A cluttered interior room with a candle in the forefront and spooky interior lighting from the Mystery of Duvall Drive experience"/>
+    <img src="../../assets/modeling/meshes/Mystery-of-Duvall-Example.png" alt="A cluttered interior room with a candle in the forefront and spooky interior lighting from the Mystery of Duvall Drive game"/>
     <figcaption>Use custom meshes and models to give your environments ambiance and depth</figcaption>
   </figure>
   <figure>
-    <img src="../../assets/modeling/meshes/Beyond-The-Dark-Example.png" alt="A floating alien creature in space, from the Beyond The Dark experience"/>
-    <figcaption>Design a custom character unique to your experience</figcaption>
+    <img src="../../assets/modeling/meshes/Beyond-The-Dark-Example.png" alt="A floating alien creature in space, from the Beyond The Dark game"/>
+    <figcaption>Design a custom character unique to your game</figcaption>
   </figure>
   <figure>
     <img src="../../assets/modeling/surface-appearance/Layered-Clothing-Example.png" alt="A Roblox avatar wearing a glossy puffy jacket and jeans"/>
@@ -89,7 +89,7 @@ For more information on PBR textures, see [PBR textures](../../art/modeling/surf
 
 ### Studio-related objects
 
-Studio automatically converts certain types of objects found in 3D modeling files as specific workspace objects in the experience. These are typically used when creating a character or accessory, and configuring these in your modeling software can sometimes be the primary way of correctly setting up these Studio objects.
+Studio automatically converts certain types of objects found in 3D modeling files as specific workspace objects in the game. These are typically used when creating a character or accessory, and configuring these in your modeling software can sometimes be the primary way of correctly setting up these Studio objects.
 
 The following objects are automatically created in Studio if they are detected by the 3D Importer:
 
@@ -119,11 +119,11 @@ If you are interested in specific avatar creation topics, use the following tabl
   <tr>
     <td>Technical specs</td>
     <td>[.FBX export settings](../../art/modeling/export-requirements.md)<br /><br />[General mesh specifications](../../art/modeling/specifications.md)<br /><br />
-    [Avatar specifications](../../art/characters/specifications.md)<br /><br />[Accessory specifications](../../art/accessories/specifications.md)<br /><br />[Marketplace policy](../../marketplace/marketplace-policy.md)</td>
+    [Avatar specifications](../../avatar/character-bodies/specifications.md)<br /><br />[Accessory specifications](../../avatar/rigid-accessories/index.md)<br /><br />[Marketplace policy](../../marketplace/marketplace-policy.md)</td>
   </tr>
   <tr>
     <td>Bodies and clothing creation</td>
-    <td>[Accessories overview](../../art/accessories/index.md)<br /><br />[Bodies overview](../../art/characters/index.md)<br /><br />[Face accessory creation](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[Accessory Fitting Tool](../../art/accessories/accessory-fitting-tool.md)<br /><br />[Accessory specifications](../../art/accessories/specifications.md)<br /><br />[Marketplace requirements](../../marketplace/marketplace-policy.md)</td>
+    <td>[Accessories overview](../../avatar/rigid-accessories/index.md)<br /><br />[Bodies overview](../../avatar/character-bodies/index.md)<br /><br />[Face accessory creation](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[Accessory Fitting Tool](../../avatar/accessory-fitting-tool.md)<br /><br />[Accessory specifications](../../avatar/rigid-accessories/specifications.md)<br /><br />[Marketplace requirements](../../marketplace/marketplace-policy.md)</td>
   </tr>
   <tr>
     <td>Texturing</td>
@@ -131,12 +131,12 @@ If you are interested in specific avatar creation topics, use the following tabl
   </tr>
   <tr>
     <td>Rigging and skinning</td>
-    <td>[Rigging and skinning overview](../../art/modeling/rigging.md)<br /><br />[Basic mesh rigging](../../art/modeling/rig-a-simple-mesh.md) <br /><br />[Facial bone rigging](../../art/characters/facial-animation/create-basic-heads.md#rigging)<br /><br />[Facial bone skinning](../../art/characters/facial-animation/create-basic-heads.md#skin-face-bones)<br /><br />[Avatar rigging requirements](../../art/characters/specifications.md#rigging)<br /><br />[Automatic skinning transfer](../../art/accessories/automatic-skinning-transfer.md)</td>
+    <td>[Rigging and skinning overview](../../art/modeling/rigging.md)<br /><br />[Basic mesh rigging](../../art/modeling/rig-a-simple-mesh.md) <br /><br />[Facial bone rigging](../../art/characters/facial-animation/create-basic-heads.md#rigging)<br /><br />[Facial bone skinning](../../art/characters/facial-animation/create-basic-heads.md#skin-face-bones)<br /><br />[Avatar rigging requirements](../../avatar/character-bodies/specifications.md#rigging)<br /><br />[Automatic skinning transfer](../../avatar/automatic-skinning-transfer.md)</td>
   </tr>
 
   <tr>
     <td>Facial animation and live heads</td>
-    <td>[Basic head creation](../../art/characters/facial-animation/create-basic-heads.md)<br /><br />[Face accessory creation](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[FACS pose references](../../art/characters/facial-animation/facs-poses-reference.md)</td>
+    <td>[Basic head creation](../../art/characters/facial-animation/create-basic-heads.md)<br /><br />[Face accessory creation](../../art/characters/facial-animation/create-face-accessories.md)<br /><br />[FACS pose references](../../avatar/dynamic-heads/facs-poses-reference.md)</td>
   </tr>
   <tr>
     <td>Testing and validation</td>

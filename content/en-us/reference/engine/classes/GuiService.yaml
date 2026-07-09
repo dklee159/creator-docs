@@ -299,7 +299,8 @@ properties:
       `Class.GuiObject.SelectionLost|SelectionLost` events. If you would like to
       determine when this property changes without tracking these events for all
       GUI elements, you can use the `Class.Object.Changed|Changed` event.
-    code_samples: []
+    code_samples:
+      - printing-when-gamepad-selection-changes
     type: GuiObject
     tags: []
     deprecation_message: ''
@@ -575,9 +576,16 @@ methods:
       in pixels, from the top‑left corner of the screen and the bottom‑right
       corner of the screen respectively.
 
-      The inset values supplied by this method only take effect on
+      Note that the inset values supplied by this method only take effect on
       `Class.ScreenGui|ScreenGuis` that have their
       `Class.ScreenGui.IgnoreGuiInset|IgnoreGuiInset` property set to `false`.
+
+      ```lua
+      local GuiService = game:GetService("GuiService")
+
+      local screenAreaTopLeft, screenAreaBottomRight = GuiService:GetGuiInset()
+      print(screenAreaTopLeft, screenAreaBottomRight)
+      ```
     code_samples: []
     parameters: []
     returns:
@@ -592,8 +600,41 @@ methods:
     capabilities:
       - UI
   - name: GuiService:GetInsetArea
-    summary: ''
-    description: ''
+    summary: |
+      Takes an `Enum.ScreenInsets` value and returns a `Datatype.Rect`
+      describing the inset region, relative to the
+      `Enum.ScreenInsets.CoreUISafeInsets|CoreUISafeInsets` area.
+    description: |
+      Takes an `Enum.ScreenInsets` value and returns a `Datatype.Rect`
+      describing the inset region relative to the
+      `Enum.ScreenInsets.CoreUISafeInsets|CoreUISafeInsets` area, effectively
+      the usable rectangle for a particular `Enum.ScreenInsets` area.
+
+      On a mobile device screen, for example, querying
+      `GetInsetArea(Enum.ScreenInsets.None)` may return a result such as
+      `-59, -58, 792, 334`, meaning the usable rectangle for
+      `Enum.ScreenInsets.None` has a top‑left corner `59` pixels left and `58`
+      pixels up from the top‑left corner of the core UI area, and a bottom‑right
+      corner `792` pixels right and `334` pixels down from the top‑left corner
+      of the core UI area.
+
+      <img src="../../../assets/engine-api/classes/GuiService/GetInsetArea.png" width="840" />
+
+      ```lua
+      local GuiService = game:GetService("GuiService")
+
+      local noneRect = GuiService:GetInsetArea(Enum.ScreenInsets.None)
+      print(noneRect) --> -59, -58, 792, 334
+
+      local deviceSafeRect = GuiService:GetInsetArea(Enum.ScreenInsets.DeviceSafeInsets)
+      print(deviceSafeRect) --> 0, -58, 733, 313
+
+      local coreUISafeRect = GuiService:GetInsetArea(Enum.ScreenInsets.CoreUISafeInsets)
+      print(coreUISafeRect) --> 0, 0, 733, 313
+
+      local topbarSafeRect = GuiService:GetInsetArea(Enum.ScreenInsets.TopbarSafeInsets)
+      print(topbarSafeRect) --> 164, -58, 733, 0
+      ```
     code_samples: []
     parameters:
       - name: screenInsets
@@ -645,7 +686,8 @@ methods:
       `Class.GuiService:InspectPlayerFromUserId()|InspectPlayerFromUserId()`
       which allows the avatar inspection menu to appear showing the user that
       has the given `Class.Player.UserId|UserId`.
-    code_samples: []
+    code_samples:
+      - opening-an-inspect-menu-with-a-humanoiddescription
     parameters:
       - name: humanoidDescription
         type: Instance
@@ -683,10 +725,11 @@ methods:
       `Class.GuiService:InspectPlayerFromHumanoidDescription()|InspectPlayerFromHumanoidDescription()`
       which allows you to bring up the avatar inspection menu showing the assets
       listed in a `Class.HumanoidDescription` object.
-    code_samples: []
+    code_samples:
+      - opening-the-inspect-menu-for-a-userid
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId|UserId` of the player to inspect.

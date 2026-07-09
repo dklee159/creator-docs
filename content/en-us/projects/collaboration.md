@@ -3,15 +3,85 @@ title: Collaboration
 description: Studio's built-in collaboration tools let creators contribute independently, or work together with a team.
 ---
 
-Creating a high-quality experience demands many skills such as modeling, scripting, user interface design, and audio production. It's unlikely that one person has all of these skills, which makes collaboration between different roles an essential part of the development workflow.
+Creating a high-quality game demands many skills such as modeling, scripting, user interface design, and audio production. It's unlikely that one person has all of these skills, which makes collaboration between different roles an essential part of the development workflow.
 
-With Studio's **built-in** **collaboration tools**, creators can contribute to experiences independently on their own time, or work together with their team all at the same time.
+With Studio's **built-in** **collaboration tools**, creators can contribute to games independently on their own time, or work together with their team all at the same time.
 
 <img src="../assets/studio/collaboration/Collaborative-Session.jpg" alt="Three creators working together in a collaborative session, each with different color markers to demonstrate what objects they're currently editing in the environment." />
 
+## Age-based collaboration requirements
+
+<Alert severity="warning">
+This requirement only applies if you add collaborators to your game using Studio's collaboration tools through Team Create. You can still use Team Create by yourself without completing an age check.
+</Alert>
+
+**To use Studio's collaboration tools with other creators, you must first complete an age check** by either [verifying your ID](./../production/publishing/account-verification.md#verify-through-government-id) or [completing a facial age estimation](https://en.help.roblox.com/hc/en-us/articles/42295385001236-How-does-Roblox-estimate-my-age). Group or game owners must complete an age check to enable the rest of their collaborators to join their games.
+
+After completing an age check, you can only collaborate with creators in compatible age groups by default. For example, a 16-year-old creator can collaborate with a creator who is 17 and another who is 21. A creator who is under 13, however, must be a trusted friend of older collaborators or have parental permission to collaborate with creators who are older than 18.
+
+<table>
+  <thead>
+    <tr>
+      <th>Your age group</th>
+      <th>Can collaborate with</th>
+      <th>Cannot collaborate with</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Under 9</td>
+      <td>Users under 13</td>
+      <td>Users 13 and older</td>
+    </tr>
+    <tr>
+      <td>9–12</td>
+      <td>Users under 16</td>
+      <td>Users 16 and older</td>
+    </tr>
+    <tr>
+      <td>13–15</td>
+      <td>Users aged 9–17</td>
+      <td>Users under 9 and 18+</td>
+    </tr>
+    <tr>
+      <td>16–17</td>
+      <td>Users 13 and older</td>
+      <td>Users under 13</td>
+    </tr>
+    <tr>
+      <td>18+</td>
+      <td>Users 16 and older</td>
+      <td>Users under 16</td>
+    </tr>
+  </tbody>
+</table>
+
+**To work with creators outside of your age group, you must meet at least one of the following requirements the first time you join a Team Create session:**
+
+- Become a [trusted friend](https://en.help.roblox.com/hc/en-us/articles/46158344285204-How-do-I-add-trusted-friends) with every collaborator who has already accessed your game.
+
+  - You can send trusted friend requests to multiple people at once directly from Studio. Trusted friend requests from users under 13 require parental approval. In some regions, this requirement also applies to older teenagers.
+  - To see which collaborators you need to become trusted friends with to unblock yourself and which creators are currently blocked by you, go to your game in Creator Hub and then go to **Safety** > **Collaborators**.
+
+- Receive permission from a [linked parent account](https://en.help.roblox.com/hc/en-us/articles/30428321333140-Parents-How-to-Link-Your-Child-s-Account) to collaborate with creators of all age groups through the [collaboration parental controls](https://www.roblox.com/my/account#!/parental-controls). Parents can use these controls to choose which age groups they are comfortable allowing their child to collaborate with.
+
+  - Creators under 16 can request that a parent update this setting. Linked parents can update this setting directly from their parental controls.
+  - This setting remains in effect until a parent changes it. Creators do **not** need to request permission every time they use Team Create.
+  - Permission to collaborate with all age groups does **not** guarantee access to every collaboration session. For example, if another collaborator under 16 who accessed the game before you has their own parental permissions restricted to similar age groups or trusted friends, you won't be able to collaborate with them unless they add you as a trusted friend.
+
+After a creator meets one of these requirements and successfully joins a Team Create session, they retain access unless they lose trusted friend status with a required collaborator or a parent revokes their Studio collaboration permission.
+
+Collaborators who can't join Team Create because of age-based collaboration requirements still have **Edit** permissions. They can:
+
+- Use **Save As** to publish a copy of the game to Roblox.
+- Use Open Cloud APIs.
+- Manage the game's metadata in Creator Hub.
+
+For more information, see the [Team Create age requirements FAQ](https://devforum.roblox.com/t/age-requirements-for-team-create-in-studio/4539725#p-14194111-faqs-8).
+
 ## Manage collaborators
 
-Collaborators you add to an experience have permission settings that correspond to their level of access to the experience. As follows are the different user permission settings:
+Collaborators you add to a game have permission settings that correspond to their level of access to the game. As follows are the different user permission settings:
 
 <table>
   <thead>
@@ -23,65 +93,65 @@ Collaborators you add to an experience have permission settings that correspond 
   <tbody>
     <tr>
       <td>**Owner**</td>
-      <td>User is the owner of the experience and has permission to configure other users' permissions.</td>
+      <td>User is the owner of the game and has permission to configure other users' permissions.</td>
     </tr>
 		<tr>
       <td>**Edit**</td>
-      <td>User has permission to edit the experience. This also grants the user **Play** permission.</td>
+      <td>User has permission to edit the game. This also grants the user **Play** permission.</td>
     </tr>
 		<tr>
       <td>**Play**</td>
-      <td>User has permission to play the experience privately.</td>
+      <td>User has permission to play the game privately.</td>
     </tr>
 		<tr>
-      <td>**No&nbsp;Access**</td>
+      <td>**No Access**</td>
       <td>User does not have either **Edit** or **Play** permissions.</td>
     </tr>
 	</tbody>
 </table>
 
-There are some small differences when managing collaborators in [group‑owned experiences](#group-owned-experiences) vs. [user‑owned experiences](#user-owned-experiences).
+There are some small differences when managing collaborators in [group‑owned games](#group-owned-games) vs. [user‑owned games](#user-owned-games).
 
-### Group-owned experiences
+### Group-owned games
 
-For [group](../projects/groups.md) experiences, only the group owner or members with sufficient permissions can manage the group's roles, either across **all group experiences** or on a **per‑experience** basis. Such users can also add individual collaborators to group‑owned experiences in the same workflow as [user‑owned](#user-owned-experiences) experiences, but only for **Play** access.
+For [group](../projects/groups.md) games, only the group owner or members with sufficient permissions can manage the group's roles, either across **all group games** or on a **per‑game** basis. Such users can also add individual collaborators to group‑owned games in the same workflow as [user‑owned](#user-owned-games) games, but only for **Play** access.
 
 <Tabs>
-<TabItem label="All group experiences">
-If you're the group owner or a member with sufficient permissions, you can configure collaboration across **all** group experiences, for example grant **Edit** permission to an "Audio&nbsp;Artist" group role so they can fine-tune audio playback across multiple group experiences.
+<TabItem label="All group games">
+If you're the group owner or a member with sufficient permissions, you can configure collaboration across **all** group games, for example grant **Edit** permission to an "Audio&nbsp;Artist" group role so they can fine-tune audio playback across multiple group games.
 
 1. From the [Creator Dashboard](https://create.roblox.com/dashboard/creations), expand the account switcher in the upper‑left and select the group.
 1. Expand the account switcher again, select **Settings** under the group's name, then select **Roles**.
 1. Enable [Edit all group experiences](../projects/groups.md#roles-and-permissions) for roles that should have editing permission. Remember to click **Save Changes** for each role that you change.
 
-   In Studio's **Manage Collaborators** window for any group-owned experience, eligible roles display **Edit** permission but are muted to indicate that you can't change the permission level from Studio.
+   In Studio's **Manage Collaborators** window for any group-owned game, eligible roles display **Edit** permission but are muted to indicate that you can't change the permission level from Studio.
 
    <img src="../assets/studio/general/Toolbar-Manage-Collaborators.png" width="800" alt="Studio's mezzanine bar with the Collaborate button highlighted." />
 
    <img src="../assets/studio/collaboration/Edit-Permission-All-Group-Experiences.png" width="760" alt="Manage Collaborators window showing permission level selection for each group role." />
 
 </TabItem>
-<TabItem label="Per-experience">
-If you're the group's owner, you can grant permissions on a per-experience basis to roles that do not have those permissions across all group experiences. For example, you can temporarily grant **Edit** permission to an "FX&nbsp;Artist" group role so they can fine-tune visual effects before an experience's public release.
+<TabItem label="Per-game">
+If you're the group's owner, you can grant permissions on a per-game basis to roles that do not have those permissions across all group games. For example, you can temporarily grant **Edit** permission to an "FX&nbsp;Artist" group role so they can fine-tune visual effects before a game's public release.
 
-1. In Studio's **Manage Collaborators** window for any group-owned experience, select **Edit** from the permissions dropdown for the desired roles. Remember that you can only modify roles that do **not** already have edit permission across all group experiences.
+1. In Studio's **Manage Collaborators** window for any group-owned game, select **Edit** from the permissions dropdown for the desired roles. Remember that you can only modify roles that do **not** already have edit permission across all group games.
 
    <img src="../assets/studio/general/Toolbar-Manage-Collaborators.png" width="800" alt="Studio's mezzanine bar with the Collaborate button highlighted." />
 
    <img src="../assets/studio/collaboration/Edit-Permission-Per-Experience.png" width="760" alt="Manage Collaborators window showing permission level selection for each group role." />
 
-2. Click **Save** for your collaboration settings to take effect. All group members within the modified roles should now have **Edit** permission for this experience only; this action won't grant them equal permission to other group experiences.
+2. Click **Save** for your collaboration settings to take effect. All group members within the modified roles should now have **Edit** permission for this game only; this action won't grant them equal permission to other group games.
 
 </TabItem>
 </Tabs>
 
-### User-owned experiences
+### User-owned games
 
-For user-owned experiences, you can grant **Play** access to any user or [group](../projects/groups.md), but you can only grant **Edit** permission to Roblox friends.
+For user-owned games, you can grant **Play** access to any user or [group](../projects/groups.md), but you can only grant **Edit** permission to Roblox friends.
 
-To give **Edit** permission to a friend for an experience that you own:
+To give **Edit** permission to a friend for a game that you own:
 
-1. With the experience open in Studio, click the **Collaborate** button on the right side of the mezzanine bar.
+1. With the game open in Studio, click the **Collaborate** button on the right side of the mezzanine bar.
 
    <img src="../assets/studio/general/Toolbar-Collaborate.png" width="800" alt="Studio's mezzanine bar with the Collaborate button highlighted." />
 
@@ -93,13 +163,13 @@ To give **Edit** permission to a friend for an experience that you own:
 
 ## Access a session
 
-Those who have permission to edit an experience can join a collaborative session as follows:
+Those who have permission to edit a game can join a collaborative session as follows:
 
 1. Navigate to the [Creator Dashboard](https://create.roblox.com/dashboard/creations).
-1. Locate the experience depending on whether it's [group-owned](#group-owned-experiences) or [user-owned](#user-owned-experiences).
+1. Locate the game depending on whether it's [group-owned](#group-owned-games) or [user-owned](#user-owned-games).
 
    <Tabs>
-   <TabItem label="Group-Owned Experience">
+   <TabItem label="Group-Owned Game">
 
    1. Select the group from the upper‑left selector menu.
    2. Make sure **Creations** is selected on the left and **My Experiences** in the main panel.
@@ -110,7 +180,7 @@ Those who have permission to edit an experience can join a collaborative session
       </Grid>
 
    </TabItem>
-   <TabItem label="User-Owned Experience">
+   <TabItem label="User-Owned Game">
 
    1. Select your personal account from the upper‑left selector menu.
    2. Make sure **Creations** is selected on the left and **Shared With Me** in the main panel.
@@ -123,9 +193,9 @@ Those who have permission to edit an experience can join a collaborative session
    </TabItem>
    </Tabs>
 
-1. Hover over the experience's tile and click the **Edit in Studio** button to collaborate.
+1. Hover over the game's tile and click the **Edit in Studio** button to collaborate.
 
-   <img src="../assets/creator-dashboard/Edit-Button-Experience.png" width="200" alt="A close up view of an experience tile with the Edit in Studio button highlighted." />
+   <img src="../assets/creator-dashboard/Edit-Button-Experience.png" width="200" alt="A close up view of a game tile with the Edit in Studio button highlighted." />
 
 ### View collaborators
 
@@ -175,7 +245,7 @@ In the viewport, your cursor turns blue. Click on any object that inherits from 
 <img src="../assets/studio/collaboration/Comments-Cursor.jpg" alt="Blue comment cursor in the viewport." width="800" />
 
 <Alert severity="info">
-To **tag** a collaborator in your comment, use the `@username` syntax. You can tag any collaborator in the group for a [group‑owned](#group-owned-experiences) experience or any user with **Play** or **Edit** permissions in a [user‑owned](#user-owned-experiences) experience.
+To **tag** a collaborator in your comment, use the `@username` syntax. You can tag any collaborator in the group for a [group‑owned](#group-owned-games) game or any user with **Play** or **Edit** permissions in a [user‑owned](#user-owned-games) game.
 </Alert>
 
 Comments appear in the **Comments** window, accessible from Studio's **Window**&nbsp;⟩ **Collaboration** menu, with the most recent comments at the top. From within the **Comments** window, you can:
@@ -226,10 +296,10 @@ Live Scripting is **enabled** by default. If you and your team prefer to collabo
 
 ### Drafts mode
 
-Through **Drafts** mode, you can independently edit and test scripts without affecting the experience for others. After you finish drafting a script, you can [commit](#commit-drafts) it to the shared repository and use [collaborative testing](../studio/testing-modes.md#collaborative-testing) to test the committed version with others.
+Through **Drafts** mode, you can independently edit and test scripts without affecting the game for others. After you finish drafting a script, you can [commit](#commit-drafts) it to the shared repository and use [collaborative testing](../studio/testing-modes.md#collaborative-testing) to test the committed version with others.
 
 <Alert severity="warning">
-Drafts Mode is **disabled** by default. To enable it, open Studio's **File**&nbsp;⟩ **Experience Settings** window, select the **Other** tab, and turn on **Enable Drafts Mode**.
+Drafts Mode is **disabled** by default. To enable it, open Studio's **File** ⟩ **Experience Settings** window, select the **Other** tab, and turn on **Enable Drafts Mode**.
 
 Note that all collaborators will need to exit the session for the change to take effect. Alternatively, you can [disable collaboration](#disable-collaboration) and then reenable it to restart the session.
 </Alert>
@@ -301,13 +371,13 @@ During a collaborative session, Studio automatically saves the project to the cl
 
 ## Revert to previous versions
 
-The owner of an experience can revert changes made by other editors. See [here](../projects/configure-experiences.md#access-version-history) for instructions.
+The owner of a game can revert changes made by other editors. See [here](../projects/configure-games.md#access-version-history) for instructions.
 
 <Alert severity="error">
-Be careful when reverting changes. If anyone is currently editing the experience in a collaborative session, their changes may still auto‑save and overwrite the revert action. To ensure that nobody else is editing the place when you revert, [disable collaboration](#disable-collaboration).
+Be careful when reverting changes. If anyone is currently editing the game in a collaborative session, their changes may still auto‑save and overwrite the revert action. To ensure that nobody else is editing the place when you revert, [disable collaboration](#disable-collaboration).
 </Alert>
 
-You might also want to check [Activity History](activity-history.md). This view provides a chronological event log that improves team visibility into key experience settings.
+You might also want to check [Activity History](activity-history.md). This view provides a chronological event log that improves team visibility into key game settings.
 
 ## Disable collaboration
 

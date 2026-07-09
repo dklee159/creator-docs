@@ -3,6 +3,11 @@ navigation:
   - heading: Overview
   - title: Get started
     path: /experiences
+  - title: AI accelerated workflows
+    path: /ai/accelerated-workflows
+    section:
+      - title: Build with a coding harness
+        path: /ai/build
   - heading: Create
   - title: Overview
     path: /creation
@@ -11,17 +16,17 @@ navigation:
     section:
       - title: Overview
         path: /projects/
-      - title: Experiences and places
-        path: /production/publishing/publish-experiences-and-places
+      - title: Games and places
+        path: /production/publishing/publish-games-and-places
         section:
           - title: Create and publish
-            path: /production/publishing/publish-experiences-and-places
+            path: /production/publishing/publish-games-and-places
           - title: Configure
-            path: /projects/configure-experiences
+            path: /projects/configure-games
           - title: Release updates
-            path: /projects/update-experiences
+            path: /projects/update-games
           - title: Ownership transfer
-            path: /projects/experience-ownership-transfer
+            path: /projects/game-ownership-transfer
           - title: Place files
             path: /projects/place-files
       - title: Cross-platform development
@@ -303,6 +308,33 @@ navigation:
         path: /environment/post-processing-effects
       - title: Skyboxes
         path: /environment/skybox
+  - title: Players
+    path: /players/
+    section:
+      - title: Overview
+        path: /players/
+      - title: Users and domain-scoped user IDs
+        path: /players/users
+      - title: Teleporting
+        path: /projects/teleport
+      - title: Teams
+        path: /players/teams
+      - title: In-game tools
+        path: /players/tools
+      - title: Leaderboards
+        path: /players/leaderboards
+      - title: Loading screens
+        path: /players/loading-screens
+      - title: Player UI
+        section:
+          - title: Avatar Editor
+            path: /players/avatar-editor
+          - title: Avatar Inspect Menu
+            path: /players/avatar-inspect-menu
+          - title: Avatar Context Menu
+            path: /players/avatar-context-menu
+          - title: Disable default UI
+            path: /players/disable-ui
   - title: Characters
     path: /characters/
     section:
@@ -331,31 +363,6 @@ navigation:
         path: /characters/pathfinding
       - title: R6 to R15 adapter
         path: /characters/r6-to-r15-adapter
-  - title: Players
-    path: /players/
-    section:
-      - title: Overview
-        path: /players/
-      - title: Teleporting
-        path: /projects/teleport
-      - title: Teams
-        path: /players/teams
-      - title: In-experience tools
-        path: /players/tools
-      - title: Leaderboards
-        path: /players/leaderboards
-      - title: Loading screens
-        path: /players/loading-screens
-      - title: Player UI
-        section:
-          - title: Avatar Editor
-            path: /players/avatar-editor
-          - title: Avatar Inspect Menu
-            path: /players/avatar-inspect-menu
-          - title: Avatar Context Menu
-            path: /players/avatar-context-menu
-          - title: Disable default UI
-            path: /players/disable-ui
   - title: Input
     path: /input/
     section:
@@ -485,12 +492,14 @@ navigation:
         section:
           - title: Overview
             path: /chat/in-experience-text-chat
-          - title: Guidelines
+          - title: Chat system guidelines
             path: /chat/guidelines
           - title: Preset system guidelines
             path: /chat/preset-system-guidelines
           - title: Chat window
             path: /chat/chat-window
+          - title: Cross-server chat
+            path: /chat/cross-server-chat
           - title: Bubble chat
             path: /chat/bubble-chat
           - title: Examples
@@ -531,6 +540,8 @@ navigation:
         path: /performance-optimization/
       - title: Design for performance
         path: /performance-optimization/design
+      - title: Test on hardware
+        path: /performance-optimization/test-on-hardware
       - title: Identify issues
         path: /performance-optimization/identify
       - title: MicroProfiler
@@ -548,6 +559,8 @@ navigation:
             path: /performance-optimization/microprofiler/network
           - title: Walkthrough
             path: /performance-optimization/microprofiler/use-microprofiler
+      - title: Scene Analysis
+        path: /performance-optimization/scene-analysis
       - title: Improve performance
         path: /performance-optimization/improve
       - title: Monitor performance
@@ -599,6 +612,8 @@ navigation:
         path: /cloud-services/http-service
       - title: Extended Services
         path: /cloud-services/extended-services
+      - title: Video playback
+        path: /cloud-services/video-service
       - title: Cross-server communication
         path: /cloud-services/cross-server-messaging
   - title: Roblox for Unity developers

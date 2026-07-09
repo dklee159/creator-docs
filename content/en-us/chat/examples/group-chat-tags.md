@@ -9,7 +9,7 @@ This example demonstrates how to assign **chat tags** to players based on their 
 
 Because [text chat callbacks](../in-experience-text-chat.md#text-chat-hooks-and-callbacks) expect a non-yielding callback, attempting to query the group membership status of a player in the `Class.TextChatService.OnIncomingMessage` callback is not recommended, as it may cause the chat system to hang or become unresponsive.
 
-Instead, set a player [attribute](../../studio/properties.md#instance-attributes) when they join the server. Setting an attribute lets you reuse the player's status in other parts of your experience such as allowing access to particular areas or providing bonus experience.
+Instead, set a player [attribute](../../studio/properties.md#instance-attributes) when they join the server. Setting an attribute lets you reuse the player's status in other parts of your game such as allowing access to particular areas or providing bonus experiences.
 
 1. Create a `Class.Script` in `Class.ServerScriptService` and add the following code to it:
 
@@ -21,7 +21,7 @@ Instead, set a player [attribute](../../studio/properties.md#instance-attributes
 
 		Players.PlayerAdded:Connect(function(player)
 			local success, isInGroup = pcall(function()
-				return player:IsInGroup(groupID)
+				return player:IsInGroupAsync(groupID)
 			end)
 
 			if success and isInGroup then

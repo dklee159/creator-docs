@@ -3,7 +3,7 @@ title: Creator Events
 description: Explains how to be an event organizer through the Roblox Creator Events program to host virtual events.
 ---
 
-As a Roblox event organizer, you can host virtual events through webinars, live streams, or in-experience through the Roblox Creator Events program. If you're interested in participating, [apply](https://survey.roblox.com/jfe/form/SV_7W1I2AOPuTd8FhA) to become a voluntary event organizer for the program.
+As a Roblox event organizer, you can host virtual events through webinars, live streams, or in-game through the Roblox Creator Events program. If you're interested in participating, [apply](https://survey.roblox.com/jfe/form/SV_7W1I2AOPuTd8FhA) to become a voluntary event organizer for the program.
 
 To preview events hosted by our current organizers, visit the [past events](https://events.roblox.com/home/content) page, which contains a video library of our past events.
 
@@ -19,7 +19,6 @@ Participants in the program receive:
 
 - Membership in the [Creator Events program Roblox group](https://www.roblox.com/communities/9420522/Creator-Events#!/about) and [DevForum group](https://devforum.roblox.com/g/Event_Organizers).
 - Access to 1:1 connections, office hours and monthly program syncs.
-- Access to the Creator Events program Discord server.
 - Physical Roblox swag as gifts for participation.
 - Access to a versatile events dashboard, with access to event performance and key metrics.
 - Potential for events highlight opportunities across the site and Roblox social media platforms.
@@ -36,8 +35,8 @@ Participants in the program receive:
 
 - Previous experience in hosting events, either in-person or virtual.
 - Good organizational and communication skills.
-- Experience with creating experiences or assets on Roblox.
-- Reputation with the Roblox community gained from activities you've engaged with on Roblox, such as experiences and groups.
+- Experience with creating games or assets on Roblox.
+- Reputation with the Roblox community gained from activities you've engaged with on Roblox, such as games and groups.
 - Experience with presentation tools, such as PowerPoint and Google Slides.
 
 ## Application process

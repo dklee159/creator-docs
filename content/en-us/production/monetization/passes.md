@@ -1,28 +1,29 @@
 ---
 title: Passes
-description: Passes let you charge users a one-time Robux fee to access privileges inside your experience.
+description: Passes let you charge users a one-time Robux fee to access privileges inside your game.
 ---
 
-**Passes** let you charge users a one-time Robux fee to access special privileges inside your experience, such as entry to a restricted area, an in-experience avatar item, or a permanent power-up.
+**Passes** let you charge users a one-time Robux fee to access special privileges inside your game, such as entry to a restricted area, an in-game avatar item, or a permanent power-up.
 
 <Alert severity="info">
-   For items that a player might purchase multiple times, such as potions, temporary power-ups, or in-experience currency, see [Developer products](../../production/monetization/developer-products.md).
+   For items that a player might purchase multiple times, such as potions, temporary power-ups, or in-game currency, see [Developer products](../../production/monetization/developer-products.md).
 </Alert>
 
 ## Create a pass
 
 <Alert severity="warning">
-   Before creating a pass, make sure your experience has been [published](../../production/publishing/publish-experiences-and-places.md) and is accessible on Roblox.
+   Before creating a pass, make sure your game has been [published](../../production/publishing/publish-games-and-places.md) and is accessible on Roblox.
 </Alert>
 
 To create a pass:
 
-1. Go to [Creations](https://create.roblox.com/dashboard/creations) and select an experience.
+1. Go to [Creations](https://create.roblox.com/dashboard/creations) and select a game.
 2. Go to **Monetization** &rang; **Passes**.
-3. Click **Create a Pass**.
+3. Click **Create pass**.
 4. Upload an image to display as the pass icon. Make sure the image doesn't exceed 512x512 pixels, doesn't include important details outside of its circular boundaries, and is in `.jpg`, `.png`, or `.bmp` format.
 5. Enter a name and a description for the pass.
-6. Click **Create Pass**.
+6. Select a category for the pass. The category is used to organize items in your in-game Shop.
+7. Click **Create pass**.
 
 <GridContainer numColumns="2">
   <figure>
@@ -40,7 +41,7 @@ To create a pass:
 </GridContainer>
 
 <Alert severity="info">
-   If you want to use the pass as a randomized reward, review the [Randomized Virtual Item Policy](./virtual-items.md).
+   If you want to use the pass as a randomized reward, review the [Randomized Virtual Item Policy](./paid-random-items.md).
 </Alert>
 
 ## Get the pass ID
@@ -54,20 +55,24 @@ To use scripting, you need a pass ID. To get the pass ID:
 
 ## Sell a pass
 
+<Alert severity="warning">
+Starting May 30, 2026, cross-game pass sales will be disabled. If your game relies on cross-game sales mechanics, we recommend integrating [Robux transfers](./robux-transfers.md) before this date to avoid service interruptions.
+</Alert>
+
 <Alert severity="info">
 If you're using [price optimization](./price-optimization.md), make sure to place the script inside a `Class.LocalScript` so that users see personalized pass prices.
 </Alert>
 
 You can sell passes in two ways:
 
-- [Inside your experience](#inside-your-experience)
-- [Outside your experience](#outside-your-experience)
+- [Inside your game](#inside-your-game)
+- [Outside your game](#outside-your-game)
 
-### Inside your experience
+### Inside your game
 
-To implement and sell a pass inside an experience, call `Class.MarketplaceService|MarketplaceService` functions.
+To implement and sell a pass inside a game, call `Class.MarketplaceService|MarketplaceService` functions.
 
-Use `Class.MarketplaceService:GetProductInfo()|GetProductInfo()` to retrieve information about a pass, like name and price, and then to display that pass to users. You can sell the pass inside your experience's marketplace, for example. For passes, the second parameter must be `Enum.InfoType.GamePass`.
+Use `Class.MarketplaceService:GetProductInfo()|GetProductInfo()` to retrieve information about a pass, like name and price, and then to display that pass to users. You can sell the pass inside your game's marketplace, for example. For passes, the second parameter must be `Enum.InfoType.GamePass`.
 
 ```lua
 local MarketplaceService = game:GetService("MarketplaceService")
@@ -152,9 +157,9 @@ MarketplaceService.PromptGamePassPurchaseFinished:Connect(onPromptPurchaseFinish
 Although Roblox itself does **not** record the purchase history of passes by specific users, you can request to [download sales data](../../production/analytics/analytics-dashboard.md#sales-data). If you want to track user-specific purchase history, it's your responsibility to [store the data](../../cloud-services/data-stores/index.md).
 </Alert>
 
-### Outside your experience
+### Outside your game
 
-To sell a pass on the **Store** tab of the experience details page:
+To sell a pass on the **Store** tab of the game details page:
 
 1. Go to **Monetization** ⟩ **Passes**.
 2. Hover over the pass and click the **&ctdot;** menu.
@@ -162,11 +167,11 @@ To sell a pass on the **Store** tab of the experience details page:
 4. Select **Sales**.
 5. Enable to **Item for Sale** toggle.
 6. In the **Price in Robux** field, enter the amount of Robux you want to charge users for the pass. The price you enter affects how much Robux you earn per sale. The minimum price is 1 Robux, and the maximum price is 1 billion Robux.
-7. Click **Save Changes**. The pass populates in the **Store** tab of the experience details page.
+7. Click **Save Changes**. The pass populates in the **Store** tab of the game details page.
 
 ## Assign pass privileges
 
-You must manually assign pass privileges to users that purchase your passes. To do this, use `Class.Players.PlayerAdded|PlayerAdded` when a user joins your experience to check if they already own the pass and to assign them the pass privileges.
+You must manually assign pass privileges to users that purchase your passes. To do this, use `Class.Players.PlayerAdded|PlayerAdded` when a user joins your game to check if they already own the pass and to assign them the pass privileges.
 
 Place the script inside the `Class.ServerScriptService` so that the server handles the user's pass privileges.
 
@@ -201,13 +206,13 @@ end
 Players.PlayerAdded:Connect(onPlayerAdded)
 ```
 
-## Personalize your in-experience store
+## Personalize your in-game store
 
-You can use product intelligence APIs to sort and recommend passes to users. Personalizing your in-experience store helps surface the most relevant items to each user, boosting engagement and revenue. By tailoring passes to user preferences, you can improve their discovery, increase conversion rates, and unlock new monetization opportunities.
+You can use product intelligence APIs to sort and recommend passes to users. Personalizing your in-game store helps surface the most relevant items to each user, boosting engagement and revenue. By tailoring passes to user preferences, you can improve their discovery, increase conversion rates, and unlock new monetization opportunities.
 
 ### Rank passes for sale
 
-`Class.MarketplaceService.RankProductsAsync|RankProductsAsync` takes in a list of product IDs and returns a personalized ordered list of those products. You can use this method to provide your users with personalized item recommendations in your in-experience store.
+`Class.MarketplaceService.RankProductsAsync|RankProductsAsync` takes in a list of product IDs and returns a personalized ordered list of those products. You can use this method to provide your users with personalized item recommendations in your in-game store.
 
 <Alert severity="warning">
 Because `RankProductsAsync` has a strict rate limit, you should load recommendations once at game join instead of calling it repeatedly.
@@ -252,17 +257,17 @@ end)
 ### Display your top passes
 
 <Alert severity="warning">
-If your experience has had no item sales in the past 28 days, `RecommendTopProductsAsync` returns an empty list. At least one purchase within the last 28 days is required for this API to generate recommendations.
+If your game has had no item sales in the past 28 days, `RecommendTopProductsAsync` returns an empty list. At least one purchase within the last 28 days is required for this API to generate recommendations.
 </Alert>
 
-`Class.MarketplaceService.RecommendTopProductsAsync|RecommendTopProductsAsync` takes an array of `Enum.InfoType|InfoType` values and returns up to 50 items a user is most likely to engage with and purchase. You can use this method to create a "Top Picks" section in your in-experience store.
+`Class.MarketplaceService.RecommendTopProductsAsync|RecommendTopProductsAsync` takes an array of `Enum.InfoType|InfoType` values and returns up to 50 items a user is most likely to engage with and purchase. You can use this method to create a "Top Picks" section in your in-game store.
 
 If no recommendations can be determined, `RecommendTopProductsAsync` returns 0 items. Any passes that the user already owns are also not returned.
 
 In rare cases, calls to the ranking model can be slow. To help prevent added lately for users, we recommend using `task.spawn` to make the call to `RecommendTopProducts` non-blocking.
 
-	<figcaption>Example: A "Top Picks" tab in an in-experience store</figcaption>
-  <img src="../../assets/monetization/developer-products/StoreTopPicks.png" alt="Top Picks tab of an in-experience store." width="90%" />
+	<figcaption>Example: A "Top Picks" tab in an in-game store</figcaption>
+  <img src="../../assets/monetization/developer-products/StoreTopPicks.png" alt="Top Picks tab of an in-game store." width="90%" />
 
 ```lua
 local MarketplaceService = game:GetService("MarketplaceService")
@@ -301,13 +306,13 @@ end)
 Promoted passes are given to users for free.
 </Alert>
 
-To help more users discover your experience, you can opt-in to have your passes featured on Roblox's [Buy Robux](https://www.roblox.com/upgrades/robux) page. Opting-in to promote your passes can help increase the time and Robux users spend in your experience. There is no limit to the number of passes you can promote.
+To help more users discover your game, you can opt-in to have your passes featured on Roblox's [Buy Robux](https://www.roblox.com/upgrades/robux) page. Opting-in to promote your passes can help increase the time and Robux users spend in your game. There is no limit to the number of passes you can promote.
 
 Users are shown passes that are relevant to their play history and engagement on the platform. They are not shown passes that they already own.
 
 <img src="../../assets/monetization/passes/PromotedPass.png" width="60%" />
 
-When users purchase an eligible Robux package, they receive the promoted pass and are prompted to claim their pass by joining your experience.
+When users purchase an eligible Robux package, they receive the promoted pass and are prompted to claim their pass by joining your game.
 
 <img src="../../assets/monetization/passes/PromotedPass2.png" width="60%" />
 
@@ -327,7 +332,7 @@ The promoted pass:
 
 - Can be off-sale or on-sale. If they're on-sale, their Robux value must be greater than 49 Robux and less than 801 Robux.
 - Must include a thumbnail.
-- Cannot grant [paid random items](./virtual-items.md#randomized-virtual-items).
+- Cannot grant [paid random items](./paid-random-items.md).
 - Must comply with the [Community Standards](https://en.help.roblox.com/hc/en-us/articles/203313410-Roblox-Community-Standards).
 
 ## Pass analytics
@@ -340,11 +345,11 @@ With analytics, you can:
 - Showcase up to eight top-selling items on a time-series graph to analyze overall sales and net revenue.
 - Monitor your catalog and sort items by sales and net revenue.
 - View how many passes were acquired by users through promotion on the **Buy Robux** page.
-- View how many users joined your experience after acquiring the pass through the **Buy Robux** page.
+- View how many users joined your game after acquiring the pass through the **Buy Robux** page.
 
 To access pass analytics:
 
-1. Go to [Creations](https://create.roblox.com/dashboard/creations) and select an experience.
+1. Go to [Creations](https://create.roblox.com/dashboard/creations) and select a game.
 2. Go to **Monetization** ⟩ **Passes**.
 3. Select the **Analytics** tab.
 

@@ -44,7 +44,7 @@ add a `Class.Texture` or `Class.Decal` object to a part or union, you can:
 
 ## Create textures or decals
 
-To create a texture or decal, you must add either a `Class.Texture` or `Class.Decal` object to a part or union. You can [import](../projects/assets/manager.md#asset-import) images for textures and decals to Studio for use between experiences, and [distribute](../production/creator-store.md) them to the [Creator Store](../production/creator-store.md). Once you import the image, Studio assigns it a unique asset ID.
+To create a texture or decal, you must add either a `Class.Texture` or `Class.Decal` object to a part or union. You can [import](../projects/assets/manager.md#asset-import) images for textures and decals to Studio for use between games, and [distribute](../production/creator-store.md) them to the [Creator Store](../production/creator-store.md). Once you import the image, Studio assigns it a unique asset ID.
 
 <Alert severity="info">
 Every texture or decal image that you create and import to Roblox must adhere to the <a href='https://en.help.roblox.com/hc/articles/203313410'>Community Rules</a> and <a href='https://en.help.roblox.com/hc/articles/115004647846'>Terms of Use</a>.
@@ -155,3 +155,26 @@ local tween2 = TweenService:Create(texture2, tweenInfo2, {OffsetStudsU=50, Studs
 tween1:Play()
 tween2:Play()
 ```
+
+## Texture streaming
+
+**Texture streaming** dynamically loads textures based on distance and camera view, which lets you use textures more freely without worrying about scaling across devices. The engine loads baseline-quality textures first, in order of importance, and then progressively raises the quality of each texture up to the memory available on the device. Texture streaming is enabled automatically, so you don't have to take any action to benefit from it.
+
+<figure>
+  <img src="../assets/modeling/textures-decals/texture-streaming.webp" alt="A visualization showing a game with and without texture streaming." width="700" />
+  <figcaption>The same scene with and without texture streaming</figcaption>
+</figure>
+
+### Benefits
+
+- **Faster perceived load times and smaller downloads**: Textures appear almost immediately at a baseline quality, and the engine downloads only the detail it needs, compressing it both in transit and on the local disk cache.
+- **Higher quality where it matters**: The engine continuously estimates how important each object is, such as by how much screen space it occupies, and uses the memory budget on those textures so that the most prominent objects get the highest detail.
+- **Fewer out-of-memory crashes**: Because the engine stays within a memory budget and can lower texture quality when memory runs low, players are much less likely to crash from texture memory spikes.
+
+Texture streaming works with `Class.MeshPart` (skinned and unskinned), `Class.SurfaceAppearance`, `Class.Texture`, `Class.Decal`, `Class.MaterialVariant`, `Class.Beam`, `Class.ParticleEmitter`, and the base materials applied to `Class.PartOperation` and `Class.BasePart` instances.
+
+### Best practices
+
+- Favor unique, individual textures over texture atlases unless the atlas is applied to batchable parts; requesting a high resolution for one texture in an atlas streams in the entire atlas at that resolution.
+- Use near-uniform texel density in your UV-mapped meshes so that the engine can select the best resolution for each texture.
+- Continue to manage texture memory carefully for instance types that texture streaming doesn't support yet.

@@ -73,7 +73,7 @@ We found the following guidelines produced the best outcomes for skinning:
 
 ## Import the mesh to Studio
 
-Importing your custom characters into Studio is one of the more exciting parts of the process, because you get to see your creations in the experience you're building!
+Importing your custom characters into Studio is one of the more exciting parts of the process, because you get to see your creations in the game you're building!
 
 To import the mesh into Studio:
 
@@ -83,7 +83,7 @@ To import the mesh into Studio:
    - The character has all joint and bone hierarchy and all meshes.
    - Meshes are all under 10,000 triangles for each part of the mesh.
    - Mesh total size isn't over 2000 units in any axis.
-   - See [Mesh Requirements](../../art/characters/specifications.md) for a complete list of model specifications.
+   - See [Mesh Requirements](../../avatar/character-bodies/specifications.md) for a complete list of model specifications.
 
    <img
    alt="Creature in DCC Tool"

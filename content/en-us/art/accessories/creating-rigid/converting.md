@@ -5,7 +5,7 @@ next: /art/accessories/creating-rigid/publishing
 prev: /art/accessories/creating-rigid/importing
 ---
 
-After importing your asset into Studio, you can begin **fitting** your imported object to a mannequin and **converting** the `Class.Model` object into a `Class.Accessory`. When fitting and converting your accessory it's important to use the [Accessory Fitting Tool](../../../art/accessories/accessory-fitting-tool.md) (AFT) to correctly preview the placement and apply the correct configurations to your accessory.
+After importing your asset into Studio, you can begin **fitting** your imported object to a mannequin and **converting** the `Class.Model` object into a `Class.Accessory`. When fitting and converting your accessory it's important to use the [Accessory Fitting Tool](../../../avatar/accessory-fitting-tool.md) (AFT) to correctly preview the placement and apply the correct configurations to your accessory.
 
 <video controls src="../../../assets/art/accessories/creating-rigid/Converting.mp4" width="100%"></video>
 
@@ -24,7 +24,7 @@ To fit and generate your accessory:
 
 5. After previewing and fitting your asset, select the **dropdown** next to **Generate** button to select **Generate Legacy Accessory**. The accessory object populates in your viewport and in the **Explorer**.
 
-   - For rigid accessories that you intend to sell on the Marketplace you must use the [generate legacy accessory](../accessory-fitting-tool.md#generate-legacy-accessory) option when creating your Marketplace accessories.
+   - For rigid accessories that you intend to sell on the Marketplace you must use the [generate legacy accessory](../../../avatar/accessory-fitting-tool.md) option when creating your Marketplace accessories.
 
      <img src="../../../assets/accessories/accessory-fitting-tool/Generate-Legacy-Accessory.png" width ="60%" alt="A dropdown appears above the GenerateMeshPartAccessory when expanded, displaying a Generate Legacy Accessory option."/>
 
@@ -36,7 +36,7 @@ To fit and generate your accessory:
 After successful fitting and converting, your 3D model should populate in your project as a `Class.Accessory`. With this `Class.Accessory` you can perform any of the following:
 
 - [Upload the accessory](../../../art/accessories/creating-rigid/publishing.md) to the Marketplace.
-- Use the accessory in your current experience by equipping it to character models with [HumanoidDescription](../../../characters/appearance.md#manually-modify-appearance), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
-- Save the accessory to your [Toolbox](../../../projects/assets/toolbox.md) to share or use within any of your experiences.
+- Use the accessory in your current game by equipping it to character models with [HumanoidDescription](../../../characters/appearance.md#manually-modify-appearance), or by dragging and dropping the accessory under the appropriate character `Class.Model` object.
+- Save the accessory to your [Toolbox](../../../projects/assets/toolbox.md) to share or use within any of your games.
 
 </Alert>

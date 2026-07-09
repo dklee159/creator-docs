@@ -75,11 +75,12 @@ methods:
       - DynamicGeneration
   - name: AvatarCreationService:GenerateAvatar2DPreviewAsync
     summary: |
-      Creates a 2D avatar preview and returns a previewId.
+      Creates a 2D avatar preview and returns a `previewId`.
     description: |
       Creates a 2D avatar image preview, taking as input the FileId from
       `Class.AvatarCreationService:PromptSelectAvatarGenerationImageAsync()|PromptSelectAvatarGenerationImageAsync()`
-      and an optional text prompt. It returns a previewId which can be passed to
+      and an optional text prompt. It returns a `previewId` which can be passed
+      to
       `Class.AvatarCreationService:LoadAvatar2DPreviewAsync()|LoadAvatar2DPreviewAsync()`
       to retrieve the preview image on the client. This API can only be used on
       the game server.
@@ -93,7 +94,7 @@ methods:
               args.SessionId = sessionId
               args.FileId = fileId
               args.TextPrompt = textPrompt
-              return AvatarCreationService:GenerateAvatar2DPreview(args)
+              return AvatarCreationService:GenerateAvatar2DPreviewAsync(args)
           end)
 
           if not pcallSuccess then
@@ -111,6 +112,13 @@ methods:
         summary: |
           A table of arguments for 2D preview generation. Type:
           `avatarGeneration2dPreviewParams: {SessionId: string, FileId: string, TextPrompt: string?}`
+      - name: progressCallback
+        type: Function?
+        default:
+        summary: |
+          Optional callback function that will be invoked periodically with a
+          progressInfo table with the overall progress (from 0 to 1). Type:
+          `(progressInfo: { Progress: number }) -> ()`
     returns:
       - type: string
         summary: |
@@ -158,6 +166,13 @@ methods:
         summary: |
           A table of arguments for generating an avatar. Type:
           `avatarGenerationParams: {SessionId: string, PreviewId: string}`
+      - name: progressCallback
+        type: Function?
+        default:
+        summary: |
+          Optional callback function that will be invoked periodically with a
+          progressInfo table with the overall progress (from 0 to 1). Type:
+          `(progressInfo: { Progress: number }) -> ()`
     returns:
       - type: string
         summary: |
@@ -468,7 +483,7 @@ methods:
         default:
         summary: |
           A unique string that identifies the generated avatar, as returned by
-          `Class.AvatarCreationService:AutoSetupAvatarAsync()| AutoSetupAvatarAsync()`.
+          `Class.AvatarCreationService:AutoSetupAvatarAsync()|       AutoSetupAvatarAsync()`.
     returns:
       - type: HumanoidDescription
         summary: |
@@ -729,12 +744,52 @@ methods:
           end)
 
           if not pcallSuccess then
-              warn("Failed to prompt for image: ", result)
+              errName, errDesc = unpack(string.split(result, ": "))
+              if errName == "SelfieConsentDenied" then
+                  warn("Player must accept consent to use feature.")
+              else
+                  warn("Failed to prompt for image: ", errDesc)
+              end
           end
 
           return result
       end
       ```
+
+      On failure, the result string has the format
+      `ErrorName: Error description`, allowing the error type to be identified
+      programmatically.
+
+      <table>
+      <thead>
+        <tr>
+          <th>Error name</th>
+          <th>Error description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>`SelfieConsentDenied`</td>
+          <td>Selfie consent not accepted</td>
+        </tr>
+        <tr>
+          <td>`QRTooManyRequests`</td>
+          <td>Failure to generate QR url due to too many requests; please wait and try again later</td>
+        </tr>
+        <tr>
+          <td>`MediaPermissionsDenied`</td>
+          <td>Permissions not granted for taking photo</td>
+        </tr>
+        <tr>
+          <td>`FeatureUnavailable`</td>
+          <td>Feature not available for player</td>
+        </tr>
+        <tr>
+          <td>`GenerationInProgress`</td>
+          <td>Generation already in progress for player</td>
+        </tr>
+      </tbody>
+      </table>
     code_samples: []
     parameters:
       - name: player
@@ -745,7 +800,8 @@ methods:
     returns:
       - type: string
         summary: |
-          A string FileId of the selfie.
+          A string FileId of the selfie on success, or an error string
+          describing the reason for failure.
     tags:
       - Yields
     deprecation_message: ''

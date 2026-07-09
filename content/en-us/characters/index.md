@@ -43,13 +43,13 @@ For information on implementing layered clothing on a non-R15 character model, s
 
 Avatar characters use a standardized set of character components that allow you to use body and facial animations, and equip clothing and accessories. By standardizing the components, all avatar character models can access these features, whether they are controlled by a player or an NPC.
 
-By default, all players join experiences as their saved Roblox avatar, which already includes all the components for an avatar character. A complete avatar character has the following components in their `Class.Model`:
+By default, all players join games as their saved Roblox avatar, which already includes all the components for an avatar character. A complete avatar character has the following components in their `Class.Model`:
 
 - An [assembly](../physics/assemblies.md) of `Class.MeshPart` objects, that includes the following:
   - A part with the name `HumanoidRootPart` to indicate the root part of the assembly.
-  - A part with the name `Head` to display a the character's [name and health](./name-health-display.md) over their head geometry.
+  - A part with the name `Head` to display the character's [name and health](./name-health-display.md) over their head geometry.
   - 15 meshes that make up the individual body parts, such as the character's arm or leg.
-  - 15 poseable joints, such as `Class.Bone` or `Class.Motor6D` objects, that connect each part and follow a [standard joint hierarchy](../art/characters/specifications.md#rigging).
+  - Joints, such as `Class.Bone` or `Class.Motor6D` objects, that connect each part and follow a [standardized](../avatar/character-bodies/specifications.md#rigging) joint hierarchy.
 - A `Class.Humanoid` instance to implement and access common character properties.
 - `Class.WrapLayer` objects for each of the model's body parts, enabling it to wear clothing and other layerable cosmetics.
 - `Class.FaceControls` to enable facial expressions and poses for the character's head.
@@ -66,8 +66,10 @@ By default, all players join experiences as their saved Roblox avatar, which alr
   </figure>
 </GridContainer>
 
+Standard avatar character rigs require 15 poseable joints, and higher-fidelity character rigs support up to 37 additional joints for a greater level of realism with articulated hands, shoulders, and spine movements. For more information on higher-fidelity rigs, their specific bone hierarchy and naming conventions, and how to animate them with `Class.HumanoidRigDescription` and `Class.DigitsRigDescription` objects, see [Character specifications - Higher-fidelity rigs](../avatar/character-bodies/specifications.md#higher-fidelity-rigs).
+
 <Alert severity="info">
-If you are creating your own custom avatar character, you must configure your character model's components in a third-party modeling tool like Blender or Maya before importing the model into Studio. See [Avatars](../art/characters/index.md) for information regarding the creation of avatar components, creation guides, and Marketplace information.
+If you are creating your own custom avatar character, you must configure your character model's components in a third-party modeling tool like Blender or Maya before importing the model into Studio. See [Avatars](../avatar/character-bodies/index.md) for information regarding the creation of avatar components, creation guides, and Marketplace information.
 </Alert>
 
 ## Character Controller Library

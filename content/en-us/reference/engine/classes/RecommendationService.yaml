@@ -275,6 +275,73 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Basic
+  - name: RecommendationService:LogPreferenceEvent
+    summary: ''
+    description: |
+      This function logs a user preference signal, such as follow, unfollow,
+      mute, or unmute, directed at another user, a universe, or a custom content
+      tag. It requires a `preferenceType`, a `targetType`, and a `targetId`
+      whose format depends on the target type: the user key for
+      `Enum.RecommendationPreferenceTargetType.User|User`, the universe ID as a
+      string for `Enum.RecommendationPreferenceTargetType.Universe|Universe`, or
+      the tag string for
+      `Enum.RecommendationPreferenceTargetType.CustomTag|CustomTag`. When the
+      preference originates from a recommendation card served by
+      `Class.RecommendationService.GenerateItemListAsync|GenerateItemListAsync`,
+      pass the card's `tracingId` and `itemId` to correlate the event with the
+      recommendation context; otherwise pass empty strings for both.
+
+      Logging preferences helps the recommendation engine personalize future
+      results across every recommendation surface, not just item feeds.
+
+      This function can only be called from the **client**.
+
+      **Note:** Only `LogPreferenceEvent` calls in production actually log
+      preferences. Calling this function in Studio doesn't have any effect; you
+      can call it as many times as you want when testing.
+    code_samples: []
+    parameters:
+      - name: preferenceType
+        type: RecommendationPreferenceType
+        default:
+        summary: |
+          The enum for the type of preference.
+      - name: targetType
+        type: RecommendationPreferenceTargetType
+        default:
+        summary: |
+          The enum for the type of target.
+      - name: targetId
+        type: string
+        default:
+        summary: |
+          The identifier of the preference target. The format depends on
+          `targetType`.
+      - name: tracingId
+        type: string
+        default:
+        summary: |
+          The tracing ID returned from the
+          `Class.RecommendationService.GenerateItemListAsync|GenerateItemListAsync`
+          response. Pass an empty string if the preference originates outside a
+          recommendation feed.
+      - name: itemId
+        type: string
+        default:
+        summary: |
+          The item ID returned from the
+          `Class.RecommendationService.GenerateItemListAsync|GenerateItemListAsync`
+          response. Pass an empty string if the preference originates outside a
+          recommendation feed.
+    returns:
+      - type: ()
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - Basic
   - name: RecommendationService:RegisterItemAsync
     summary: ''
     description: |
@@ -325,10 +392,10 @@ methods:
         in Studio, the request is not issued from a Roblox server. To resolve
         this, publish your experience and run it in the Roblox client.
       - **HTTP 400 (Bad Request)** &mdash; This error indicates that a parameter
-        is malformed. A common cause is the `Attributes` table exceeding its
-        size limit. If you encounter a 400 error and have a large `Attributes`
-        table, try reducing its size. Remember to only include attributes that
-        are relevant for ranking.
+        is malformed. Common causes include a custom tag containing a comma or
+        the `Attributes` table exceeding its size limit. If you encounter a 400
+        error and have a large `Attributes` table, try reducing its size.
+        Remember to only include attributes that are relevant for ranking.
 
       This function can only be called from the **server**.
     code_samples:
@@ -355,7 +422,7 @@ methods:
           - `Attributes` &mdash; The table of attributes for the item, such as
             `AssetId` or `Description`.
           - `CustomTags` &mdash; The list of string tags for filtering and
-            boosting.
+            boosting. Individual custom tags can't contain commas.
           - `Visibility` &mdash; The
             `Enum.RecommendationItemVisibility|RecommendationItemVisibility`
             enum that controls the item's visibility, such as `Public` or
@@ -441,7 +508,8 @@ methods:
           - `Duration` &mdash; The new duration for the content in seconds.
           - `Visibility` &mdash; The new visibility setting for the item.
           - `Attributes` &mdash; The new table of attributes for the item.
-          - `CustomTags` &mdash; The new list of string tags.
+          - `CustomTags` &mdash; The new list of string tags. Individual custom
+            tags can't contain commas.
     returns:
       - type: ()
         summary: |

@@ -16,6 +16,14 @@ Content maturity consists of two components:
 
 If an experience does not have accurate or all content maturity information, Roblox restricts the playability of the experience on the platform for all players. In addition, experiences without content maturity information cannot contain any [Restricted content](https://en.help.roblox.com/hc/en-us/articles/15869919570708-Roblox-17-Policy-Standards) without risk of moderation. For this reason, Roblox strongly recommends that you fill out the questionnaire for each of your experiences so that they're available to the largest appropriate audience as possible.
 
+Content maturity labels determine which Roblox account types can access your experience:
+
+- Games rated **Minimal or Mild** are eligible for Roblox Kids (ages 5–8) and Roblox Select (ages 9–15).
+- Games rated **Moderate** are eligible for Roblox Select (ages 9–15) and standard Roblox (16+).
+- Games rated **Restricted** are only accessible to age-verified Roblox users 18 and older.
+
+To reach Roblox Kids and Select audiences, creators must also meet additional publishing requirements. See [Roblox Kids and Select](../publishing/kids-and-select.md).
+
 <Alert severity="warning">
    Content descriptors that generate content maturity labels are separate from [genres](../publishing/experience-genres.md) that classify experiences according to their core gameplay. In cases where there is overlap between genres and in-experience content or behavior, answer the Maturity & Compliance questionnaire as accurately as you can regardless of your genre selection or assignment from Roblox.
 </Alert>
@@ -92,7 +100,7 @@ After you submit the questionnaire, your experience receives a maturity label wi
 </Alert>
 
 <Alert severity="warning">
-   While parents can use parental controls to bypass most content restrictions according to what they believe is appropriate for their child, Roblox restricts [free-form user creation](#free-form-user-creation) and [social hangouts](#social-hangout) to players over 13.
+   While parents can use parental controls to bypass most content restrictions according to what they believe is appropriate for their child, Roblox restricts [free-form user creation](#free-form-user-creation) and [social hangouts](#social-hangout) to players over 16.
 </Alert>
 
 ### Violence
@@ -268,11 +276,11 @@ If your experience contains scary elements, you must specify the intensity of th
 <BaseAccordion>
    <AccordionSummary>
 
-   <Typography variant="label1">Moderate Examples (Not Suitable for Young Readers)</Typography>
-   </AccordionSummary>
-   <AccordionDetails>
+<Typography variant="label1">Moderate Examples (Not Suitable for Young Readers)</Typography>
+</AccordionSummary>
+<AccordionDetails>
 
-   The following images meet the moderate criteria for fear-based content.
+The following images meet the moderate criteria for fear-based content.
 
    <GridContainer numColumns="3">
      <figure>
@@ -357,12 +365,12 @@ You do **not** need to report depictions of, and/or references to, items or acti
 
 **Question 1: Do you depict and/or want to allow strong language in your experience?**
 
-Strong language is vulgar and obscene language that is not used to harass, discriminate, incite violence, or threaten others, or used in a sexual context. For example, strong language content could be depictions of a non-playable character (NPC) using obscenity like the "f-word" that is not directed towards another character or group of people (e.g. "f* off").
+Strong language is vulgar and obscene language that is not used to harass, discriminate, incite violence, or threaten others, or used in a sexual context. For example, strong language content could be depictions of a non-playable character (NPC) using obscenity like the "f-word" that is not directed towards another character or group of people (e.g. "f\* off").
 
 If your experience includes strong language, you must disclose it within the Maturity & Compliance Questionnaire. Experiences that include strong language are only available to age-verified players that are at least 18 years old.
 
 <Alert severity="info">
-   If you want to enable strong language in player communication aside from content for your experiences with **Restricted** content maturity labels, see [here](../../projects/configure-experiences.md#allow-strong-language).
+   If you want to enable strong language in player communication aside from content for your experiences with **Restricted** content maturity labels, see [here](../../projects/configure-games.md#allow-strong-language).
 </Alert>
 
 ### Romantic themes
@@ -400,15 +408,15 @@ If your experience is a social hangout, you must specify if it includes private 
 - They are designed for activities that are personal and secluded, such as sleeping, changing clothes, or bathing.
 - They are designed for one person or for a very small number of people, such as a bathroom stall, bedroom, or small tent.
 
-If your experience is a social hangout that includes private spaces, you must disclose it within the Maturity & Compliance Questionnaire. Social hangouts without private spaces are only available to players that are at least 13 years old, and social hangouts with private spaces are only available to age-verified players that are at least 18 years old.
+If your experience is a social hangout that includes private spaces, you must disclose it within the Maturity & Compliance Questionnaire. Social hangouts without private spaces are only available to players that are at least 16 years old, and social hangouts with private spaces are only available to age-verified players that are at least 18 years old.
 
 ### Free-form user creation
 
 **Question 1: Does this experience include free-form user creation?**
 
-Free-form user creation are features that allow players to create anything within an experience, such as writing words or making illustrations on a chalkboard. While this applies to in-experience, free-form drawing or creation tools, it does not apply to in-experience creations that players assemble with 3D assets, such as building a house or creating an outfit, or anything that goes through Roblox moderation before it's published or replicated.
+Free-form user creation refers to features that allow players to create anything within an experience, such as writing words or making illustrations on a chalkboard. While this applies to in-experience, free-form drawing or creation tools, it does not apply to in-experience creations that players assemble with 3D assets, such as building a house or creating an outfit, or anything that goes through Roblox moderation before it's published or replicated.
 
-If your experience includes free-form user creation features, you must disclose it within the Maturity & Compliance Questionnaire. Free-form user creation is only available to players that are at least 13 years old.
+If your experience includes free-form user creation features, you must disclose it within the Maturity & Compliance Questionnaire. Free-form user creation is only available to players that are at least 16 years old.
 
 ### Sensitive issues
 
@@ -423,7 +431,7 @@ Sensitive issues are frequently in the news and inspire strong opinions and deba
 
 If your experience includes content related to a sensitive issue or people implicated by them, but it isn't primarily themed on that issue, such as a religious building in a city, guns in a first-person shooter experience, or a national holiday parade in a hangout experience, you do **not** need to disclose it within the Maturity & Compliance Questionnaire.
 
-However, if the **majority of the content or gameplay of your experience** refers to a sensitive issue, you must disclose it within the Maturity & Compliance Questionnaire. Experiences with a primary theme of a sensitive issue are only available to players who are at least 13 years old, but they aren't recommended and discoverable unless the players have age-verified themselves. Parents can [manually allow access](https://en.help.roblox.com/hc/en-us/articles/30428310121620-Parental-Controls-Overview) to these experiences, regardless of their childs's age.
+However, if the **majority of the content or gameplay of your experience** refers to a sensitive issue, you must disclose it within the Maturity & Compliance Questionnaire. Experiences with a primary theme of a sensitive issue are only available to players who are at least 16 years old, but they aren't recommended and discoverable unless the players have age-verified themselves. Parents can [manually allow access](https://en.help.roblox.com/hc/en-us/articles/30428310121620-Parental-Controls-Overview) to these experiences, regardless of their child's age.
 
 <Alert severity="info">
 Individual assets, as well as text and voice chat, do not qualify for this descriptor.

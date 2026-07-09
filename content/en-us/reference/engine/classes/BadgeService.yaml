@@ -30,7 +30,7 @@ methods:
     code_samples: []
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId` of the user the badge is to be awarded to.
@@ -77,7 +77,7 @@ methods:
       - badges---awarding-a-badge
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId` of the user the badge is to be awarded to.
@@ -126,7 +126,7 @@ methods:
       - badges---checking-earned-badges-batch
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId|UserId` of the player to check for ownership
@@ -234,8 +234,7 @@ methods:
       Badges that are associated with special events are a common reason for a
       badge to be disabled. Often, it is easier to simply disable a badge
       instead of hard-coding a time check for when some event ends.
-    code_samples:
-      - BadgeService-IsDisabled1
+    code_samples: []
     parameters:
       - name: badgeId
         type: int64
@@ -316,7 +315,7 @@ methods:
     code_samples: []
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The user ID of the user.
@@ -334,7 +333,7 @@ methods:
       - Deprecated
     deprecation_message: |
       This method has been superseded by
-      `Class.BadgeService:UserHasBadgeAsync()` which should be used for new
+      `Class.BadgeService:UserHasBadgeAsync()` which should be used for new work
       instead.
     security: None
     thread_safety: Unsafe
@@ -368,7 +367,7 @@ methods:
       - badges---checking-earned-badges
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId` of the player to check for ownership of the

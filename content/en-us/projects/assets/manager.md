@@ -1,11 +1,11 @@
 ---
 title: Asset Manager
-description: The Asset Manager lets you manage places and bulk import assets into your experience.
+description: The Asset Manager lets you manage places and bulk import assets into your game.
 ---
 
 import BetaAlert from '../../includes/beta-features/beta-alert.md'
 
-The **Asset Manager**, accessible from Studio's **Window** menu or **Home** tab, lets you manage [places](../../production/publishing/publish-experiences-and-places.md) and bulk import assets into your experience, including [images](../../parts/textures-decals.md), [meshes](../../parts/meshes.md), [packages](../../projects/assets/packages.md), [audio](../../audio/assets.md), and [models](../../parts/models.md).
+The **Asset Manager**, accessible from Studio's **Window** menu or **Home** tab, lets you manage [places](../../production/publishing/publish-games-and-places.md) and bulk import assets into your game, including [images](../../parts/textures-decals.md), [meshes](../../parts/meshes.md), [packages](../../projects/assets/packages.md), [audio](../../audio/assets.md), and [models](../../parts/models.md).
 
 ## Current
 
@@ -109,7 +109,7 @@ Quick actions are accessible by right-clicking an asset name/tile and selecting 
   </tr>
   <tr>
     <td>**Remove From Game**</td>
-    <td>Completely removes the place from the experience. Not applicable to the [starting place](../../production/publishing/publish-experiences-and-places.md#change-start-place).</td>
+    <td>Completely removes the place from the game. Not applicable to the [starting place](../../production/publishing/publish-games-and-places.md#change-start-place).</td>
   </tr>
 </tbody>
 </table>
@@ -141,7 +141,7 @@ Quick actions are accessible by right-clicking an asset name/tile and selecting 
   </tr>
   <tr>
     <td>**Remove From Game**</td>
-    <td>Removes the image from the **Asset Manager** but does not remove its instances from the experience.</td>
+    <td>Removes the image from the **Asset Manager** but does not remove its instances from the game.</td>
   </tr>
 </tbody>
 </table>
@@ -181,7 +181,7 @@ Quick actions are accessible by right-clicking an asset name/tile and selecting 
   </tr>
   <tr>
     <td>**Remove From Game**</td>
-    <td>Removes the mesh from the **Asset Manager** but does not remove its instances from the experience.</td>
+    <td>Removes the mesh from the **Asset Manager** but does not remove its instances from the game.</td>
   </tr>
 </tbody>
 </table>
@@ -241,7 +241,7 @@ Quick actions are accessible by right-clicking an asset name/tile and selecting 
   </tr>
   <tr>
     <td>**Remove From Game**</td>
-    <td>Removes the audio from the **Asset Manager** but does not remove its instances from the experience.</td>
+    <td>Removes the audio from the **Asset Manager** but does not remove its instances from the game.</td>
   </tr>
 </tbody>
 </table>
@@ -300,8 +300,8 @@ Assets are sorted by various **inventories** as selected through the collapsible
 
 <img src="../../assets/studio/asset-manager/Inventory-Sorts.png" width="800" alt="A preview of how inventories are sorted in the left navigation of the Asset Manager." />
 
-- **Shared With Experience** — Assets that are [shared with the open experience](../../projects/assets/privacy.md#to-experiences).
-- **Places In Experience** — The experience's current [places](../../production/publishing/publish-experiences-and-places.md).
+- **\<Experience Name>** — The open game's inventory, displayed by its name, with assets [shared with the game](../../projects/assets/privacy.md#to-games) listed under **Project**.
+- **Places In Experience** — The game's [places](../../production/publishing/publish-games-and-places.md).
 - **My Inventory** — Assets imported to your own user account, [shared with you](../../projects/assets/privacy.md#to-creators), or acquired from the [Creator Store](../../production/creator-store.md).
 - **Group Inventories** — Assets imported into [groups](../../projects/groups.md) you own or groups you belong to (assuming you have sufficient [permissions](../../projects/groups.md#roles-and-permissions) within the group), or assets [shared with the groups](../../projects/assets/privacy.md#to-groups). Right‑clicking over a group reveals a context menu with the following options:
 
@@ -321,6 +321,101 @@ Assets are sorted by various **inventories** as selected through the collapsible
   </tr>
   </tbody>
   </table>
+
+### Folders
+
+Folders let you organize assets and other folders into a hierarchy within an inventory. You can create folders inside **My&nbsp;Inventory**, inside **Group&nbsp;Inventories** that support folder operations, and inside an open game's inventory under **Project**.
+
+Folders have the following limits:
+
+- Up to **50,000 folders** per account or root inventory.
+- Up to **100 child folders** in any single folder or root inventory.
+- Up to **20,000 assets** per folder.
+- Up to **20 levels** of folder nesting.
+
+<Alert severity="info">
+The first time folders are initialized for an account, a brief setup period may apply. If folder operations aren't yet available, the sidebar shows a warning icon next to the affected account; click it to refresh readiness. Setup typically completes within a few minutes.
+</Alert>
+
+#### Create, rename, and delete
+
+Right-click in the sidebar or main view to access folder actions.
+
+<table size="small">
+<thead>
+  <tr>
+    <th>Action</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>**Create Folder**</td>
+    <td>Creates a new empty folder in the current location. A new entry appears with an inline name field; type a name and press <kbd>Enter</kbd> to confirm or <kbd>Esc</kbd> to cancel.</td>
+  </tr>
+  <tr>
+    <td>**Group&nbsp;Selection&nbsp;as&nbsp;Folder**</td>
+    <td>Available when one or more assets are selected. Creates a new folder and moves the selected assets into it.</td>
+  </tr>
+  <tr>
+    <td>**Rename**</td>
+    <td>Replaces the folder's name with an inline editable field pre-filled with the current name. Press <kbd>Esc</kbd> to cancel without committing changes.</td>
+  </tr>
+  <tr>
+    <td>**Delete&nbsp;Folder**</td>
+    <td>Removes the folder. Folders must be empty before they can be deleted; move or delete the contents first. When multiple empty folders are selected, the menu shows **Delete&nbsp;Folders**.</td>
+  </tr>
+</tbody>
+</table>
+
+Folder names cannot contain `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, or `|`, and cannot end with a period. Names beginning with a period (for example, `.hidden`) are allowed.
+
+#### Navigate
+
+You can navigate the folder hierarchy from either panel:
+
+- **Sidebar** — Use the expand arrow to reveal subfolders, or single-click a folder to open it.
+- **Main view** — Double-click a folder to drill into it. Click the parent entry in the sidebar, or use the back arrow, to return.
+
+#### Move items
+
+You can move both assets and folders, but only within the same inventory. Cross-inventory moves (for example, from **My&nbsp;Inventory** into a **group** inventory) aren't supported.
+
+<table size="small">
+<thead>
+  <tr>
+    <th>Method</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>**Drag and drop**</td>
+    <td>Drag selected items onto a destination folder in either the main view or the sidebar tree. Valid drop targets highlight while you hover.</td>
+  </tr>
+  <tr>
+    <td>**Move&nbsp;dialog**</td>
+    <td>Right-click a selection and choose **Move** to open a folder picker. Use the drill-in arrow or double-click to enter a folder, **Back** to go up a level, then select a destination and click **Move**. **Refresh** re-fetches the folder list from the server.</td>
+  </tr>
+</tbody>
+</table>
+
+You can move multiple items at once. Moving a folder into itself or into one of its own descendants is blocked, and invalid destinations are not highlighted as drop targets or are grayed out in the **Move** dialog.
+
+#### Search and folders
+
+When you type a search query, results include a separate **Folders** section listing matching folders alongside asset results. Double-click a folder result to exit search mode and navigate into that folder.
+
+<Alert severity="info">
+Drag-and-drop and the **Move** dialog are disabled while viewing search results. Navigate to a folder or inventory first, then reorganize.
+</Alert>
+
+#### Unsupported scopes
+
+Folder operations aren't available in the following views:
+
+- **Places&nbsp;In&nbsp;Experience** — Places can't be organized into folders.
+- **Recent&nbsp;Uploads** — Read-only for organizational purposes.
 
 ### Asset display options
 
@@ -379,7 +474,7 @@ The **filter items** button lets you control which assets are displayed.
 
 ### Asset import
 
-The **asset import** button lets you import one or more assets of any asset type. Imported assets enter the moderation queue and, upon approval, are added to the inventory of the user/group that owns the experience.
+The **asset import** button lets you import one or more assets of any asset type. Imported assets enter the moderation queue and, upon approval, are added to the inventory of the user/group that owns the game.
 
 <img src="../../assets/studio/asset-manager/Import-Button.png" width="600" alt="Location of the import button in the Asset Manager." />
 
@@ -407,6 +502,10 @@ Quick actions are accessible by right‑clicking an asset name/tile and selectin
   <tr>
     <td>**Edit Asset**</td>
     <td>Opens the asset configuration window to edit details such as the asset title, description, and more. Does not appear for **FontFamily** or **Plugin** assets.</td>
+  </tr>
+  <tr>
+    <td>**Move**</td>
+    <td>Opens the [Move dialog](#move-items) to relocate the asset into a folder within the same inventory. Disabled while viewing search results.</td>
   </tr>
   <tr>
     <td>**Copy Asset ID**</td>
@@ -448,7 +547,7 @@ Quick actions are accessible by right‑clicking an asset name/tile and selectin
   </tr>
 	<tr>
     <td>**Remove&nbsp;From Experience**</td>
-    <td>Completely removes the place from the experience. Not applicable to the [starting place](../../production/publishing/publish-experiences-and-places.md#change-start-place).</td>
+    <td>Completely removes the place from the game. Not applicable to the [starting place](../../production/publishing/publish-games-and-places.md#change-start-place).</td>
   </tr>
 	<tr>
     <td>**Copy Asset ID**</td>
@@ -469,7 +568,7 @@ Quick actions are accessible by right‑clicking an asset name/tile and selectin
 Use the search query language to refine how you find assets in your Asset Manager inventory. You can combine keywords, operators, and tags to filter, prioritize, or exclude results.
 
 <Alert severity="info">
-When combining multiple features, search terms are processed in the following order (highest to lowest priority): Exact search → Excluded terms → Optional terms → Asset ID tag → Created before → Created after → Updated before → Updated after → Numeric asset ID → Audio type.
+When combining multiple features, search terms are processed in the following order (highest to lowest priority): Exact search → Excluded terms → Optional terms → Asset ID tag → Created before → Created after → Updated before → Updated after → Creator name → Creator ID → Group name → Group ID → Numeric asset ID → Audio type.
 </Alert>
 
 <h5 style={{marginTop: '36px'}}>Query features</h5>
@@ -543,6 +642,20 @@ The following features can be combined in a single query:
       </td>
     </tr>
     <tr>
+      <td>Creator filters</td>
+      <td>
+        <code>creator_name</code><br/>
+        <code>creator_id</code><br/>
+        <code>group_name</code><br/>
+        <code>group_id</code>
+      </td>
+      <td>
+        Filters results by the creator user or creator group based on their name or ID. When multiple creator or group filters are provided, results matching any of them are included.<br/><br/>
+        Each tag also supports a camelCase alternative: <code>creatorName</code>, <code>creatorId</code>, <code>groupName</code>, <code>groupId</code>.<br/><br/>
+        Names that contain spaces must be wrapped in brackets (for example, <code>group_name:[Group With Space]</code>). If a provided name or ID is invalid, only that specific filter is ignored; other valid creator or group filters in the same query are still applied.
+      </td>
+    </tr>
+    <tr>
       <td>Audio type</td>
       <td>
         <code>music</code><br/>
@@ -607,3 +720,7 @@ Date filters support the following formats:
 - `explosion sfx -loop created_before:[December 31, 2023]`: Filters sound effects named "explosion", excludes looping variants, and limits the results by date.
 
 - `125447393891114 sword glowing? -rusty`: Pins a specific asset by ID, searches for "sword", boosts "glowing", and excludes "rusty".
+
+- `tree creator_name:buildmaster group_id:9876543`: Searches for "tree", filtered to assets by creator "buildmaster" or the group with ID 9876543.
+
+- `sword creator_id:1000001,2000002 group_name:[Studio Builders]`: Searches for "sword", filtered to assets by creators with IDs 1000001 or 2000002, or the group "Studio Builders".

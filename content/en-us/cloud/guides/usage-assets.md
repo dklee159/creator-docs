@@ -199,7 +199,7 @@ To create an API key for managing group assets, you must have the corresponding 
 When creating an API key, make sure to add the following permissions:
 
 1. Add **assets** to **Access Permissions**.
-1. Add **Read** and **Write** operation permissions to your selected experience, depending on the required scopes of the endpoints you plan to call.
+1. Add **Read** and **Write** operation permissions to your selected game, depending on the required scopes of the endpoints you plan to call.
 
 Once you have the API key, copy it to the `x-api-key` request header. All endpoints require the `x-api-key` request header.
 
@@ -380,7 +380,7 @@ To use Assets API for your application and request permissions from your users, 
 1. When [implementing the authorization flow](../../cloud/auth/oauth2-overview.md#implement-authorization-flows), include `asset:read` and `asset:write` as the scope parameters of the authorization URL that redirects users back to your application, like the following example:
 
    ```plain
-   https://authorize.roblox.com?client_id=819547628404595165403873012&redirect_uri=https://my-app.com/redirect&scope=asset:read+asset:write&response_type=Code&prompts=login+consent&nonce=12345&state=6789
+   https://apis.roblox.com/oauth/v1/authorize?client_id=819547628404595165403873012&redirect_uri=https://my-app.com/redirect&scope=asset:read+asset:write&response_type=Code&prompts=login+consent&nonce=12345&state=6789
    ```
 
 1. When sending the request, include the access token in the authorization header and the form data of the asset content to create or update in the request URI in. The following example shows a sample request for uploading a new asset:

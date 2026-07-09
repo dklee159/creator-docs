@@ -5,7 +5,7 @@ description: Verify the important aspects of your character model in Blender and
 next: /art/characters/testing/blender
 ---
 
-It's important to constantly test your models during and after the creation process to ensure that your character can interact with various social and environmental elements in any experience.
+It's important to constantly test your models during and after the creation process to ensure that your character can interact with various social and environmental elements in any game.
 
 Whether you are using a template character, or your own custom assets, use the information provided in [Test in Blender](../../../art/characters/testing/blender.md) and [Test in Studio](../../../art/characters/testing/studio.md) throughout your workflow to comprehensively test your assets and quality check your models.
 
@@ -26,11 +26,11 @@ Use the following table as an overview of common tests and resources to verify e
 <tbody>
   <tr>
     <td><img src="../../../assets/art/avatar/Component-Body-Parts.png" /> <br /><center>**Body Parts**</center></td>
-    <td>When modeling, confirm that your geometry follows [avatar geometry specifications](../../../art/characters/specifications.md#geometry).</td>
+    <td>When modeling, confirm that your geometry follows [avatar geometry specifications](../../../avatar/character-bodies/specifications.md#geometry).</td>
   </tr>
   <tr>
     <td><img src="../../../assets/art/avatar/Component-Texture-Map.png" /> <br /><center>**Textures**</center></td>
-    <td>When texturing, confirm that your geometry follows [avatar texture specifications](../../../art/characters/specifications.md#textures). </td>
+    <td>When texturing, confirm that your geometry follows [avatar texture specifications](../../../avatar/character-bodies/specifications.md#textures). </td>
   </tr>
   <tr>
     <td><img src="../../../assets/art/avatar/Component-Rigging.png" /> <br /><center>**Rigging**</center></td>
@@ -42,11 +42,11 @@ Use the following table as an overview of common tests and resources to verify e
   </tr>
   <tr>
     <td><img src="../../../assets/art/avatar/Component-Cage-Mesh.png" /> <br /><center>**Cage Mesh**</center></td>
-    <td>Manually verify that your cage mesh completely and tightly covers your character model and follows [avatar outer cage specifications](../../../art/characters/specifications.md#outer-cages).</td>
+    <td>Manually verify that your cage mesh completely and tightly covers your character model and follows [avatar outer cage specifications](../../../avatar/character-bodies/specifications.md#outer-cages).</td>
   </tr>
   <tr>
     <td><img src="../../../assets/art/avatar/Component-Attachments.png" /> <br /><center>**Attachments**</center></td>
-    <td>Manually verify that your attachment points are correctly positioned and follow [avatar attachment specifications](../../../art/characters/specifications.md#attachments).</td>
+    <td>Manually verify that your attachment points are correctly positioned and follow [avatar attachment specifications](../../../avatar/character-bodies/specifications.md#attachments).</td>
   </tr>
 </tbody>
 </table>

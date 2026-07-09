@@ -64,7 +64,7 @@ To directly import assets using HTTP requests, see the [Open Cloud usage guide f
 
 ## Supported file types
 
-Before importing a 3D object, ensure that the `.fbx`, `.gltf` or `.obj` meets Studio's [mesh requirements](../art/characters/specifications.md) to reduce errors or unexpected behavior.
+Before importing a 3D object, ensure that the `.fbx`, `.gltf` or `.obj` meets Studio's [mesh requirements](../avatar/character-bodies/specifications.md) to reduce errors or unexpected behavior.
 
 <table>
   <thead>
@@ -211,7 +211,7 @@ The Importer provides the following settings for all meshes:
   </tr>
   <tr>
     <td>Upload to Roblox</td>
-    <td>If enabled, the Importer adds the model to your **Toolbox** and **Asset Manager** inventory as a new asset. By default, this is **enabled**. <br /><br />If disabled, the asset is kept local to your workspace and not assigned an asset ID. This is ideal for testing and iterating on a model before integrating into your project.</td>
+    <td>If enabled, the Importer adds the model to your **Toolbox** and **Asset Manager** inventory as a new asset. By default, this is **enabled**. <br /><br />If disabled, the Importer does not add the model to your inventory for later use. This is ideal when you want to test and iterate on a model's design without creating multiple copies in the Toolbox and Asset Manager.</td>
   </tr>
   <tr>
     <td>Import as Package</td>
@@ -223,7 +223,7 @@ The Importer provides the following settings for all meshes:
   </tr>
   <tr>
     <td>Add to Workspace</td>
-    <td>If enabled, the Importer inserts the model into the `Class.Workspace`. If importing from a saved or published experience, this setting also grants permission to the experience to use the restricted asset. By default, this is **enabled**. <br /><br />If disabled, this setting only adds the model to your inventory and does **not** grant the experience permission to use the asset.</td>
+    <td>If enabled, the Importer inserts the model into the `Class.Workspace`. If importing from a saved or published game, this setting also grants permission to the game to use the restricted asset. By default, this is **enabled**. <br /><br />If disabled, this setting only adds the model to your inventory and does **not** grant the game permission to use the asset.</td>
   </tr>
   <tr>
     <td>Insert Using Scene Position</td>
@@ -231,7 +231,7 @@ The Importer provides the following settings for all meshes:
   </tr>
   <tr>
     <td>Keep Zero Influence Bones</td>
-    <td>If enabled, the importer keeps bones that that do not influence the mesh. By default, this is **disabled**.<br /><br />If disabled, the importer removes zero influence bones.</td>
+    <td>If enabled, the importer keeps bones that do not influence the mesh. By default, this is **disabled**.<br /><br />If disabled, the importer removes zero influence bones.</td>
   </tr>
   <tr>
     <td>Set Pivot to Scene Origin</td>
@@ -270,7 +270,7 @@ The Importer provides the following settings for meshes with rigging data, typic
   </tr>
   <tr>
     <td>Rig Scale</td>
-    <td>If Rig Type is set to R15, the importer provides additional options to specify [body type scaling](../art/characters/specifications.md#body-scale). The options are:<br />- **Default**<br />- **Rthro**<br />- **Rthro Narrow**</td>
+    <td>If Rig Type is set to R15, the importer provides additional options to specify [body type scaling](../avatar/character-bodies/specifications.md#body-scale). The options are:<br />- **Default**<br />- **Rthro**<br />- **Rthro Narrow**</td>
   </tr>
 </tbody>
 </table>

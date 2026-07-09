@@ -1,6 +1,6 @@
 ---
 title: Core curriculum
-description: Learn the technical and creative essentials to building Roblox experiences.
+description: Learn the technical and creative essentials to building Roblox games.
 next: /tutorials/curriculums/core/building/create-a-project
 hideInPageNavigation: true
 ---
@@ -26,7 +26,7 @@ The core curriculum helps you learn many essential Studio features across
 technical and creative disciplines.
 
 You'll learn how to recreate a simple [3D platformer
-experience](https://www.roblox.com/games/14238807008) where players collect
+game](https://www.roblox.com/games/14238807008) where players collect
 coins to trade for jump power. Players jump to navigate progressively taller
 platforms until they reach a flare on top of the highest platform.
 
@@ -51,7 +51,7 @@ inspect the place files if you want to see the end result of each chapter.
    </AccordionSummary>
    <AccordionDetails>
 
-    - [Create a project](./building/create-a-project.md) - Learn how to create a `.rbxl` file that represents your experience on the Roblox platform.
+    - [Create a project](./building/create-a-project.md) - Learn how to create a `.rbxl` file that represents your game on the Roblox platform.
     - [Create an environment with terrain](./building/create-an-environment-with-terrain.md) - Learn how to create the island where players spawn using Studio's terrain tools.
     - [Greybox a playable area](./building/greybox-a-playable-area.md) - Learn how to use solid modeling tools to plan out the basic shape of your platforms.
 
@@ -92,12 +92,12 @@ inspect the place files if you want to see the end result of each chapter.
 
    <BaseAccordion>
    <AccordionSummary>
-      <Typography variant="h4">Chapter 3 - Polish the experience</Typography>
+      <Typography variant="h4">Chapter 3 - Polish the game</Typography>
    </AccordionSummary>
    <AccordionDetails>
 
     - [Create basic visual effects](./building/create-basic-visual-effects.md) - Learn how to create two different kinds of visual effect using particle emitters.
-    - [Customize global lighting](./building/customize-global-lighting.md) - Learn how to use global lighting settings to refine the look and feel of your experience.
+    - [Customize global lighting](./building/customize-global-lighting.md) - Learn how to use global lighting settings to refine the look and feel of your game.
     - [Apply polished assets](./building/apply-polished-assets.md) - Learn how to finish your scene by replacing simple parts with complex, imported models.
 
         <a href="https://www.roblox.com/games/14238807008/Island-Jump-Completed-Sample">
@@ -111,3 +111,38 @@ inspect the place files if you want to see the end result of each chapter.
 
    </AccordionDetails>
    </BaseAccordion>
+
+## Why build with Assistant?
+
+Unlike many game development workflows that rely on multiple third-party tools, Roblox provides the engine, networking, asset marketplace, publishing pipeline, and AI-powered Assistant in a single platform. This allows you to build, test, and publish a multiplayer game without integrating additional tools or services.
+
+Assistant runs inside Studio, so it can create instances, configure properties, and generate scripts in your project. This means you can complete common development tasks without switching between Studio and external tools. For creators who are new to Roblox, Assistant can help reduce the amount of Studio functionality you need to learn before you can start building games.
+
+Throughout this curriculum, you'll find **Build with Assistant** and **Build it Yourself** options. You can follow either workflow. Completing the manual steps can help you understand how Studio works, while using Assistant can help you complete routine tasks more quickly and efficiently.
+
+<table>
+  <thead>
+    <tr>
+      <th>Assistant can help with</th>
+      <th>You'll still want to do yourself</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Creating and organizing instances such as folders, models, and parts</td>
+      <td>Sculpting terrain and building environments</td>
+    </tr>
+    <tr>
+      <td>Configuring properties and positioning objects according to specific requirements</td>
+      <td>Choosing colors, lighting, and visual style</td>
+    </tr>
+    <tr>
+      <td>Generating boilerplate code, including event handlers, leaderboards, RemoteFunctions, and GUI logic</td>
+      <td>Designing gameplay and deciding where objects should be placed</td>
+    </tr>
+    <tr>
+      <td>Following detailed tutorial instructions without repetitive copy-pasting</td>
+      <td>Playtesting, balancing, and refining the player experience</td>
+    </tr>
+  </tbody>
+</table>

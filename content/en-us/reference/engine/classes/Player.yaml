@@ -791,6 +791,25 @@ properties:
       can_save: false
     capabilities:
       - Players
+  - name: Player.MaximumSimulationRadius
+    summary: ''
+    description: ''
+    code_samples: []
+    type: float
+    tags:
+      - Hidden
+      - NotReplicated
+    deprecation_message: ''
+    security:
+      read: LocalUserSecurity
+      write: LocalUserSecurity
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
+    capabilities:
+      - Players
   - name: Player.MembershipType
     summary: |
       Describes the account's membership type.
@@ -912,9 +931,10 @@ properties:
       physics, streaming, etc.) replicate at different rates depending on how
       close objects are to the replication focus.
 
-      When this property is `nil`, it reverts to its default behavior which is
-      to treat the local player's character's
-      `Class.Model.PrimaryPart|PrimaryPart` as the replication focus.
+      When this property is `nil` or the instance referenced is destroyed, it
+      reverts to its default behavior which is to treat the local player's
+      character's `Class.Model.PrimaryPart|PrimaryPart` as the replication
+      focus.
 
       This property should only be set on the server with a `Class.Script`, not
       a `Class.LocalScript`. Note that this property does not change or update
@@ -966,6 +986,24 @@ properties:
     serialization:
       can_load: true
       can_save: true
+    capabilities:
+      - Players
+  - name: Player.SimulationRadius
+    summary: ''
+    description: ''
+    code_samples: []
+    type: float
+    tags:
+      - Hidden
+    deprecation_message: ''
+    security:
+      read: LocalUserSecurity
+      write: LocalUserSecurity
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
     capabilities:
       - Players
   - name: Player.StepIdOffset
@@ -1056,6 +1094,44 @@ properties:
     serialization:
       can_load: false
       can_save: true
+    capabilities:
+      - Players
+  - name: Player.User
+    summary: |
+      The `Datatype.User` representing this player's domain-scoped identity
+      within the current experience.
+    description: |
+      A read-only `Datatype.User` value that represents this player's
+      domain-scoped identity within the current experience. The `Datatype.User`
+      encapsulates the player's domain user ID alongside the domain type and
+      domain ID, providing an unambiguous identifier that carries its context.
+
+      Use this property as the standard way to identify users in new code.
+      Engine APIs that accept user ID parameters also accept `Datatype.User`
+      values directly.
+
+      ```lua
+      local Players = game:GetService("Players")
+
+      Players.PlayerAdded:Connect(function(player)
+          local user = player.User
+          print("Domain user ID:", user.Id)
+          print("Domain type:", user.DomainType)
+          print("Domain ID:", user.DomainId)
+      end)
+      ```
+    code_samples: []
+    type: User
+    tags: []
+    deprecation_message: ''
+    security:
+      read: None
+      write: RobloxEngineSecurity
+    thread_safety: ReadSafe
+    category: Data
+    serialization:
+      can_load: false
+      can_save: false
     capabilities:
       - Players
   - name: Player.UserId
@@ -1161,6 +1237,32 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:ClearCachedAvatarAppearance
+    summary: |
+      Clears the cached avatar appearance for the player, forcing a fresh fetch
+      from the backend on the next respawn.
+    description: |
+      This method clears the cached avatar appearance for the player. The next
+      time `Class.Player:LoadCharacterAsync()|LoadCharacterAsync()` is called
+      with the player's default platform appearance, a fresh version will be
+      fetched from the backend instead of using the cached version.
+
+      This is useful when you want to allow a player to reset their character
+      after they have updated their appearance outside of the experience. For
+      example, you can use this to implement a custom reset button that mirrors
+      the cache-busting behavior of the default in-experience menu.
+    code_samples: []
+    parameters: []
+    returns:
+      - type: ()
+        summary: ''
+    tags: []
+    deprecation_message: ''
+    security: None
+    thread_safety: Unsafe
+    capabilities:
+      - AvatarAppearance
+      - Players
   - name: Player:DistanceFromCharacter
     summary: |
       Returns the distance between the character's head and the given
@@ -1197,10 +1299,81 @@ methods:
     thread_safety: Unsafe
     capabilities:
       - Players
+  - name: Player:GetCameraState
+    summary: |
+      Returns a dictionary containing the player's current camera state.
+    description: |
+      Returns a dictionary containing information about the player's current
+      camera state. This method requires
+      [Server Authority](../../../projects/server-authority/) to be enabled in
+      the game. The dictionary contains the following fields:
+
+      <table>
+        <thead>
+          <tr>
+            <th>Key</th>
+            <th>Value Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>CFrame</code></td>
+            <td><code>Datatype.CFrame</code></td>
+            <td>The current <code>Class.Camera.CFrame|CFrame</code> of the player's camera.</td>
+          </tr>
+          <tr>
+            <td><code>FieldOfView</code></td>
+            <td>number</td>
+            <td>The current <code>Class.Camera.FieldOfView|FieldOfView</code> of the player's camera in degrees.</td>
+          </tr>
+          <tr>
+            <td><code>ViewportSize</code></td>
+            <td><code>Datatype.Vector2</code></td>
+            <td>The current <code>Class.Camera.ViewportSize|ViewportSize</code> of the player's camera in pixels.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      On the client, this method can only be called on the
+      `Class.Players.LocalPlayer`. On the server, it can be called on any
+      `Class.Player` object to retrieve their replicated camera state.
+
+      The `CFrame` field is replicated as part of the player's input stream,
+      meaning it is synchronized with other inputs such as movement and actions.
+      The `FieldOfView` and `ViewportSize` fields use standard client-to-server
+      property replication which is not synchronized with input and may update
+      at a different cadence.
+
+      ```lua
+      local Players = game:GetService("Players")
+
+      local player = Players.LocalPlayer
+      local cameraState = player:GetCameraState()
+
+      print(cameraState.CFrame)
+      print(cameraState.FieldOfView)
+      print(cameraState.ViewportSize)
+      ```
+    code_samples: []
+    parameters: []
+    returns:
+      - type: Dictionary
+        summary: |
+          A dictionary containing `Class.Camera.CFrame|CFrame`,
+          `Class.Camera.FieldOfView|FieldOfView`, and
+          `Class.Camera.ViewportSize|ViewportSize` values.
+    tags:
+      - CustomLuaState
+    deprecation_message: ''
+    security: None
+    thread_safety: Safe
+    capabilities:
+      - Players
+    simulationAccess: true
   - name: Player:GetFriendsOnline
     summary: |
-      Returns a dictionary of online friends. Returns the product information of
-      an asset using its asset ID.
+      Returns a dictionary of online friends.
     description: ''
     code_samples:
       - how-to-get-a-list-of-online-friends
@@ -1487,7 +1660,8 @@ methods:
   - name: Player:GetRankInGroup
     summary: |
       Returns the player's rank in the group as an integer.
-    description: ''
+    description: |
+      Only public roles are considered.
     code_samples:
       - Player-GetRankInGroup1
     parameters:
@@ -1503,7 +1677,9 @@ methods:
     tags:
       - Yields
       - Deprecated
-    deprecation_message: ''
+    deprecation_message: |
+      This method has been superseded by
+      `Class.Player:GetRankInGroupAsync()|GetRankInGroupAsync()`.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -1515,6 +1691,7 @@ methods:
     description: |
       This method returns the player's rank in the group as an integer between
       `0` and `255`, where `0` is a non-member and `255` is the group's owner.
+      Only public roles are considered.
 
       This call may not yield the most up-to-date information. If a player
       leaves a group while they are in the experience, `GetRankInGroupAsync()`
@@ -1542,7 +1719,12 @@ methods:
           The player's rank in the group.
     tags:
       - Yields
-    deprecation_message: ''
+      - Deprecated
+    deprecation_message: |
+      This method only returns a single role rank and may produce arbitrary
+      results when a user holds multiple roles. Use
+      `Class.GroupService:GetRolesInGroupAsync()` instead, which returns all
+      roles.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -1552,7 +1734,8 @@ methods:
     summary: |
       Returns the player's role in the group as a string, or `Guest` if the
       player isn't part of the group.
-    description: ''
+    description: |
+      Only public roles are considered.
     code_samples:
       - Player-GetRoleInGroup1
     parameters:
@@ -1583,7 +1766,7 @@ methods:
       player isn't part of the group.
     description: |
       This method returns the player's role in the group as a string, or `Guest`
-      if the player isn't part of the group.
+      if the player isn't part of the group. Only public roles are considered.
 
       This call may not yield the most up-to-date information. If a player
       leaves a group while they are in the experience, `GetRoleInGroupAsync()`
@@ -1612,7 +1795,12 @@ methods:
           not a member.
     tags:
       - Yields
-    deprecation_message: ''
+      - Deprecated
+    deprecation_message: |
+      This method only returns a single role name and may produce arbitrary
+      results when a user holds multiple roles. Use
+      `Class.GroupService:GetRolesInGroupAsync()` instead, which returns all
+      roles.
     security: None
     thread_safety: Unsafe
     capabilities:
@@ -1654,7 +1842,7 @@ methods:
     code_samples: []
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: ''
     returns:
@@ -1673,12 +1861,12 @@ methods:
   - name: Player:IsFriendsWith
     summary: |
       Checks whether a player is a friend of the user with the given
-      `Class.Player.UserId`.
     description: ''
-    code_samples: []
+    code_samples:
+      - Player-IsFriendsWith1
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId` of the specified player.
@@ -1704,7 +1892,7 @@ methods:
     code_samples: []
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: ''
     returns:
@@ -1732,7 +1920,7 @@ methods:
     code_samples: []
     parameters:
       - name: userId
-        type: int64
+        type: User
         default:
         summary: |
           The `Class.Player.UserId` of the specified player.
@@ -2000,6 +2188,14 @@ methods:
       the player, such as when you want to load a new character appearance after
       changing the player's
       `Class.Player.CharacterAppearance|CharacterAppearance`.
+
+      When reloading a `Class.Player` with their default platform appearance
+      applied, a cached version of their appearance will be loaded. The cached
+      version is cleared whenever the player's appearance is updated using
+      `Class.AvatarEditorService` or when the player manually resets via the
+      in-experience menu. To programmatically clear this cache, call
+      `Class.Player:ClearCachedAvatarAppearance()|ClearCachedAvatarAppearance()`
+      before calling `LoadCharacterAsync()`.
 
       After calling `LoadCharacterAsync()` for an individual player, it is not
       recommended to call it again for the same player until after that player's
@@ -2338,13 +2534,6 @@ methods:
       what will be streamed in around the specified location. Client memory
       limits and network conditions may impact what will be available on the
       client.
-
-      #### Usage Precaution
-
-      Requesting streaming around an area is **not a guarantee** that the
-      content will be present when the request completes, as streaming is
-      affected by the client's network bandwidth, memory limitations, and other
-      factors.
     code_samples: []
     parameters:
       - name: position

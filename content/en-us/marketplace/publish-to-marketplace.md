@@ -12,7 +12,7 @@ In order to publish and sell assets on the Marketplace, your account or group mu
 2. [Publish the asset](#publish-an-asset) to the Marketplace after configuring metadata and Marketplace settings.
 
 <Alert severity = 'info'>
-  The following publishing instructions apply to 3D accessories and clothing assets. See [Classic clothing](../art/classic-clothing.md) for information on uploading and selling classic 2D clothing.
+  The following publishing instructions apply to 3D accessories and clothing assets. See [Classic clothing](../avatar/classic-clothing.md) for information on uploading and selling classic 2D clothing.
 </Alert>
 
 ## Upload and publish limits
@@ -37,7 +37,7 @@ There are limits on the number of assets you can upload to Roblox and enable for
   </tr>
   <tr>
     <td>Publishing - Enabling on sale<sup>&dagger;</sup></td>
-    <td>No limit for paid limiteds. 50 per day for free limiteds.</td>
+    <td>No limit for paid Limiteds. 50 per day for free Limiteds.</td>
     <td>No limit</td>
 
   </tr>
@@ -61,15 +61,15 @@ To upload your asset:
 
 1. In Studio, add the Marketplace item to your workspace.
 
-   - For accessories and clothing, the item must be an `Class.Accessory` object. For information on the required specifications, see [Accessory specifications](../art/accessories/specifications.md)
+   - For accessories and clothing, the item must be an `Class.Accessory` object. For information on the required specifications, see [Rigid accessory specifications](../avatar/rigid-accessories/specifications.md) and [Layered clothing specifications](../avatar/layered-accessories/specifications.md).
 
-     - Upload clothing and accessories as an `Class.Accessory`. For information on converting your `Class.Model` into an `Class.Accessory`, see [Accessory Fitting Tool](../art/accessories/accessory-fitting-tool.md).
+     - Upload clothing and accessories as an `Class.Accessory`. For information on converting your `Class.Model` into an `Class.Accessory`, see [Accessory Fitting Tool](../avatar/accessory-fitting-tool.md).
      - If uploading shoes, each shoe must be their own accessory object:
 
        - Name the respective shoe accessories `LeftShoeAccessory` and `RightShoeAccessory`.
        - Select both left and right shoe accessories and right-click ⟩ **Group as a Model** before step 2.
 
-     - For bodies and heads, the item must be a `Class.Model`. For information on the required specifications, see [Avatar character specifications](../art/characters/specifications.md).
+     - For bodies and heads, the item must be a `Class.Model`. For information on the required specifications, see [Avatar character specifications](../avatar/character-bodies/specifications.md).
        - You can add a default skin color to your body by adding a `Class.BodyColors` object to your model.
 
 2. In the **Explorer** window, right-click the object and select **Save to Roblox**.
@@ -90,7 +90,7 @@ To upload your asset:
    </figure>
    </GridContainer>
 
-5. Once validation completes successfully, an item description dialog displays. Fill out the following fields and follow [metadata best practices](../production/publishing/publish-experiences-and-places.md#publish-experiences) when possible.
+5. Once validation completes successfully, an item description dialog displays. Fill out the following fields and follow [metadata best practices](../production/publishing/publish-games-and-places.md#publish-games) when possible.
 
    - **Title**: The name of your asset in the Marketplace.
    - **Creator**: You can set your user or any associated groups as the creator of this asset. The creator can access the Marketplace asset to set prices, benefits, and access sales information.
@@ -109,7 +109,7 @@ During the upload process, you might encounter issues that prevent an item from 
 <figure>
 For technical issues during the validation step, hover over the error to see the specific failure output. Most issues may require adjusting your model in your third-party modeling application and re-importing into Studio.
 
-See the modeling specifications for [accessories](../art/accessories/specifications.md) and [avatars](../art/characters/specifications.md) for technical requirements.
+See the modeling specifications for [rigid accessories](../avatar/rigid-accessories/specifications.md), [layered accessories](../avatar/layered-accessories/specifications.md), and [character bodies](../avatar/character-bodies/specifications.md) for technical requirements.
 
 </figure>
 
@@ -142,7 +142,7 @@ Before publishing your asset, it's important to consider if you want to sell you
 
 ### Metadata
 
-You can adjust the metadata for any of your creations at any time. Keep in mind that the metadata, such as the title and description, should follow [general best practices](../production/publishing/publish-experiences-and-places.md#publish-experiences) to avoid moderation and improve discoverability.
+You can adjust the metadata for any of your creations at any time. Keep in mind that the metadata, such as the title and description, should follow [general best practices](../production/publishing/publish-games-and-places.md#publish-games) to avoid moderation and improve discoverability.
 
 <img src="../assets/publishing/marketplace/Manage-Item-Page.png" alt="Manage Item page with example asset." width="80%" />
 
@@ -185,13 +185,14 @@ Before selecting either option, familiarize yourself with the various [fee and c
 
 The following item attributes only apply if you set your asset as a Limited item:
 
-- **Quantity**: set the number of assets that available on the Marketplace. The maximum quantity for paid Limiteds is 3000. Free limiteds do not have a quantity maximum.
+- **Quantity**: The number of assets that are available on the Marketplace. The maximum quantity for paid Limiteds is 3000, while free Limiteds do not have a quantity maximum. After publishing a free Limited, you can increase its quantity by [restocking](../marketplace/marketplace-fees-and-commissions.md#restocking) the item.
 - **Limit copies per user**: (Optional) Sets the number of times a user can purchase this asset.
   - Copy limits are based on ownership. If a user owns the maximum limit of copies in their inventory, they can no longer purchase the asset from the original listing. If the user no longer owns the maximum number of copies, they can purchase the copies from the original listing.
   - After publishing, you can only increase, but not decrease, this value.
 - **Free Item**: Sets the selling price of this item to zero. Free Limiteds utilize a [per-unit fee structure](../marketplace/marketplace-fees-and-commissions.md#per-unit-fee).
-- **Resellable**: If enabled, users can resell your limited item. If resold, you are eligible for [resell commissions](../marketplace/marketplace-fees-and-commissions.md#reselling). You can change the **Resellable status** on a published item. If enabled on an item, it can not be disabled in the future.
+- **Resellable**: If enabled, users can resell your Limited item. If resold, you are eligible for [resell commissions](../marketplace/marketplace-fees-and-commissions.md#reselling). You can change the **Resellable status** on a published item. If enabled on an item, it can not be disabled in the future.
   - The resellable attribute is not available for accounts based in Japan.
+  - Enabling reselling permanently disables [restocking](../marketplace/marketplace-fees-and-commissions.md#restocking) for the item.
 
 <h5 style={{marginTop: '36px'}}>Limit copies per user</h5>
 
@@ -228,11 +229,11 @@ Regional Pricing is opted-in by default. You can opt-out any time. For more info
 
 ### Sale location
 
-The **Sale Location** option sets where you can sell your asset beyond the Marketplace. In some cases, you may want to limit the availability of your asset to certain experiences, or only the Marketplace.
+The **Sale Location** option sets where you can sell your asset beyond the Marketplace. In some cases, you may want to limit the availability of your asset to certain games, or only the Marketplace.
 
 <img src="../assets/publishing/marketplace/Sale-Location.png" alt="Sale location fields." width="80%" />
 
-Experiences that sell Marketplace items receive an additional [commission](../marketplace/marketplace-fees-and-commissions.md) including transactions made through the [Inspect Menu](../players/avatar-inspect-menu.md) or [through the API](../players/avatar-editor.md) within an experience.
+Games that sell Marketplace items receive an additional [commission](../marketplace/marketplace-fees-and-commissions.md) including transactions made through the [Inspect Menu](../players/avatar-inspect-menu.md) or [through the API](../players/avatar-editor.md) within a game.
 
 The following location options are available for all items:
 
@@ -246,11 +247,11 @@ The following location options are available for all items:
 <tbody>
   <tr>
     <td>Marketplace and All Experiences</td>
-    <td>Users can purchase this item in the Marketplace or any experiences that offer Marketplace purchases. This is the default setting.</td>
+    <td>Users can purchase this item in the Marketplace or any games that offer Marketplace purchases. This is the default setting.</td>
   </tr>
   <tr>
     <td>Experience By Place ID (API Only)</td>
-    <td>Users can only purchase the original stock of this item in the experiences associated with the provided Place ID. Only one Place ID per experience is required and creators can update and change Place IDs at any time. <br /> <br />After saving a new Place ID, the experience owner must manually [enable the avatar item](../production/monetization/avatar-items.md) for their experience.</td>
+    <td>Users can only purchase the original stock of this item in the games associated with the provided Place ID. Only one Place ID per game is required and creators can update and change Place IDs at any time. <br /> <br />After saving a new Place ID, the game owner must manually [enable the avatar item](../production/monetization/avatar-items.md) for their game.</td>
   </tr>
 </tbody>
 </table>

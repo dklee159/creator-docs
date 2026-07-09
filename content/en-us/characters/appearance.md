@@ -1,15 +1,15 @@
 ---
 title: Character appearance
-description: Customize your in-experience character appearance and properties.
+description: Customize your in-game character appearance and properties.
 ---
 
-Most experiences let players use their own Roblox avatar, although some implement an in-experience customization system like the [UGC Homestore](/resources/templates.md#ugc-homestore) template. Other experiences make limited [modifications](../characters/appearance.md) to player avatars such as helmets, wings, or accessories that match the genre.
+Most games let players use their own Roblox avatar, although some implement an in-game customization system like the [UGC Homestore](/resources/templates.md#ugc-homestore) template. Other games make limited [modifications](../characters/appearance.md) to player avatars such as helmets, wings, or accessories that match the genre.
 
-To create a unique experience that alters the appearance of your users, you can customize the default character properties through [avatar settings](#global-avatar-settings) or a [manually modify appearance](#manually-modify-appearance).
+To create a unique game that alters the appearance of your users, you can customize the default character properties through [avatar settings](#global-avatar-settings) or a [manually modify appearance](#manually-modify-appearance).
 
 ## Global avatar settings
 
-Studio's **File**&nbsp;⟩ **Avatar Settings** allows you to quickly set several global player character properties in your experience. These settings apply globally to all player character models joining your experience. To modify specific characters, such as non-player character models, see [manually modify appearance](#manually-modify-appearance).
+Studio's **File** ⟩ **Avatar Settings** allows you to quickly set several global player character properties in your game. These settings apply globally to all player character models joining your game. To modify specific characters, such as non-player character models, see [manually modify appearance](#manually-modify-appearance).
 
 In this window, you can set various presets for clothing, accessories, body parts, collision behavior, animations and more. When editing these settings, a preview of the applied settings displays in the workspace.
 
@@ -19,9 +19,9 @@ For more information, see [Avatar Settings](../studio/avatar-settings.md).
 
 Character models contain a `Class.Humanoid` object that gives the model special characteristics, such as walking, jumping, equipping items, and interacting with the environment.
 
-You can programmatically modify a `Class.Humanoid` by updating `Class.HumanoidDescription`. This includes player character models or non-player character models in your experience.
+You can programmatically modify a `Class.Humanoid` by updating `Class.HumanoidDescription`. This includes player character models or non-player character models in your game.
 
-You can adjust the following character properties in your experience using `Class.HumanoidDescription`:
+You can adjust the following character properties in your game using `Class.HumanoidDescription`:
 
 <table>
 <thead>
@@ -158,7 +158,7 @@ humanoidDescription:SetAccessories(accessoryTable, false)
 
 ### Apply HumanoidDescription
 
-Apply `Class.HumanoidDescription` to specific `Class.Humanoid` characters in your experience with `Class.Humanoid:ApplyDescription()` or `Class.Player:LoadCharacterWithHumanoidDescription()|Humanoid.LoadCharacterWithHumanoidDescription`.
+Apply `Class.HumanoidDescription` to specific `Class.Humanoid` characters in your game with `Class.Humanoid:ApplyDescription()` or `Class.Player:LoadCharacterWithHumanoidDescription()|Humanoid.LoadCharacterWithHumanoidDescription`.
 
 <Alert severity="warning">
 Changing the assets on a character while also changing `Class.HumanoidDescription` might lead to undefined behavior.
@@ -252,7 +252,7 @@ Players.PlayerAdded:Connect(onPlayerAdded)
 
 Caged accessories, like layered clothing, use `Class.WrapTarget` and `Class.WrapLayer` to stretch and wrap over a target `Class.Model`. Layered accessories can work with both standard [R15 Roblox characters](../characters/index.md#avatar-characters) and non-R15 models.
 
-Custom implementation of layered clothing, such as a model using a unique cage UV map, cannot be uploaded and published to the Marketplace. For more information, see [Layered clothing specifications](../art/accessories/clothing-specifications.md).
+Custom implementation of layered clothing, such as a model using a unique cage UV map, cannot be uploaded and published to the Marketplace. For more information, see [Layered clothing specifications](../avatar/layered-accessories/specifications.md).
 
 Whether you are implementing layered accessories on an avatar R15 rig, or using a custom rig, ensure that your accessories and bodies include the following:
 
@@ -267,9 +267,9 @@ Whether you are implementing layered accessories on an avatar R15 rig, or using 
 <Alert severity = 'info'>
 See the following resources for additional information on layered clothing and caging:
 
-- [Layered clothing caging overview](../art/accessories/layered-clothing.md#inner-and-outer-cages)
-- [Layered clothing caging best practices](../art/accessories/caging-best-practices.md)
-- [Layered clothing cage mesh specifications](../art/accessories/clothing-specifications.md#cage-meshes)
-- [Avatar body cage specifications](../art/characters/specifications.md#outer-cages)
+- [Layered clothing caging overview](../avatar/layered-accessories/index.md#inner-and-outer-cages)
+- [Layered clothing caging best practices](../avatar/layered-accessories/caging-best-practices.md)
+- [Layered clothing cage mesh specifications](../avatar/layered-accessories/specifications.md#cage-meshes)
+- [Avatar body cage specifications](../avatar/character-bodies/specifications.md#outer-cages)
 
 </Alert>

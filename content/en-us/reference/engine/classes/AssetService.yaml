@@ -405,7 +405,7 @@ methods:
     returns:
       - type: EditableMesh
         summary: |
-          The new `Class.EditableMesh` instance.
+          The new `Class.EditableMesh` object.
     tags:
       - Yields
     deprecation_message: ''
@@ -716,7 +716,6 @@ methods:
 
           - `Items` — Array of items in the bundle, each with details
             represented through the following keys:
-
             - `Id` — Item ID
 
             - `Name` — Item name
